@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
+
 
 const NavBar = () => {
+  const [isHomeNav,setIsHome]=useState(true)
+  const location = useLocation()
+  console.log(location.pathname);
+
+  useEffect(()=>{
+    if(location.pathname === '/') {
+      setIsHome(false)
+    }
+  },[location.pathname])
+  
   return (
-    <Navbar expand="lg" className="nav_header">
+    <Navbar expand="lg" className="nav_header" style={ {  borderBottom: isHomeNav ? '1px solid #ddd' : ''}}>
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           {" "}
           <svg
             aria-label="Travaux.com"
@@ -15,6 +27,7 @@ const NavBar = () => {
             height="1.5rem"
             className="css-1q3dvml ev1au544"
             data-light="false"
+      
           >
             <path
     
@@ -37,14 +50,14 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav navbar_items">
           <Nav className="ms-auto header_link d-flex justify-content-center align-items-center">
             <Nav.Link href="#home">
-              <h6>Publish a project</h6>
+              <h6 style={{color:isHomeNav? 'black':''}}>Publish a project</h6>
             </Nav.Link>
             <Nav.Link href="#link">
-              <h6>Login</h6>
+              <h6 style={{color:isHomeNav? 'black':''}}>Connexion</h6>
             </Nav.Link>
             <Nav.Link href="#link" className="active register">
               {" "}
-              <button>Register as a professional</button>
+              <button style={ {    backgroundColor: isHomeNav ? 'white' : '', color:isHomeNav ? 'black':''}}>S'inscrire en tant que professionnel</button>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -1,0 +1,25 @@
+.postTitle {
+    .input_postal {
+        input{
+            padding: 12px 18px ;
+            border: 2px solid #330691;
+        }
+    }
+}
+.post-form{
+    position: relative;
+}
+
+span.paris {
+    position: absolute;
+    left: 32%;
+    top: 11%;
+}
+.paris::before{
+    content: "";
+    width: 0.0625rem;
+    height:1.5rem;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: -25% ;
+}

@@ -21,8 +21,8 @@ const Craftsman = () => {
     },
   ];
   return (
-    <div className="container py-5 my-5">
-      <h2 className=" ms-2 py-2" style={{frontWidth:'700'}}>Comment trouver le bon artisan ?</h2>
+    <div className="container py-5 my-5" >
+      <h2 className=" ms-2 py-2" style={{frontWidth:'700',zIndex:-1}}>Comment trouver le bon artisan ?</h2>
       <div className="craftsman_section row">
         {craftsman.map((cr) => (
           <div className="col-md-4 p-4" key={cr.id}>
@@ -30,7 +30,7 @@ const Craftsman = () => {
               <div className="number">
                 <h1 style={{color:'#e5cb4e'}}>{cr.id}</h1>
               </div>
-              <div className="content ">
+              <div className="content " style={{zIndex:-1}}>
                 <h4>{cr.title}</h4>
                 <p>{cr.description}</p>
               </div>

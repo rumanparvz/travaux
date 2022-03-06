@@ -1,36 +1,64 @@
 .container.header_content {
-h1{
+  h1 {
     color: white;
     font-size: 48px;
-}
-    h3{
-        font-size: 25px;
-        color: white;
-        padding: 40px 0px;
-    }
+  }
+  h3 {
+    font-size: 25px;
+    color: white;
+    padding: 40px 0px;
+  }
 }
 
 .input_section input {
-    padding: 15px 20px;
-    border-radius: 41px;
-    border: none;
-    outline: none;
-    width: 45%;
-    display: inline;
+  padding: 15px 20px;
+  border-radius: 41px;
+  border: none;
+  outline: none;
+  width: 45%;
+  display: inline;
 }
 
 .input_section button {
-    color: white;
-    background: #3F27BA;
-    transition: .3s;
-    padding: 12px;
-    border: navajowhite;
-    border-radius: 25px;
-    font-weight: 600;
-    margin-left: -14%;
-    margin-bottom: 5px;
-    &:hover{
-        background: #330691;
+  color: white;
+  background: #3f27ba;
+  transition: 0.3s;
+  padding: 12px;
+  border: navajowhite;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-left: -14%;
+  margin-bottom: 5px;
+
+  &:hover {
+    background: #330691;
+    transition: 0.3s;
+  }
+}
+.search_item {
+  background: white;
+  width: 37%;
+  padding: 20px;
+  z-index: 1 !important;
+  box-shadow: 4px 1px 11px #ddd;
+  position: absolute;
+  border-radius: 5px;
+
+  .input_item {
+    p {
+        font-size: 18px;
+        text-transform: capitalize;
         transition: .3s;
+        padding: 10px;
+        color: #2323db;
+        font-weight: 600;
+  
+      &:hover{
+        background: #e7e4e4;
+        border-radius: 7px;
+        transition: .3s;
+        padding: 10px;
+      }
     }
+  }
 }

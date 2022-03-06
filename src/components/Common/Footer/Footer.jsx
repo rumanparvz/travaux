@@ -45,7 +45,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="icons">
+        <div className="icons pt-4">
           <ul>
             <li>
               <Link to="/facebook">
