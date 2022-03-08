@@ -11,9 +11,9 @@ const MultiPulCheckBox = () => {
   // const postData = serviceData.filter((sd) => sd.path === multiCheckBox);
   // const singlePostData = postData[0].steps.filter( (post) => post.type === "multiCheckBok" );
 
-  const { multiCheckBox } = useParams();
+  const { multipleCheckBox } = useParams();
   
-  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(multiCheckBox,'multiCheckBok')
+  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(multipleCheckBox,'multipleCheckBox')
   console.log("stpeNumbers from ",preStepNumbers);
   // const routeNumber = postData[0].steps.slice(3, 4)[0].routeNumber;
 
@@ -73,7 +73,7 @@ const MultiPulCheckBox = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/${preStepNumbers}/${multiCheckBox}`}
+                to={`/post-service-request/${preStepNumbers}/${multipleCheckBox}`}
               >
                 {" "}
                 <button className="secondary_button">Précédent</button>{" "}
@@ -81,7 +81,7 @@ const MultiPulCheckBox = () => {
             </div>
             <div>
               <Link
-                to={`/post-service-request/${stepNumbers}/${multiCheckBox}`}
+                to={`/post-service-request/${stepNumbers}/${multipleCheckBox}`}
               >
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}

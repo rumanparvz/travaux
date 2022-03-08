@@ -7,8 +7,8 @@ import NavBar from "../../Common/NavBar/NavBar";
 const CheckBoxOptions = () => {
   const location = useLocation()
   console.log("history",location.pathname);
-  const { checkBokOption } = useParams();
-  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(checkBokOption,'checkBoxOptions')
+  const { checkBox } = useParams();
+  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(checkBox,'checkBox')
 
   // const postData = serviceData.filter((sd) => sd.path === 'petits-travaux-de-maconnerie');
   // const singlePostData = postData[0].steps.filter(  (post) => post.type === "checkBoxOptions" );
@@ -50,7 +50,7 @@ console.log(singlePostData);
           <div className="checkBox_button d-flex justify-content-between align-items-center">
             <div>
               <Link 
-              to={`/post-service-request/${checkBokOption}`}
+              to={`/post-service-request/${checkBox}`}
 
 
               
@@ -62,7 +62,7 @@ console.log(singlePostData);
             <div>
               <Link
                 // to={`/post-service-request/${checkBokOption}/${singlePostData[0].routeNumber+1}`}
-                to={`/post-service-request/${stepNumbers}/${checkBokOption}`}
+                to={`/post-service-request/${stepNumbers}/${checkBox}`}
               >
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}

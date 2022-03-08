@@ -12,7 +12,7 @@ export const serviceData = [
         path: "post-service-request/Fenetre_porte",
       },
       {
-        type: "checkBoxOptions",
+        type: "checkBox",
         stepNumber: 2,
         title: "Quelle est la nature de vos travaux ?",
         options: [
@@ -34,7 +34,7 @@ export const serviceData = [
         ],
       },
       {
-        type: "multiCheckBok",
+        type: "multipleCheckBox",
         stepNumber: 3,
         title:
           "Quel type de matériau souhaitez-vous pour vos fenêtres ? (facultatif)",
@@ -72,7 +72,7 @@ export const serviceData = [
         ],
       },
       {
-        type: "optionalMultiCheckBok",
+        type: "moreMultipleCheckBox",
         stepNumber: 4,
         title: "Quel type de fenêtre souhaitez-vous ? (facultatif)",
         options: [
@@ -124,7 +124,7 @@ export const serviceData = [
         ],
       },
       {
-        type: "combinedCheckBok",
+        type: "optionsBox",
         stepNumber: 5,
         title: "Combien de fenêtres souhaitez-vous installer ? (facultatif) ",
         options: [
@@ -151,7 +151,7 @@ export const serviceData = [
         ],
       },
       {
-        type: "combinedTitleCheckBok",
+        type: "titleCheckBox",
         title:
           "Quand souhaitez-vous que le travail soit terminé ? (facultatif) ",
         stepNumber: 6,
@@ -174,7 +174,7 @@ export const serviceData = [
           },
           {
             id: 5,
-            check: "Dans moins de 6 mois",
+            name: "Dans moins de 6 mois",
           },
         ],
       },

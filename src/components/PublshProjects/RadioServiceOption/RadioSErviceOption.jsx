@@ -4,8 +4,8 @@ import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 
 const RadioSErviceOption = () => {
-  const { radioCheckBox } = useParams();
-  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(radioCheckBox,'combinedCheckBok')
+  const { optionsBox } = useParams();
+  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(optionsBox,'optionsBox')
 
   // const postData = serviceData.filter((sd) => sd.path === radioCheckBox);
   // const singlePostData = postData[0].steps.filter(   (post) => post.type === "combinedCheckBok");
@@ -16,7 +16,7 @@ const RadioSErviceOption = () => {
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape {stepNumbers-1} sur {length}</h6>
+        <h6 className="py-3">Étape  sur {length}</h6>
         <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
@@ -34,7 +34,7 @@ const RadioSErviceOption = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/${preStepNumbers}/${radioCheckBox}`}
+                to={`/post-service-request/${preStepNumbers}/${optionsBox}`}
               >
                 {" "}
                 <button className="secondary_button">Précédent</button>{" "}
@@ -42,7 +42,7 @@ const RadioSErviceOption = () => {
             </div>
             <div>
               <Link
-                to={`/post-service-request/${stepNumbers}/${radioCheckBox}`}
+                to={`/post-service-request/${stepNumbers}/${optionsBox}`}
               >
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}

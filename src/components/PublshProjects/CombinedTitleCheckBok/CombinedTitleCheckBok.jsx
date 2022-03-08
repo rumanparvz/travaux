@@ -5,8 +5,8 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 
 const CombinedTitleCheckBok = () => {
-  const { combinedTitleChickBox } = useParams();
-  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(combinedTitleChickBox,'combinedTitleCheckBok')
+  const { titleCheckBox } = useParams();
+  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(titleCheckBox,'titleCheckBox')
 
   // const postData = serviceData.filter((sd) => sd.path === combinedTitleChickBox);
   // const singlePostData = postData[0].steps.filter(   (post) => post.type === "checkBoxOptions"  );
@@ -35,7 +35,7 @@ console.log("ssss",preStepNumbers);
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/${preStepNumbers}/${combinedTitleChickBox}`}   >
+                to={`/post-service-request/${preStepNumbers}/${titleCheckBox}`}   >
         
               
                 {" "}
@@ -45,7 +45,7 @@ console.log("ssss",preStepNumbers);
             </div>
             <div>
               <Link
-                to={`/post-service-request/${stepNumbers}/${combinedTitleChickBox}`}   >
+                to={`/post-service-request/${stepNumbers}/${titleCheckBox}`}   >
            
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}

@@ -27,12 +27,12 @@ const ServiceSteps = (params, type) => {
     setIndex(indexCount);
     setPostIndex(indexCount);
     const nextArray = postData[0].steps[index + 1];
-    setStepNumbers(nextArray.stepNumber);
+    setStepNumbers(nextArray.type);
     // Previous step
     const preArray = postData[0]?.steps[postIndex - 1];
-    setPreStepNumbers(preArray.stepNumber);
+    setPreStepNumbers(preArray.type);
 
-    console.log("nextarray", nextArray.stepNumber);
+    console.log("nextarray", nextArray.type);
     console.log("preArray", preArray.stepNumber - 1);
   }, [index]);
 
