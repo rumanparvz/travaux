@@ -5,12 +5,13 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 const EmailInput = () => {
   const { email } = useParams();
-  const {stepNumbers,singlePostData,length}=ServiceSteps(email,'email')
+  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(email,'email')
 
   // const postData = serviceData.filter((sd) => sd.path === email);
   // const singlePostData = postData[0].steps.filter(  (post) => post.type === "email");
   // const routeNumber =postData[0].steps.slice(9,10)[0].routeNumber
 
+  console.log("preStepNumber",preStepNumbers);
   return (
     <div>
       <NavBar />
@@ -31,9 +32,7 @@ const EmailInput = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/comment/${email}/${
-                  singlePostData[0].routeNumber - 1
-                }`}
+                to={`/post-service-request/${preStepNumbers}/${email}`}
               >
                 <button className="secondary_button">Précédent</button>{" "}
               </Link>

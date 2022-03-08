@@ -5,7 +5,7 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 const UploadImage = () => {
   const { uploadImage } = useParams();
-  const {stepNumbers,singlePostData,length}=ServiceSteps(uploadImage,'uploadImage')
+  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(uploadImage,'uploadImage')
 
   // const postData = serviceData.filter((sd) => sd.path === uploadImage);
   // const singlePostData = postData[0].steps.filter(  (post) => post.type === "uploadImage");
@@ -38,7 +38,7 @@ const UploadImage = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/title/${uploadImage}/${  singlePostData[0].routeNumber - 1  }`}
+                to={`/post-service-request/${preStepNumbers}/${uploadImage}`}
           
               >
                 {" "}

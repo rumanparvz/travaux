@@ -6,7 +6,7 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 const OptionalMulticheCheckBox = () => {
   const {optionalMultiCheckBok}=useParams()
-  const {stepNumbers,singlePostData,length}=ServiceSteps(optionalMultiCheckBok,'optionalMultiCheckBok')
+  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(optionalMultiCheckBok,'optionalMultiCheckBok')
 
 
   // const {optionalMultiCheckBok,id}=useParams()
@@ -53,7 +53,7 @@ const OptionalMulticheCheckBox = () => {
               <Link 
               
             //   to={`/post-service-request/${path}`}
-              to={`/post-service-requests/}/${optionalMultiCheckBok}`}
+            to={`/post-service-request/${preStepNumbers}/${optionalMultiCheckBok}`}
               // /post-service-requests/:multiCheckBox/:id
               >
                 {" "}

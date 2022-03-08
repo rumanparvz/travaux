@@ -13,8 +13,8 @@ const MultiPulCheckBox = () => {
 
   const { multiCheckBox } = useParams();
   
-  const {stepNumbers,singlePostData,length}=ServiceSteps(multiCheckBox,'multiCheckBok')
-  console.log("stpeNumbers from ",stepNumbers);
+  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(multiCheckBox,'multiCheckBok')
+  console.log("stpeNumbers from ",preStepNumbers);
   // const routeNumber = postData[0].steps.slice(3, 4)[0].routeNumber;
 
 
@@ -40,7 +40,7 @@ const MultiPulCheckBox = () => {
     <div>
       <NavBar />
       <div className="container pt-5">
-        <h6 className="pt-2">Étape {stepNumbers-1} sur {length}</h6>
+        <h6 className="pt-2">Étape {stepNumbers-1} sur  555NOMAN{length}</h6>
 
         <h5>{singlePostData[0].title}</h5>
         <div className="row">
@@ -73,7 +73,7 @@ const MultiPulCheckBox = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/${multiCheckBox}}`}
+                to={`/post-service-request/${preStepNumbers}/${multiCheckBox}`}
               >
                 {" "}
                 <button className="secondary_button">Précédent</button>{" "}

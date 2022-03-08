@@ -4,7 +4,7 @@ import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 const CommentText = () => {
   const { comment } = useParams();
-  const {stepNumbers,singlePostData,length}=ServiceSteps(comment,'comment')
+  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(comment,'comment')
 
   // const postData = serviceData.filter((sd) => sd.path === comment);
   // const singlePostData = postData[0].steps.filter(  (post) => post.type === "comment" );
@@ -38,9 +38,7 @@ const CommentText = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/titles/${comment}/${
-                  singlePostData[0].routeNumber - 1
-                }`}
+                to={`/post-service-request/${preStepNumbers}/${comment}`}
               >
                 <button className="secondary_button">Précédent</button>{" "}
               </Link>

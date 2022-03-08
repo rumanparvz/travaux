@@ -8,12 +8,12 @@ export const serviceData = [
         title:
           "Décrivez votre projet et échangez avec les artisans près de chez vous. ",
         type: "text",
-        routeNumber: 1,
+        stepNumber: 1,
         path: "post-service-request/Fenetre_porte",
       },
       {
         type: "checkBoxOptions",
-        routeNumber: 2,
+        stepNumber: 2,
         title: "Quelle est la nature de vos travaux ?",
         options: [
           {
@@ -35,7 +35,7 @@ export const serviceData = [
       },
       {
         type: "multiCheckBok",
-        routeNumber: 3,
+        stepNumber: 3,
         title:
           "Quel type de matériau souhaitez-vous pour vos fenêtres ? (facultatif)",
         options: [
@@ -73,7 +73,7 @@ export const serviceData = [
       },
       {
         type: "optionalMultiCheckBok",
-        routeNumber: 4,
+        stepNumber: 4,
         title: "Quel type de fenêtre souhaitez-vous ? (facultatif)",
         options: [
           {
@@ -125,7 +125,7 @@ export const serviceData = [
       },
       {
         type: "combinedCheckBok",
-        routeNumber: 5,
+        stepNumber: 5,
         title: "Combien de fenêtres souhaitez-vous installer ? (facultatif) ",
         options: [
           {
@@ -154,7 +154,7 @@ export const serviceData = [
         type: "combinedTitleCheckBok",
         title:
           "Quand souhaitez-vous que le travail soit terminé ? (facultatif) ",
-        routeNumber: 6,
+        stepNumber: 6,
         options: [
           {
             id: 1,
@@ -180,23 +180,23 @@ export const serviceData = [
       },
       {
         type: "uploadImage",
-        routeNumber: 7,
+        stepNumber: 7,
         title: "Photos ou plans (facultatif)",
       },
       {
         type: "comment",
-        routeNumber: 8,
+        stepNumber: 8,
         title:
           "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif",
       },
       {
         type: "email",
-        routeNumber: 9,
+        stepNumber: 9,
         title: "Comment nos artisans peuvent vous contacter ?   ",
       },
       {
         type: "complete",
-        routeNumber: 10,
+        stepNumber: 10,
         title: "Enregistrer un nouveau compte",
       },
     ],
@@ -210,12 +210,12 @@ export const serviceData = [
       {
         title: "I love You",
         type: "text",
-        routeNumber: 1,
+        stepNumber: 1,
         path: "post-service-request/Fenetre_porte",
       },
       {
         type: "checkBoxOptions",
-        routeNumber: 2,
+        stepNumber: 2,
         title: "Quelle est la nature de vos travaux ?",
         options: [
           {
@@ -232,7 +232,7 @@ export const serviceData = [
       },
       {
         type: "multiCheckBok",
-        routeNumber: 3,
+        stepNumber: 3,
         title:
           "Quel type de matériau souhaitez-vous pour vos fenêtres ? (facultatif)",
         options: [
@@ -273,7 +273,7 @@ export const serviceData = [
         type: "combinedTitleCheckBok",
         title:
           "Quand souhaitez-vous que le travail soit terminé ? (facultatif) ",
-        routeNumber: 6,
+        stepNumber: 6,
         options: [
           {
             id: 1,
@@ -299,23 +299,23 @@ export const serviceData = [
       },
       {
         type: "uploadImage",
-        routeNumber: 7,
+        stepNumber: 7,
         title: "Photos ou plans (facultatif)",
       },
       {
         type: "comment",
-        routeNumber: 8,
+        stepNumber: 8,
         title:
           "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif",
       },
       {
         type: "email",
-        routeNumber: 9,
+        stepNumber: 9,
         title: "Comment nos artisans peuvent vous contacter ?   ",
       },
       {
         type: "complete",
-        routeNumber: 10,
+        stepNumber: 10,
         title: "Enregistrer un nouveau compte",
       },
     ],
@@ -330,12 +330,12 @@ export const serviceData = [
         title:
           "Décrivez votre projet et échangez avec les artisans près de chez vous.",
         type: "text",
-        routeNumber: 1,
+        stepNumber: 1,
         // path: "post-service-request/Fenetre_porte",
       },
       {
         type: "checkBoxOptions",
-        routeNumber: 2,
+        stepNumber: 2,
         title: "Quelle est la nature de vos travaux ? ",
         options: [
           {
@@ -357,7 +357,7 @@ export const serviceData = [
       },
       {
         type: "multiCheckBok",
-        routeNumber: 3,
+        stepNumber: 3,
         title:
           "Dans quelle(s) pièce(s) souhaitez-vous réaliser vos travaux ? (facultatif)          ",
         options: [
@@ -410,23 +410,23 @@ export const serviceData = [
       },
       {
         type: "uploadImage",
-        routeNumber: 7,
+        stepNumber: 7,
         title: "Photos ou plans (facultatif)",
       },
       // {
       //   type: "comment",
-      //   routeNumber: 8,
+      //   stepNumber: 8,
       //   title:
       //     "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif",
       // },
       {
         type: "email",
-        routeNumber: 9,
+        stepNumber: 9,
         title: "Comment nos artisans peuvent vous contacter ?   ",
       },
       {
         type: "complete",
-        routeNumber: 10,
+        stepNumber: 10,
         title: "Enregistrer un nouveau compte",
       },
     ],

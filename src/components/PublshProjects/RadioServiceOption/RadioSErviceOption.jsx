@@ -5,7 +5,7 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 const RadioSErviceOption = () => {
   const { radioCheckBox } = useParams();
-  const {stepNumbers,singlePostData,length}=ServiceSteps(radioCheckBox,'combinedCheckBok')
+  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(radioCheckBox,'combinedCheckBok')
 
   // const postData = serviceData.filter((sd) => sd.path === radioCheckBox);
   // const singlePostData = postData[0].steps.filter(   (post) => post.type === "combinedCheckBok");
@@ -34,9 +34,7 @@ const RadioSErviceOption = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/items/${radioCheckBox}/${
-                  singlePostData[0].routeNumber - 1
-                }`}
+                to={`/post-service-request/${preStepNumbers}/${radioCheckBox}`}
               >
                 {" "}
                 <button className="secondary_button">Précédent</button>{" "}

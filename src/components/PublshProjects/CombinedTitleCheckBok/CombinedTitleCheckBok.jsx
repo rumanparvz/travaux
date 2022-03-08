@@ -6,18 +6,18 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 const CombinedTitleCheckBok = () => {
   const { combinedTitleChickBox } = useParams();
-  const {stepNumbers,singlePostData,length}=ServiceSteps(combinedTitleChickBox,'combinedTitleCheckBok')
+  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(combinedTitleChickBox,'combinedTitleCheckBok')
 
   // const postData = serviceData.filter((sd) => sd.path === combinedTitleChickBox);
   // const singlePostData = postData[0].steps.filter(   (post) => post.type === "checkBoxOptions"  );
   
   // const routeNumber =postData[0].steps.slice(6,7)[0].routeNumber
-console.log("ssss",singlePostData);
+console.log("ssss",preStepNumbers);
   return (
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape {stepNumbers-1} sur {length}</h6>
+        <h6 className="py-3">Étape {stepNumbers-1}  {length}</h6>
         <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
@@ -35,10 +35,9 @@ console.log("ssss",singlePostData);
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/itemss/${combinedTitleChickBox}/${
-                  singlePostData[0].routeNumber - 1
-                }`}
-              >
+                to={`/post-service-request/${preStepNumbers}/${combinedTitleChickBox}`}   >
+        
+              
                 {" "}
                 <button className="secondary_button">Précédent</button>{" "}
              
