@@ -166,11 +166,11 @@ export const serviceData = [
           },
           {
             id: 3,
-            check: "Dans moins de deux semaines",
+            name: "Dans moins de deux semaines",
           },
           {
             id: 4,
-            check: 'Dans moins d"un m ',
+            name: 'Dans moins d"un m ',
           },
           {
             id: 5,
@@ -203,7 +203,7 @@ export const serviceData = [
   },
   // 2nd
   {
-    name: "habir Mar Tabi AMi jani",
+    name: "bangladesh television",
     id: 2,
     path: "habijabi",
     steps: [
@@ -268,85 +268,7 @@ export const serviceData = [
           },
         ],
       },
-      {
-        type: "optionalMultiCheckBok",
-        routeNumber: 4,
-        title: "Quel type de fenêtre souhaitez-vous ? (facultatif)",
-        options: [
-          {
-            id: 1,
-            svg: "https://www.travaux.com/static/svg-icons/closedWindow.svg",
-            name: "Fenêtre fermée",
-          },
-          {
-            id: 2,
-            svg: "https://www.travaux.com/static/svg-icons/turnWindow.svg",
-            name: "Fenêtre classique à un battant",
-          },
-          {
-            id: 3,
-            svg: "https://www.travaux.com/static/svg-icons/doubleTurnWindow.svg",
-            name: "Fenêtre classique à deux battants",
-          },
-          {
-            id: 4,
-            svg: "https://www.travaux.com/static/svg-icons/turnAndTiltWindow.svg",
-            name: "Fenêtre oscillo-battante",
-          },
-          {
-            id: 5,
-            svg: "https://www.travaux.com/static/svg-icons/doorWithWindows.svg",
-            name: "Porte-fenêtre",
-          },
-          {
-            id: 6,
-            svg: "https://www.travaux.com/static/svg-icons/slidingWindow.svg",
-            name: "Fenêtre coulissante",
-          },
-          {
-            id: 7,
-            svg: "https://www.travaux.com/static/svg-icons/veluxWindow.svg",
-            name: "Fenêtre de toit (Velux)",
-          },
-          {
-            id: 8,
-            svg: "https://www.travaux.com/static/svg-icons/communication.svg",
-            name: "A définir",
-          },
-          {
-            id: 9,
-            svg: "https://www.travaux.com/static/svg-icons/more.svg",
-            name: "Autre",
-          },
-        ],
-      },
-      {
-        type: "combinedCheckBok",
-        routeNumber: 5,
-        title: "Combien de fenêtres souhaitez-vous installer ? (facultatif) ",
-        options: [
-          {
-            id: 1,
-            check: 1,
-          },
-          {
-            id: 2,
-            check: 2,
-          },
-          {
-            id: 3,
-            check: 3,
-          },
-          {
-            id: 4,
-            check: 4,
-          },
-          {
-            id: 5,
-            check: 5,
-          },
-        ],
-      },
+
       {
         type: "combinedTitleCheckBok",
         title:
@@ -363,15 +285,15 @@ export const serviceData = [
           },
           {
             id: 3,
-            check: "Dans moins de deux semaines",
+            name: "Dans moins de deux semaines",
           },
           {
             id: 4,
-            check: 'Dans moins d"un m ',
+            name: 'Dans moins d"un m ',
           },
           {
             id: 5,
-            check: "Dans moins de 6 mois",
+            name: "Dans moins de 6 mois",
           },
         ],
       },
@@ -487,123 +409,16 @@ export const serviceData = [
         ],
       },
       {
-        type: "optionalMultiCheckBok",
-        routeNumber: 4,
-        title: "Quel type de fenêtre souhaitez-vous ? (facultatif)",
-        options: [
-          {
-            id: 1,
-            svg: "https://www.travaux.com/static/svg-icons/closedWindow.svg",
-            name: "Fenêtre fermée",
-          },
-          {
-            id: 2,
-            svg: "https://www.travaux.com/static/svg-icons/turnWindow.svg",
-            name: "Fenêtre classique à un battant",
-          },
-          {
-            id: 3,
-            svg: "https://www.travaux.com/static/svg-icons/doubleTurnWindow.svg",
-            name: "Fenêtre classique à deux battants",
-          },
-          {
-            id: 4,
-            svg: "https://www.travaux.com/static/svg-icons/turnAndTiltWindow.svg",
-            name: "Fenêtre oscillo-battante",
-          },
-          {
-            id: 5,
-            svg: "https://www.travaux.com/static/svg-icons/doorWithWindows.svg",
-            name: "Porte-fenêtre",
-          },
-          {
-            id: 6,
-            svg: "https://www.travaux.com/static/svg-icons/slidingWindow.svg",
-            name: "Fenêtre coulissante",
-          },
-          {
-            id: 7,
-            svg: "https://www.travaux.com/static/svg-icons/veluxWindow.svg",
-            name: "Fenêtre de toit (Velux)",
-          },
-          {
-            id: 8,
-            svg: "https://www.travaux.com/static/svg-icons/communication.svg",
-            name: "A définir",
-          },
-          {
-            id: 9,
-            svg: "https://www.travaux.com/static/svg-icons/more.svg",
-            name: "Autre",
-          },
-        ],
-      },
-      {
-        type: "combinedCheckBok",
-        routeNumber: 5,
-        title: "Combien de fenêtres souhaitez-vous installer ? (facultatif) ",
-        options: [
-          {
-            id: 1,
-            check: 1,
-          },
-          {
-            id: 2,
-            check: 2,
-          },
-          {
-            id: 3,
-            check: 3,
-          },
-          {
-            id: 4,
-            check: 4,
-          },
-          {
-            id: 5,
-            check: 5,
-          },
-        ],
-      },
-      {
-        type: "combinedTitleCheckBok",
-        title:
-          "Quand souhaitez-vous que le travail soit terminé ? (facultatif) ",
-        routeNumber: 6,
-        options: [
-          {
-            id: 1,
-            name: "Urgent",
-          },
-          {
-            id: 2,
-            name: "Pas de date fixée",
-          },
-          {
-            id: 3,
-            check: "Dans moins de deux semaines",
-          },
-          {
-            id: 4,
-            check: 'Dans moins d"un m ',
-          },
-          {
-            id: 5,
-            check: "Dans moins de 6 mois",
-          },
-        ],
-      },
-      {
         type: "uploadImage",
         routeNumber: 7,
         title: "Photos ou plans (facultatif)",
       },
-      {
-        type: "comment",
-        routeNumber: 8,
-        title:
-          "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif",
-      },
+      // {
+      //   type: "comment",
+      //   routeNumber: 8,
+      //   title:
+      //     "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif",
+      // },
       {
         type: "email",
         routeNumber: 9,

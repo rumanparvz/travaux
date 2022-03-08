@@ -1,18 +1,22 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { serviceData } from "../../../data/ServiceData";
+import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 
 const UploadImage = () => {
   const { uploadImage } = useParams();
-  const postData = serviceData.filter((sd) => sd.path === uploadImage);
-  const singlePostData = postData[0].steps.filter(  (post) => post.type === "uploadImage");
+  const {stepNumbers,singlePostData,length}=ServiceSteps(uploadImage,'uploadImage')
+
+  // const postData = serviceData.filter((sd) => sd.path === uploadImage);
+  // const singlePostData = postData[0].steps.filter(  (post) => post.type === "uploadImage");
+  // const routeNumber =postData[0]?.steps?.slice(7,8)[0]?.routeNumber
+
 
   return (
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape 7 sur 10</h6>
+        <h6 className="py-3">Étape {stepNumbers-1} sur {length}</h6>
         <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
@@ -43,7 +47,7 @@ const UploadImage = () => {
             </div>
             <div>
               <Link
-                to={`/post-service-request/comment/${uploadImage}/${   singlePostData[0].routeNumber + 1    }`}
+                to={`/post-service-request/${stepNumbers}/${uploadImage}`}
                 // /post-service-request/comment/:comment/:id
               >
                 {" "}

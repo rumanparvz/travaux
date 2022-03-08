@@ -9,6 +9,7 @@ import ProjectCount from "../../components/Home/ProjectCount/ProjectCount";
 import ServiceCard from "../../components/Home/ServiceCard/ServiceCard";
 
 const HomePage = () => {
+
   return (
     <  >
      <HeaderMain />

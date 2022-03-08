@@ -3,17 +3,21 @@ import { Card } from "react-bootstrap";
 import { BiLike } from "react-icons/bi";
 import { FaRegEdit, FaUserFriends } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-import { serviceData } from "../../../data/ServiceData";
+import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 
 const RootTitlePost = () => {
+
   const { postText } = useParams();
+
+  const {stepNumbers,singlePostData,length}=ServiceSteps(postText,'text')
   const [postCode, setPostCode] = useState(7520);
-
   //get service codeInput
-  const postData = serviceData.filter((sd) => sd.path === postText);
-  const singlePostData = postData[0].steps.filter( (post) => post.type === "text");
+  // const postData = serviceData.filter((sd) => sd.path === postText);
+  // const singlePostData = postData[0].steps.filter( (post) => post.type === "text");
 
+  // const routeNumber =postData[0].steps.slice(1,2)[0].routeNumber
+console.log(length);
   const data = [
     { Icon: FaRegEdit,  title: "Publiez votre projet gratuitement et sans engagement",},
     { Icon: FaUserFriends, title: "42 200 artisans qualifiés" },
@@ -28,7 +32,7 @@ const RootTitlePost = () => {
     <div className="postTitle">
       <NavBar />
       <div className="container ">
-        <h6 className="pt-2">Étape 1 sur 10</h6>
+        <h6 className="pt-2">Étape {stepNumbers-1} sur {length}</h6>
         <p className="content"></p>
         <h1 style={{ fontWidth: "900" }}>{singlePostData[0].title}</h1>
         <div className="input_postal mt-5 pt-5">
@@ -44,7 +48,7 @@ const RootTitlePost = () => {
             />
             <span className="paris">Paris 20</span>
             <Link
-              to={`/post-service-request/${postText}/${singlePostData[0].routeNumber+1}`}
+              to={`/post-service-request/${stepNumbers}/${postText}`}
             >
               {" "}
               <button className="main_button" as={Link} to="/s">

@@ -1,18 +1,21 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { serviceData } from "../../../data/ServiceData";
+import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 
 const EmailInput = () => {
   const { email } = useParams();
-  const postData = serviceData.filter((sd) => sd.path === email);
-  const singlePostData = postData[0].steps.filter(  (post) => post.type === "email");
-  
+  const {stepNumbers,singlePostData,length}=ServiceSteps(email,'email')
+
+  // const postData = serviceData.filter((sd) => sd.path === email);
+  // const singlePostData = postData[0].steps.filter(  (post) => post.type === "email");
+  // const routeNumber =postData[0].steps.slice(9,10)[0].routeNumber
+
   return (
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape 9 sur 10</h6>
+        <h6 className="py-3">Étape {stepNumbers-1} sur {length}</h6>
         <h2 className="py-3">{singlePostData[0].title}</h2>
 
         <div className="row">
@@ -37,9 +40,7 @@ const EmailInput = () => {
             </div>
             <div>
               <Link
-                to={`/post-service-request/complete/${email}/${
-                  singlePostData[0].routeNumber + 1
-                }`}
+                to={`/post-service-request/${stepNumbers}/${email}`}
               >
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}

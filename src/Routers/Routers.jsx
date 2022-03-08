@@ -19,15 +19,15 @@ const Routers = () => {
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/post-service-request/:postText" element={<RootTextPostPage  />}></Route>
-        <Route path="/post-service-request/:checkBokOption/:id" element={<CheckBoxOptionPage />}></Route>
-        <Route path="/post-service-requests/:multiCheckBox/:id" element={<MultiPulCheckBox />}></Route>
-        <Route path="/post-service-request/items/:optionalMultiCheckBok/:id" element={<OptionalMultiCheckBox />}></Route>
-        <Route path="/post-service-request/itemss/:radioCheckBox/:id" element={<RadioSErvicesOptions />}></Route>
-        <Route path="/post-service-request/title/:combinedTitleChickBox/:id" element={<CombinedTitleCheckBokPage />}></Route>
-        <Route path="/post-service-request/titles/:uploadImage/:id" element={<UploadImagePage />}></Route>
-        <Route path="/post-service-request/comment/:comment/:id" element={<CommentTextPage />}></Route>
-        <Route path="/post-service-request/email/:email/:id" element={<EmailPage />}></Route>
-        <Route path="/post-service-request/complete/:complete/:id" element={<CompletePages />}></Route>
+        <Route path="/post-service-request/2/:checkBokOption" element={<CheckBoxOptionPage />}></Route>
+        <Route path="/post-service-request/3/:multiCheckBox" element={<MultiPulCheckBox />}></Route>
+        <Route path="/post-service-request/4/:optionalMultiCheckBok" element={<OptionalMultiCheckBox />}></Route>
+        <Route path="/post-service-request/5/:radioCheckBox" element={<RadioSErvicesOptions />}></Route>
+        <Route path="/post-service-request/6/:combinedTitleChickBox" element={<CombinedTitleCheckBokPage />}></Route>
+        <Route path="/post-service-request/7/:uploadImage" element={<UploadImagePage />}></Route>
+        <Route path="/post-service-request/8/:comment" element={<CommentTextPage />}></Route>
+        <Route path="/post-service-request/9/:email" element={<EmailPage />}></Route>
+        <Route path="/post-service-request/10/:complete" element={<CompletePages />}></Route>
       </Routes>
     </div>
   );

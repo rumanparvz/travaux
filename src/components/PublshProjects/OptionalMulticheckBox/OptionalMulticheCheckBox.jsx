@@ -1,20 +1,25 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import { serviceData } from "../../../data/ServiceData";
+import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 
 const OptionalMulticheCheckBox = () => {
-  const {optionalMultiCheckBok,id}=useParams()
-  const postData = serviceData.filter((sd) => sd.path === optionalMultiCheckBok);
-  const singlePostData = postData[0].steps.filter(  (post) => post.type === "optionalMultiCheckBok" );
+  const {optionalMultiCheckBok}=useParams()
+  const {stepNumbers,singlePostData,length}=ServiceSteps(optionalMultiCheckBok,'optionalMultiCheckBok')
 
-  console.log("singlePostData",singlePostData);
+
+  // const {optionalMultiCheckBok,id}=useParams()
+  // const postData = serviceData.filter((sd) => sd.path === optionalMultiCheckBok);
+  // const singlePostData = postData[0].steps.filter(  (post) => post.type === "optionalMultiCheckBok" );
+
+  // const routeNumber =postData[0].steps.slice(4,5)[0].routeNumber
+
   return (
     <div>
       <NavBar />
       <div className="container mb-5">
-      <h6 className="pt-2 pt-4">Étape 4 sur 10</h6>
+      <h6 className="pt-2 pt-4">Étape {stepNumbers-1} sur {length}</h6>
       <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
@@ -48,7 +53,7 @@ const OptionalMulticheCheckBox = () => {
               <Link 
               
             //   to={`/post-service-request/${path}`}
-              to={`/post-service-requests/${optionalMultiCheckBok}/${singlePostData[0].routeNumber -1}`}
+              to={`/post-service-requests/}/${optionalMultiCheckBok}`}
               // /post-service-requests/:multiCheckBox/:id
               >
                 {" "}
@@ -57,7 +62,7 @@ const OptionalMulticheCheckBox = () => {
             </div>
             <div>
               <Link
-                to={`/post-service-request/itemss/${optionalMultiCheckBok}/${singlePostData[0].routeNumber +1}`}
+                to={`/post-service-request/${stepNumbers}/${optionalMultiCheckBok}`}
               
               
               >

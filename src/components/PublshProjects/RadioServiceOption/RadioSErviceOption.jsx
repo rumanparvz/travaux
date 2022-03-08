@@ -1,21 +1,22 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { serviceData } from "../../../data/ServiceData";
+import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 
 const RadioSErviceOption = () => {
   const { radioCheckBox } = useParams();
-  const postData = serviceData.filter((sd) => sd.path === radioCheckBox);
-  const singlePostData = postData[0].steps.filter(
-    (post) => post.type === "combinedCheckBok"
-  );
+  const {stepNumbers,singlePostData,length}=ServiceSteps(radioCheckBox,'combinedCheckBok')
 
-  console.log("singlePostData", singlePostData);
+  // const postData = serviceData.filter((sd) => sd.path === radioCheckBox);
+  // const singlePostData = postData[0].steps.filter(   (post) => post.type === "combinedCheckBok");
+
+    // const routeNumber =postData[0].steps.slice(5,6)[0].routeNumber
+
   return (
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape 5 sur 10</h6>
+        <h6 className="py-3">Étape {stepNumbers-1} sur {length}</h6>
         <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
@@ -43,9 +44,7 @@ const RadioSErviceOption = () => {
             </div>
             <div>
               <Link
-                to={`/post-service-request/title/${radioCheckBox}/${
-                  singlePostData[0].routeNumber + 1
-                }`}
+                to={`/post-service-request/${stepNumbers}/${radioCheckBox}`}
               >
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}
