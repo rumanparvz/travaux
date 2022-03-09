@@ -6,15 +6,15 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 const MultiPulCheckBox = () => {
   // const [index, setIndex] = useState(null);
-  // const [stepNumbers, setStepNumbers] = useState(null);
+  // const [stepName, setstepName] = useState(null);
   // const { multiCheckBox } = useParams();
   // const postData = serviceData.filter((sd) => sd.path === multiCheckBox);
   // const singlePostData = postData[0].steps.filter( (post) => post.type === "multiCheckBok" );
 
   const { multipleCheckBox } = useParams();
   
-  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(multipleCheckBox,'multipleCheckBox')
-  console.log("stpeNumbers from ",preStepNumbers);
+  const {stepName,singlePostData,length,preStepName}=ServiceSteps(multipleCheckBox,'multipleCheckBox')
+  console.log("stpeNumbers from ",preStepName);
   // const routeNumber = postData[0].steps.slice(3, 4)[0].routeNumber;
 
 
@@ -33,14 +33,14 @@ const MultiPulCheckBox = () => {
   //   setIndex(indexCount);
 
   //   const nextArray = postData[0].steps[index + 1];
-  //   setStepNumbers(nextArray.routeNumber);
+  //   setstepName(nextArray.routeNumber);
   // }, [index]);
 
   return (
     <div>
       <NavBar />
       <div className="container pt-5">
-        <h6 className="pt-2">Étape {stepNumbers-1} sur  555NOMAN{length}</h6>
+        <h6 className="pt-2">Étape {stepName-1} sur  555NOMAN{length}</h6>
 
         <h5>{singlePostData[0].title}</h5>
         <div className="row">
@@ -73,7 +73,7 @@ const MultiPulCheckBox = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/${preStepNumbers}/${multipleCheckBox}`}
+                to={`/post-service-request/${preStepName}/${multipleCheckBox}`}
               >
                 {" "}
                 <button className="secondary_button">Précédent</button>{" "}
@@ -81,7 +81,7 @@ const MultiPulCheckBox = () => {
             </div>
             <div>
               <Link
-                to={`/post-service-request/${stepNumbers}/${multipleCheckBox}`}
+                to={`/post-service-request/${stepName}/${multipleCheckBox}`}
               >
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}

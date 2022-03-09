@@ -4,7 +4,7 @@ import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 const CommentText = () => {
   const { comment } = useParams();
-  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(comment,'comment')
+  const {stepName,singlePostData,length,preStepName}=ServiceSteps(comment,'comment')
 
   // const postData = serviceData.filter((sd) => sd.path === comment);
   // const singlePostData = postData[0].steps.filter(  (post) => post.type === "comment" );
@@ -15,7 +15,7 @@ const CommentText = () => {
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape {stepNumbers-1} sur {length}</h6>
+        <h6 className="py-3">Étape {stepName-1} sur {length}</h6>
         <h5 className="py-3">{singlePostData[0].title}</h5>
         <p className="text-secondary">
           Par exemple : type de bâtiment, étage d'installation, mesures,
@@ -38,14 +38,14 @@ const CommentText = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/${preStepNumbers}/${comment}`}
+                to={`/post-service-request/${preStepName}/${comment}`}
               >
                 <button className="secondary_button">Précédent</button>{" "}
               </Link>
             </div>
             <div>
               <Link
-                to={`/post-service-request/${stepNumbers}/${comment}`}
+                to={`/post-service-request/${stepName}/${comment}`}
               >
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}

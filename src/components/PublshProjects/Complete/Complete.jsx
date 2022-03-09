@@ -4,9 +4,9 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 const Complete = () => {
   const { complete } = useParams();
-  // const {stepNumbers,singlePostData}=ServiceSteps(complete,'complete')
+  // const {stepName,singlePostData}=ServiceSteps(complete,'complete')
 
-  // console.log(stepNumbers);
+  // console.log(stepName);
   // const postData = serviceData.filter((sd) => sd.path === complete);
   // const singlePostData = postData[0].steps.filter(  (post) => post.type === "complete" );
 

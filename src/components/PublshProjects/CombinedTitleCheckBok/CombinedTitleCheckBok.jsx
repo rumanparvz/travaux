@@ -6,18 +6,18 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 const CombinedTitleCheckBok = () => {
   const { titleCheckBox } = useParams();
-  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(titleCheckBox,'titleCheckBox')
+  const {stepName,singlePostData,length,preStepName}=ServiceSteps(titleCheckBox,'titleCheckBox')
 
   // const postData = serviceData.filter((sd) => sd.path === combinedTitleChickBox);
   // const singlePostData = postData[0].steps.filter(   (post) => post.type === "checkBoxOptions"  );
   
   // const routeNumber =postData[0].steps.slice(6,7)[0].routeNumber
-console.log("ssss",preStepNumbers);
+console.log("ssss",preStepName);
   return (
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape {stepNumbers-1}  {length}</h6>
+        <h6 className="py-3">Étape {stepName-1}  {length}</h6>
         <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
@@ -35,7 +35,7 @@ console.log("ssss",preStepNumbers);
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/${preStepNumbers}/${titleCheckBox}`}   >
+                to={`/post-service-request/${preStepName}/${titleCheckBox}`}   >
         
               
                 {" "}
@@ -45,7 +45,7 @@ console.log("ssss",preStepNumbers);
             </div>
             <div>
               <Link
-                to={`/post-service-request/${stepNumbers}/${titleCheckBox}`}   >
+                to={`/post-service-request/${stepName}/${titleCheckBox}`}   >
            
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}

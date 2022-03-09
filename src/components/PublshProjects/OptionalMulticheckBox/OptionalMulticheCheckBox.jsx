@@ -7,7 +7,7 @@ import NavBar from "../../Common/NavBar/NavBar";
 const OptionalMulticheCheckBox = () => {
   
   const {moreMultipleCheckBox}=useParams()
-  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(moreMultipleCheckBox,'moreMultipleCheckBox')
+  const {stepName,singlePostData,length,preStepName}=ServiceSteps(moreMultipleCheckBox,'moreMultipleCheckBox')
 
 
   // const {optionalMultiCheckBok,id}=useParams()
@@ -20,7 +20,7 @@ const OptionalMulticheCheckBox = () => {
     <div>
       <NavBar />
       <div className="container mb-5">
-      <h6 className="pt-2 pt-4">Étape {stepNumbers-1} sur {length}</h6>
+      <h6 className="pt-2 pt-4">Étape {stepName-1} sur {length}</h6>
       <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
@@ -54,7 +54,7 @@ const OptionalMulticheCheckBox = () => {
               <Link 
               
             //   to={`/post-service-request/${path}`}
-            to={`/post-service-request/${preStepNumbers}/${moreMultipleCheckBox}`}
+            to={`/post-service-request/${preStepName}/${moreMultipleCheckBox}`}
               // /post-service-requests/:multiCheckBox/:id
               >
                 {" "}
@@ -63,7 +63,7 @@ const OptionalMulticheCheckBox = () => {
             </div>
             <div>
               <Link
-                to={`/post-service-request/${stepNumbers}/${moreMultipleCheckBox}`}
+                to={`/post-service-request/${stepName}/${moreMultipleCheckBox}`}
               
               
               >

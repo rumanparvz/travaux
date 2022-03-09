@@ -5,18 +5,18 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 const EmailInput = () => {
   const { email } = useParams();
-  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(email,'email')
+  const {stepName,singlePostData,length,preStepName}=ServiceSteps(email,'email')
 
   // const postData = serviceData.filter((sd) => sd.path === email);
   // const singlePostData = postData[0].steps.filter(  (post) => post.type === "email");
   // const routeNumber =postData[0].steps.slice(9,10)[0].routeNumber
 
-  console.log("preStepNumber",preStepNumbers);
+  console.log("preStepNumber",preStepName);
   return (
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape {stepNumbers-1} sur {length}</h6>
+        <h6 className="py-3">Étape {stepName-1} sur {length}</h6>
         <h2 className="py-3">{singlePostData[0].title}</h2>
 
         <div className="row">
@@ -32,14 +32,14 @@ const EmailInput = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/${preStepNumbers}/${email}`}
+                to={`/post-service-request/${preStepName}/${email}`}
               >
                 <button className="secondary_button">Précédent</button>{" "}
               </Link>
             </div>
             <div>
               <Link
-                to={`/post-service-request/${stepNumbers}/${email}`}
+                to={`/post-service-request/${stepName}/${email}`}
               >
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}

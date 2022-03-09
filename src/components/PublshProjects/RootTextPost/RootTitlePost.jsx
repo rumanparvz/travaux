@@ -10,7 +10,7 @@ const RootTitlePost = () => {
 
   const { postText } = useParams();
 
-  const {stepNumbers,singlePostData,length}=ServiceSteps(postText,'text')
+  const {stepName,singlePostData,length}=ServiceSteps(postText,'text')
   const [postCode, setPostCode] = useState(7520);
   //get service codeInput
   // const postData = serviceData.filter((sd) => sd.path === postText);
@@ -32,7 +32,7 @@ console.log(length);
     <div className="postTitle">
       <NavBar />
       <div className="container ">
-        <h6 className="pt-2">Étape {stepNumbers-1} sur {length}</h6>
+        <h6 className="pt-2">Étape {stepName-1} sur {length}</h6>
         <p className="content"></p>
         <h1 style={{ fontWidth: "900" }}>{singlePostData[0].title}</h1>
         <div className="input_postal mt-5 pt-5">
@@ -48,7 +48,7 @@ console.log(length);
             />
             <span className="paris">Paris 20</span>
             <Link
-              to={`/post-service-request/${stepNumbers}/${postText}`}
+              to={`/post-service-request/${stepName}/${postText}`}
             >
               {" "}
               <button className="main_button" as={Link} to="/s">

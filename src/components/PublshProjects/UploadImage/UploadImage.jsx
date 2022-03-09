@@ -5,7 +5,7 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 const UploadImage = () => {
   const { uploadImage } = useParams();
-  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(uploadImage,'uploadImage')
+  const {stepName,singlePostData,length,preStepName}=ServiceSteps(uploadImage,'uploadImage')
 
   // const postData = serviceData.filter((sd) => sd.path === uploadImage);
   // const singlePostData = postData[0].steps.filter(  (post) => post.type === "uploadImage");
@@ -16,7 +16,7 @@ const UploadImage = () => {
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape {stepNumbers-1} sur {length}</h6>
+        <h6 className="py-3">Étape {stepName-1} sur {length}</h6>
         <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
@@ -38,7 +38,7 @@ const UploadImage = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/${preStepNumbers}/${uploadImage}`}
+                to={`/post-service-request/${preStepName}/${uploadImage}`}
           
               >
                 {" "}
@@ -47,7 +47,7 @@ const UploadImage = () => {
             </div>
             <div>
               <Link
-                to={`/post-service-request/${stepNumbers}/${uploadImage}`}
+                to={`/post-service-request/${stepName}/${uploadImage}`}
                 // /post-service-request/comment/:comment/:id
               >
                 {" "}

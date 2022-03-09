@@ -8,7 +8,7 @@ const CheckBoxOptions = () => {
   const location = useLocation()
   console.log("history",location.pathname);
   const { checkBox } = useParams();
-  const {stepNumbers,singlePostData,length,preStepNumbers}=ServiceSteps(checkBox,'checkBox')
+  const {stepName,singlePostData,length,preStepName}=ServiceSteps(checkBox,'checkBox')
 
   // const postData = serviceData.filter((sd) => sd.path === 'petits-travaux-de-maconnerie');
   // const singlePostData = postData[0].steps.filter(  (post) => post.type === "checkBoxOptions" );
@@ -19,7 +19,7 @@ console.log(singlePostData);
     <div className="checkBoxOption">
       <NavBar />
       <div className="container">
-        <h6 className="pt-2">Étape {stepNumbers -1} sur ss{length}</h6>
+        <h6 className="pt-2">Étape {stepName -1} sur ss{length}</h6>
         <h5 className="pt-4">{singlePostData[0].title}</h5>
         <div className="check_Box row ">
           {singlePostData[0].options.map(({ svg, name }) => (
@@ -62,7 +62,7 @@ console.log(singlePostData);
             <div>
               <Link
                 // to={`/post-service-request/${checkBokOption}/${singlePostData[0].routeNumber+1}`}
-                to={`/post-service-request/${stepNumbers}/${checkBox}`}
+                to={`/post-service-request/${stepName}/${checkBox}`}
               >
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}
