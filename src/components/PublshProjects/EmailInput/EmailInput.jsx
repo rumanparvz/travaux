@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { serviceEmail } from "../../../redux/actions/ProjectsActions";
+import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 
 const EmailInput = () => {
   const { email } = useParams();
-  const {stepName,singlePostData,length,preStepName}=ServiceSteps(email,'email')
+  const {stepName,singlePostData,length,preStepName,processStep}=ServiceSteps(email,'email')
+  const [emailText,setEmailText]=useState(null)
+  const dispatch =useDispatch()
 
-  // const postData = serviceData.filter((sd) => sd.path === email);
-  // const singlePostData = postData[0].steps.filter(  (post) => post.type === "email");
-  // const routeNumber =postData[0].steps.slice(9,10)[0].routeNumber
+  const handleSubmit = ()=>{
 
-  console.log("preStepNumber",preStepName);
+    dispatch(serviceEmail({email:emailText}))
+  }
+  
   return (
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape {stepName-1} sur {length}</h6>
+        <h6 className="py-3">Étape {processStep} sur {length}</h6>
+        <ProcessBar processStep={processStep} length={length} />
         <h2 className="py-3">{singlePostData[0].title}</h2>
 
         <div className="row">
@@ -27,7 +33,8 @@ const EmailInput = () => {
           <p>
             E-mail <span className="text-danger">*</span>
           </p>
-          <input type="email" name="email" id="email" required  className="form-control w-50 ms-2"/>
+          <input type="email" name="email" id="email" required  className="form-control w-50 ms-2" 
+          onChange={(e)=>setEmailText(e.target.value)}/>
           <div className="checkBox_button d-flex justify-content-between align-items-center">
             <div>
               <Link
@@ -42,7 +49,7 @@ const EmailInput = () => {
                 to={`/post-service-request/${stepName}/${email}`}
               >
                 {" "}
-                <button className="main_button"> Suivant</button>{" "}
+                <button className="main_button" onClick={handleSubmit}> Suivant</button>{" "}
               </Link>
             </div>
           </div>

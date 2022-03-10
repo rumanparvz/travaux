@@ -1,59 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { serviceMultiPleProjectCheckBox } from "../../../redux/actions/ProjectsActions";
+import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 
 const MultiPulCheckBox = () => {
-  // const [index, setIndex] = useState(null);
-  // const [stepName, setstepName] = useState(null);
-  // const { multiCheckBox } = useParams();
-  // const postData = serviceData.filter((sd) => sd.path === multiCheckBox);
-  // const singlePostData = postData[0].steps.filter( (post) => post.type === "multiCheckBok" );
 
   const { multipleCheckBox } = useParams();
+  const {stepName,singlePostData,length,preStepName,processStep}=ServiceSteps(multipleCheckBox,'multipleCheckBox')
+ const [optionalElement,setOptionalElement]=useState([])
+ 
+ const dispatch = useDispatch()
   
-  const {stepName,singlePostData,length,preStepName}=ServiceSteps(multipleCheckBox,'multipleCheckBox')
-  console.log("stpeNumbers from ",preStepName);
-  // const routeNumber = postData[0].steps.slice(3, 4)[0].routeNumber;
+
+  const handleSubmit = (e)=>{
+    if(e.target.checked===true){
+      const newOptionalElement= [...optionalElement,{name:e.target.value}]
+      setOptionalElement(newOptionalElement)
+    }
+    if(e.target.checked===false){
+     const  uncheckedElement = optionalElement.filter((el) => el.name !== e.target.value)
+       setOptionalElement(uncheckedElement)
+    }
+
+  }
 
 
-  //Try
-  // const array1 = postData[0].steps;
-  // const iterator = array1.values();
-
-  // let indexCount;
-  // for (const value of iterator) {
-  //   if (value.type === "multiCheckBok") {
-  //     indexCount = array1.indexOf(value);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   setIndex(indexCount);
-
-  //   const nextArray = postData[0].steps[index + 1];
-  //   setstepName(nextArray.routeNumber);
-  // }, [index]);
-
+  const handleNextSubmit = ()=>{
+    dispatch(serviceMultiPleProjectCheckBox(optionalElement))
+  }
+ 
   return (
     <div>
       <NavBar />
       <div className="container pt-5">
-        <h6 className="pt-2">Étape {stepName-1} sur  555NOMAN{length}</h6>
+        <h6 className="pt-2">Étape {processStep} sur  {length}</h6>
+        <ProcessBar processStep={processStep} length={length} />
 
         <h5>{singlePostData[0].title}</h5>
         <div className="row">
           {singlePostData[0].options.map(({ svg, name, id }) => (
             <div className="col-lg-2 col-lg-3 col-sm-4 mb-2 col-xs-6" key={id}>
               <Card className="pt-4 pb-3" style={{ height: "150px" }}>
+                <label for={id}  style={{cursor:'pointer'}}>
                 <input
                   type="checkbox"
                   name="checkBok"
-                  id=""
+                  id={id}
+                  value={name}
                   style={{ position: "absolute", left: "92%", top: "7%" }}
+                  onChange={handleSubmit}
                 />
-                <label htmlFor="">
+                
                   <div className="text-center">
                     <Card.Img
                       variant="top"
@@ -66,6 +67,7 @@ const MultiPulCheckBox = () => {
                     <p className="text-center pb-2">{name}</p>
                   </Card.Body>
                 </label>
+             
               </Card>
             </div>
           ))}
@@ -76,7 +78,7 @@ const MultiPulCheckBox = () => {
                 to={`/post-service-request/${preStepName}/${multipleCheckBox}`}
               >
                 {" "}
-                <button className="secondary_button">Précédent</button>{" "}
+                <button className="secondary_button" >Précédent</button>{" "}
               </Link>
             </div>
             <div>
@@ -84,7 +86,7 @@ const MultiPulCheckBox = () => {
                 to={`/post-service-request/${stepName}/${multipleCheckBox}`}
               >
                 {" "}
-                <button className="main_button"> Suivant</button>{" "}
+                <button className="main_button" onClick={handleNextSubmit}> Suivant</button>{" "}
               </Link>
             </div>
           </div>

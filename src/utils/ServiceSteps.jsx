@@ -4,7 +4,6 @@ import { serviceData } from "../data/ServiceData";
 const ServiceSteps = (params, type) => {
   const [index, setIndex] = useState(0);
   const [postIndex, setPostIndex] = useState(3);
-
   const [stepName, setstepName] = useState(null);
   const [preStepName, setpreStepName] = useState(null);
 
@@ -16,6 +15,8 @@ const ServiceSteps = (params, type) => {
   const array1 = postData[0].steps;
   const iterator = array1.values();
   let indexCount;
+
+  const processStep= index +1
   for (const value of iterator) {
     if (value.type === type) {
       indexCount = array1.indexOf(value);
@@ -32,8 +33,6 @@ const ServiceSteps = (params, type) => {
     const preArray = postData[0]?.steps[postIndex - 1];
     setpreStepName(preArray.type);
 
-    console.log("nextarray", nextArray.type);
-    console.log("preArray", preArray.stepNumber - 1);
   }, [index]);
 
   return {
@@ -41,6 +40,7 @@ const ServiceSteps = (params, type) => {
     singlePostData,
     length,
     preStepName,
+    processStep
   };
 };
 

@@ -1,21 +1,23 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import ProcessBar from "../../../utils/ProcessBar";
 import NavBar from "../../Common/NavBar/NavBar";
-
 const Complete = () => {
-  const { complete } = useParams();
-  // const {stepName,singlePostData}=ServiceSteps(complete,'complete')
+  const { complete ,} = useParams();
+  
+  const {service} = useSelector((state) => state) 
 
-  // console.log(stepName);
-  // const postData = serviceData.filter((sd) => sd.path === complete);
-  // const singlePostData = postData[0].steps.filter(  (post) => post.type === "complete" );
+console.log(service);
 
   return (
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
         <h6 className="py-3">Étape 10 sur 10 </h6>
-        {/* <h2 className="py-3">{singlePostData[0].title}</h2> */}
+
+        <ProcessBar processStep={10} length={10} />
+
 
         <div className="row">
           <p>

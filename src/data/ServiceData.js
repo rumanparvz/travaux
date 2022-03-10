@@ -148,6 +148,10 @@ export const serviceData = [
             id: 5,
             check: 5,
           },
+          {
+            id:6,
+            check:'Plus de 5'
+          }
         ],
       },
       {
@@ -187,7 +191,7 @@ export const serviceData = [
         type: "comment",
         stepNumber: 8,
         title:
-          "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif",
+          "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif)",
       },
       {
         type: "email",
@@ -203,31 +207,35 @@ export const serviceData = [
   },
   // 2nd
   {
-    name: "bangladesh television",
+    name: "Porte d'entrée / Blindage porte",
     id: 2,
-    path: "habijabi",
+    path: "porte-d-entree-blindage-porte",
     steps: [
       {
-        title: "I love You",
+        title: "Décrivez votre projet et échangez avec les artisans près de chez vous. ",
         type: "text",
         stepNumber: 1,
-        path: "post-service-request/Fenetre_porte",
       },
+     
       {
-        type: "checkBoxOptions",
+        type: "checkBox",
         stepNumber: 2,
-        title: "Quelle est la nature de vos travaux ?",
+        title: "Quelle est la nature de vos travaux ? (facultatif)",
         options: [
           {
             id: 1,
-            svg: "https://www.travaux.com/static/svg-icons/windowFrame.svg",
-            name: "Installation neuve",
+            svg: "https://www.travaux.com/static/svg-icons/renovations.svg",
+            name: "Rénovation",
           },
           {
             id: 2,
             svg: "https://www.travaux.com/static/svg-icons/replacement.svg",
             name: "Remplacement",
-          },
+          },{
+            id:3,
+            svg:'https://www.travaux.com/static/svg-icons/install.svg',
+            name:'Réparation'
+          }
         ],
       },
       {

@@ -1,52 +1,63 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { serviceTitleOptionBox } from "../../../redux/actions/ProjectsActions";
+import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 
-
 const CombinedTitleCheckBok = () => {
   const { titleCheckBox } = useParams();
-  const {stepName,singlePostData,length,preStepName}=ServiceSteps(titleCheckBox,'titleCheckBox')
+  const { stepName, singlePostData, length, preStepName,processStep } = ServiceSteps(
+    titleCheckBox,
+    "titleCheckBox"
+  );
 
-  // const postData = serviceData.filter((sd) => sd.path === combinedTitleChickBox);
-  // const singlePostData = postData[0].steps.filter(   (post) => post.type === "checkBoxOptions"  );
-  
-  // const routeNumber =postData[0].steps.slice(6,7)[0].routeNumber
-console.log("ssss",preStepName);
+  const dispatch = useDispatch();
+  const handleChange = (e) => {
+    console.log(e.target.value);
+
+    dispatch(serviceTitleOptionBox({ optionalTypeCheckBox: e.target.value }));
+  };
+
+  console.log("ssss", preStepName);
   return (
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape {stepName-1}  {length}</h6>
+        <h6 className="py-3">
+          Étape {processStep} sur {length}
+        </h6>
+        <ProcessBar processStep={processStep} length={length} />
         <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
           {singlePostData[0].options.map(({ name, id }) => (
             <div className="col-md-12 " key={id}>
-              <div className="check_box_item d-flex justify-content-between align-items-center">
-                <label htmlFor="">
+              <label
+                for={id}
+                className="check_box_item d-flex justify-content-between align-items-center"
+                style={{cursor:'pointer'}}
+              >
+                <label for="">
                   <p>{name}</p>
                 </label>
-                <input type="radio" name="radio" id="   " />
-              </div>
+                <input type="radio" value={name} onChange={handleChange} name="radio" id={id} />
+              </label>
             </div>
           ))}
           <div className="checkBox_button d-flex justify-content-between align-items-center">
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/${preStepName}/${titleCheckBox}`}   >
-        
-              
+                to={`/post-service-request/${preStepName}/${titleCheckBox}`}
+              >
                 {" "}
                 <button className="secondary_button">Précédent</button>{" "}
-             
               </Link>
             </div>
             <div>
-              <Link
-                to={`/post-service-request/${stepName}/${titleCheckBox}`}   >
-           
+              <Link to={`/post-service-request/${stepName}/${titleCheckBox}`}>
                 {" "}
                 <button className="main_button"> Suivant</button>{" "}
               </Link>
