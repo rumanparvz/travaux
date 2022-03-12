@@ -29,8 +29,10 @@ const RootTitlePost = () => {
       setError("Le code postal n'est pas valide");
     } else {
       console.log(postCode);
+
       dispatch(ProjectPostalCode({ postalCode: postCode }));
       navigate(`/post-service-request/${stepName}/${postText}`);
+    
     }
     e.preventDefault();
   };

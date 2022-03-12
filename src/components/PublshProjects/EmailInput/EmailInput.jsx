@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { serviceEmail } from "../../../redux/actions/ProjectsActions";
+import AllServicePostData from "../../../hooks/AllServicePostData";
 import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
@@ -14,7 +14,9 @@ const EmailInput = () => {
 
   const handleSubmit = ()=>{
 
-    dispatch(serviceEmail({email:emailText}))
+    // dispatch(serviceEmail({email:emailText}))
+   AllServicePostData({emails:emailText})
+
   }
   
   return (
