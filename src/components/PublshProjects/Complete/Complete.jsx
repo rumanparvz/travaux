@@ -2,11 +2,16 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import ProcessBar from "../../../utils/ProcessBar";
+import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 const Complete = () => {
-  const { complete ,} = useParams();
+  const { complete ,email} = useParams();
   
   const {service} = useSelector((state) => state) 
+// const {email}=useSelector()
+  const {stepName,singlePostData,length,preStepName,processStep}=ServiceSteps(complete,'email')
+
+  
 
 console.log(service);
 
@@ -14,7 +19,7 @@ console.log(service);
     <div>
       <NavBar />
       <div className="container pt-5 mb-5">
-        <h6 className="py-3">Étape 10 sur 10 </h6>
+        <h6 className="py-3">Étape {processStep +1} sur {length} </h6>
 
         <ProcessBar processStep={10} length={10} />
 

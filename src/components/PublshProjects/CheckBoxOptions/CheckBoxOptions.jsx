@@ -25,9 +25,9 @@ const CheckBoxOptions = () => {
         </h6>
         <ProcessBar processStep={processStep} length={length} />
         <h5 className="pt-4">{singlePostData[0].title}</h5>
-        <div className="check_Box row ">
+        <div className="check_Box row mb-5">
           {singlePostData[0].options.map(({ svg, name, id }) => (
-            <div className="col-md-4 pt-3 mb-5" key={id}>
+            <div className="col-md-4 col-sm-6  pt-3 mb-5" key={id}>
               <Card className="pt-4 ">
                 <label
                   for={id}
@@ -47,7 +47,7 @@ const CheckBoxOptions = () => {
                     <Card.Img
                       variant="top"
                       src={svg}
-                      style={{ width: "50px",height:'80px' }}
+                      style={{ width: "90px",height:'70px' }}
                       className="text-center"
                     />
                   </div>
@@ -60,7 +60,11 @@ const CheckBoxOptions = () => {
           ))}
           <div className="checkBox_button d-flex justify-content-between align-items-center">
             <div>
-              <Link to={`/post-service-request/${checkBox}`}>
+              <Link
+              
+              to={`/post-service-request/${checkBox}`}
+              
+              >
                 <button className="secondary_button">Précédent</button>{" "}
               </Link>
             </div>

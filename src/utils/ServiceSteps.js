@@ -15,8 +15,8 @@ const ServiceSteps = (params, type) => {
   const array1 = postData[0].steps;
   const iterator = array1.values();
   let indexCount;
-
   const processStep= index +1
+
   for (const value of iterator) {
     if (value.type === type) {
       indexCount = array1.indexOf(value);

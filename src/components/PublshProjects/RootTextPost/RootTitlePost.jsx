@@ -15,8 +15,8 @@ const RootTitlePost = () => {
   const [postCode, setPostCode] = useState(null);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
+ console.log(processStep,length);
  
-
   const data = [
     {  Icon: FaRegEdit,  title: "Publiez votre projet gratuitement et sans engagement",},
     { Icon: FaUserFriends, title: "42 200 artisans qualifiés" },

@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import DoubleCheckBox from "../components/PublshProjects/DoubleCheckBox/DoubleCheckBox";
+import InputAndRadioBox from "../components/PublshProjects/InputAndRadioBox/InputAndRadioBox";
 import MultiPulCheckBox from "../components/PublshProjects/MultiPulCheckBok/MultiPulCheckBox";
 import RadioSErviceOption from "../components/PublshProjects/RadioServiceOption/RadioSErviceOption";
 import { serviceData } from "../data/ServiceData";
@@ -20,13 +22,18 @@ const Routers = () => {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/post-service-request/:postText" element={<RootTextPostPage  />}></Route>
         <Route path="/post-service-request/checkBox/:checkBox" element={<CheckBoxOptionPage />}></Route>
+        <Route path="/post-service-request/doubleCheckBox/:doubleCheckBox" element={<DoubleCheckBox />}></Route>
         <Route path="/post-service-request/multipleCheckBox/:multipleCheckBox" element={<MultiPulCheckBox />}></Route>
         <Route path="/post-service-request/moreMultipleCheckBox/:moreMultipleCheckBox" element={<OptionalMultiCheckBox />}></Route>
         <Route path="/post-service-request/optionsBox/:optionsBox" element={<RadioSErviceOption/>}></Route>
+        <Route path="/post-service-request/inputAndRadio/:inputAndRadio" element={<InputAndRadioBox/>}></Route>
         <Route path="/post-service-request/titleCheckBox/:titleCheckBox" element={<CombinedTitleCheckBokPage />}></Route>
         <Route path="/post-service-request/uploadImage/:uploadImage" element={<UploadImagePage />}></Route>
         <Route path="/post-service-request/comment/:comment" element={<CommentTextPage />}></Route>
         <Route path="/post-service-request/email/:email" element={<EmailPage />}></Route>
+        <Route path="/post-service-request/complete/:complete" element={<CompletePages />}></Route>
+        <Route path="/post-service-request/complete/:complete" element={<CompletePages />}></Route>
+        <Route path="/post-service-request/complete/:complete" element={<CompletePages />}></Route>
         <Route path="/post-service-request/complete/:complete" element={<CompletePages />}></Route>
       </Routes>
     </div>

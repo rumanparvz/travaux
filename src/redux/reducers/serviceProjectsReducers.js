@@ -7,9 +7,12 @@ const initialState = {
   moreMultipleOptionalCheckbox: [],
   serviceOptionsBox: {},
   serviceTitleBox: {},
+  inputRadio: {},
   image: {},
   comment: {},
+  doubleRadioOptionBox:{},
   email: {},
+  
 };
 
 const serviceProjectsReducers = (state = initialState, action) => {
@@ -40,6 +43,12 @@ const serviceProjectsReducers = (state = initialState, action) => {
       
     case actionTypes.ADD_SERVICE_EMAIL:
       return { ...state, email: action.payLoad };
+
+      case actionTypes.ADD_INPUT_RADIO:
+        return { ...state, inputRadio: action.payLoad };
+
+        case actionTypes.ADD_DOUBLE_CHECKBOX:
+          return { ...state, doubleRadioOptionBox: action.payLoad };
 
     default:
       return state;

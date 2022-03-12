@@ -8,12 +8,11 @@ export const serviceData = [
         title:
           "Décrivez votre projet et échangez avec les artisans près de chez vous. ",
         type: "text",
-        stepNumber: 1,
-        path: "post-service-request/Fenetre_porte",
+    
       },
       {
         type: "checkBox",
-        stepNumber: 2,
+   
         title: "Quelle est la nature de vos travaux ?",
         options: [
           {
@@ -35,7 +34,7 @@ export const serviceData = [
       },
       {
         type: "multipleCheckBox",
-        stepNumber: 3,
+
         title:
           "Quel type de matériau souhaitez-vous pour vos fenêtres ? (facultatif)",
         options: [
@@ -73,7 +72,7 @@ export const serviceData = [
       },
       {
         type: "moreMultipleCheckBox",
-        stepNumber: 4,
+ 
         title: "Quel type de fenêtre souhaitez-vous ? (facultatif)",
         options: [
           {
@@ -125,7 +124,7 @@ export const serviceData = [
       },
       {
         type: "optionsBox",
-        stepNumber: 5,
+ 
         title: "Combien de fenêtres souhaitez-vous installer ? (facultatif) ",
         options: [
           {
@@ -149,9 +148,9 @@ export const serviceData = [
             check: 5,
           },
           {
-            id:6,
-            check:'Plus de 5'
-          }
+            id: 6,
+            check: "Plus de 5",
+          },
         ],
       },
       {
@@ -195,12 +194,11 @@ export const serviceData = [
       },
       {
         type: "email",
-        stepNumber: 9,
+
         title: "Comment nos artisans peuvent vous contacter ?   ",
       },
       {
         type: "complete",
-        stepNumber: 10,
         title: "Enregistrer un nouveau compte",
       },
     ],
@@ -212,139 +210,16 @@ export const serviceData = [
     path: "porte-d-entree-blindage-porte",
     steps: [
       {
-        title: "Décrivez votre projet et échangez avec les artisans près de chez vous. ",
+        title:
+          "Décrivez votre projet et échangez avec les artisans près de chez vous. ",
         type: "text",
         stepNumber: 1,
       },
-     
+
       {
         type: "checkBox",
         stepNumber: 2,
         title: "Quelle est la nature de vos travaux ? (facultatif)",
-        options: [
-          {
-            id: 1,
-            svg: "https://www.travaux.com/static/svg-icons/renovations.svg",
-            name: "Rénovation",
-          },
-          {
-            id: 2,
-            svg: "https://www.travaux.com/static/svg-icons/replacement.svg",
-            name: "Remplacement",
-          },{
-            id:3,
-            svg:'https://www.travaux.com/static/svg-icons/install.svg',
-            name:'Réparation'
-          }
-        ],
-      },
-      {
-        type: "multiCheckBok",
-        stepNumber: 3,
-        title:
-          "Quel type de matériau souhaitez-vous pour vos fenêtres ? (facultatif)",
-        options: [
-          {
-            id: 1,
-            svg: "https://www.travaux.com/static/svg-icons/aluminium.svg",
-            name: "Aluminium",
-          },
-          {
-            id: 2,
-            svg: "https://www.travaux.com/static/svg-icons/wood.svg",
-            name: "Bois",
-          },
-          {
-            id: 3,
-            svg: "https://www.travaux.com/static/svg-icons/pvc.svg",
-            name: "PVC",
-          },
-          {
-            id: 4,
-            svg: "https://www.travaux.com/static/svg-icons/iron.svg",
-            name: "Acier",
-          },
-          {
-            id: 5,
-            svg: "https://www.travaux.com/static/svg-icons/communication.svg",
-            name: "Matériau a définir",
-          },
-          {
-            id: 6,
-            svg: "https://www.travaux.com/static/svg-icons/more.svg",
-            name: "Autre",
-          },
-        ],
-      },
-
-      {
-        type: "combinedTitleCheckBok",
-        title:
-          "Quand souhaitez-vous que le travail soit terminé ? (facultatif) ",
-        stepNumber: 6,
-        options: [
-          {
-            id: 1,
-            name: "Urgent",
-          },
-          {
-            id: 2,
-            name: "Pas de date fixée",
-          },
-          {
-            id: 3,
-            name: "Dans moins de deux semaines",
-          },
-          {
-            id: 4,
-            name: 'Dans moins d"un m ',
-          },
-          {
-            id: 5,
-            name: "Dans moins de 6 mois",
-          },
-        ],
-      },
-      {
-        type: "uploadImage",
-        stepNumber: 7,
-        title: "Photos ou plans (facultatif)",
-      },
-      {
-        type: "comment",
-        stepNumber: 8,
-        title:
-          "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif",
-      },
-      {
-        type: "email",
-        stepNumber: 9,
-        title: "Comment nos artisans peuvent vous contacter ?   ",
-      },
-      {
-        type: "complete",
-        stepNumber: 10,
-        title: "Enregistrer un nouveau compte",
-      },
-    ],
-  },
-  // 3rd
-  {
-    name: "petits travaux de maçonnerie",
-    id: 3,
-    path: "petits-travaux-de-maconnerie",
-    steps: [
-      {
-        title:
-          "Décrivez votre projet et échangez avec les artisans près de chez vous.",
-        type: "text",
-        stepNumber: 1,
-        // path: "post-service-request/Fenetre_porte",
-      },
-      {
-        type: "checkBoxOptions",
-        stepNumber: 2,
-        title: "Quelle est la nature de vos travaux ? ",
         options: [
           {
             id: 1,
@@ -364,10 +239,10 @@ export const serviceData = [
         ],
       },
       {
-        type: "multiCheckBok",
+        type: "moreMultipleCheckBox",
         stepNumber: 3,
         title:
-          "Dans quelle(s) pièce(s) souhaitez-vous réaliser vos travaux ? (facultatif)          ",
+          "Dans quelle(s) pièce(s) souhaitez-vous réaliser vos travaux ? (facultatif) ",
         options: [
           {
             id: 1,
@@ -412,21 +287,22 @@ export const serviceData = [
           {
             id: 9,
             svg: "https://www.travaux.com/static/svg-icons/more.svg",
-            name: "Sous-sol",
+            name: "Autre",
           },
         ],
       },
+
       {
         type: "uploadImage",
         stepNumber: 7,
         title: "Photos ou plans (facultatif)",
       },
-      // {
-      //   type: "comment",
-      //   stepNumber: 8,
-      //   title:
-      //     "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif",
-      // },
+      {
+        type: "comment",
+        stepNumber: 8,
+        title:
+          "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif",
+      },
       {
         type: "email",
         stepNumber: 9,
@@ -439,4 +315,335 @@ export const serviceData = [
       },
     ],
   },
+  // 3rd
+
+  {
+    name: "escaliers",
+    path: "escaliers",
+    id:3,
+    steps: [
+      {
+        title:
+          "Décrivez votre projet et échangez avec les artisans près de chez vous. ",
+        type: "text",
+      },
+
+      {
+        type: "checkBox",
+        title:
+          "Quelle est la nature de vos travaux ? (facultatif)",
+        options: [
+          {
+            id: 1,
+            svg: "https://www.travaux.com/static/svg-icons/renovations.svg",
+            name: "Rénovation",
+          },
+          {
+            id: 2,
+            svg: "https://www.travaux.com/static/svg-icons/install.svg",
+            name: "Installation neuve",
+          },
+          {
+            id: 3,
+            svg: "https://www.travaux.com/static/svg-icons/more.svg",
+            name: "Autre",
+          },
+          {
+            id: 4,
+            svg: "https://www.travaux.com/static/svg-icons/kitchen.svg",
+            name: "La cuisine",
+          },
+          {
+            id: 5,
+            svg: "https://www.travaux.com/static/svg-icons/attic.svg",
+            name: "Combles",
+          },
+          {
+            id: 6,
+            svg: "https://www.travaux.com/static/svg-icons/basement.svg",
+            name: "Sous-sol",
+          },
+          {
+            id: 7,
+            svg: "https://www.travaux.com/static/svg-icons/garage.svg",
+            name: "Garage ou cabanon",
+          },
+          {
+            id: 8,
+            svg: "https://www.travaux.com/static/svg-icons/publicPark.svg",
+            name: "Extérieur",
+          },
+          {
+            id: 9,
+            svg: "https://www.travaux.com/static/svg-icons/more.svg",
+            name: "Autre",
+          },
+        ],
+      },
+      {
+        type: "multipleCheckBox",
+        title: "Pour quel type de bâtiment ? (facultatif)  ",
+        options: [
+          {
+            id: 1,
+            svg: "https://www.travaux.com/static/svg-icons/apartmentBuilding.svg",
+            name: "Appartement",
+          },
+          {
+            id: 2,
+            svg: "https://www.travaux.com/static/svg-icons/standaloneHouse.svg",
+            name: "Maison individuelle",
+          },
+          {
+            id: 3,
+            svg: "https://www.travaux.com/static/svg-icons/commercialBuilding.svg",
+            name: "Bureau",
+          },
+          {
+            id: 4,
+            svg: "https://www.travaux.com/static/svg-icons/house1Level.svg",
+            name: "Commerce",
+          },
+          {
+            id: 5,
+            svg: "https://www.travaux.com/static/svg-icons/farmHouse.svg",
+            name: "Immeuble",
+          },
+          {
+            id: 6,
+            svg: "https://www.travaux.com/static/svg-icons/industrialBuilding.svg",
+            name: "Local industriel",
+          },
+          {
+            id: 7,
+            svg: "https://www.travaux.com/static/svg-icons/industrialBuilding.svg",
+            name: "Usine",
+          },
+          {
+            id: 8,
+            svg: "https://www.travaux.com/static/svg-icons/hotel.svg",
+            name: "Hôtel",
+          },
+          {
+            id: 9,
+            svg: "https://www.travaux.com/static/svg-icons/more.svg",
+            name: "Autre",
+          },
+        ],
+      },
+      {
+        type:'inputAndRadio',
+        inputTItle:"Quelle est la hauteur de l'escalier à créer en centimètres ? (facultatif) ",
+        subTItle:"Votre estimation aidera l'artisan à vous faire un devis pour votre projet. ",
+        checkBoxTitle:"Où souhaitez-vous installer l'escalier ? ",
+        options: [
+          {
+            id: 1,
+            name: "Pour l'intérieur",
+          },
+          {
+            id: 2,
+            name: "Pour l'extérieur",
+          },
+    
+        ],
+
+      },
+      {
+        type: "moreMultipleCheckBox",
+ 
+        title: "Quel type d'escalier souhaitez-vous ? (facultatif) ",
+        options: [
+          {
+            id: 1,
+            svg: "https://www.travaux.com/static/svg-icons/wood.svg",
+            name: "Bois",
+          },
+          {
+            id: 2,
+            svg: "https://www.travaux.com/static/svg-icons/concrete.svg",
+            name: "Béton",
+          },
+          {
+            id: 3,
+            svg: "https://www.travaux.com/static/svg-icons/iron.svg",
+            name: "Aluminium ou métal",
+          },
+          {
+            id: 4,
+            svg: "https://www.travaux.com/static/svg-icons/marble.svg",
+            name: "Marbre",
+          },
+          {
+            id: 5,
+            svg: "https://www.travaux.com/static/svg-icons/stone.svg",
+            name: "En pierre",
+          },
+          {
+            id: 6,
+            svg: "https://www.travaux.com/static/svg-icons/communication.svg",
+            name: "Matériau a définir",
+          },
+          {
+            id: 7,
+            svg: "https://www.travaux.com/static/svg-icons/more.svg",
+            name: "Autre",
+          }
+        ],
+      },
+      {
+        type: "doubleCheckBox",
+   
+        title: "Quelle est la nature de vos travaux ?",
+        options: [
+          {
+            id: 1,
+            svg: "https://www.travaux.com/static/svg-icons/windowFrame.svg",
+            name: "Installation neuve",
+          },
+          {
+            id: 2,
+            svg: "https://www.travaux.com/static/svg-icons/replacement.svg",
+            name: "Remplacement",
+          },
+          {
+            id: 3,
+            svg: "https://www.travaux.com/static/svg-icons/install.svg",
+            name: "Réparation",
+          },
+        ],
+      },
+      {
+        type: "titleCheckBox",
+        title:
+          "Quand souhaitez-vous que le travail soit terminé ? (facultatif)",
+        stepNumber: 6,
+        options: [
+          {
+            id: 1,
+            name: "Urgent",
+          },
+          {
+            id: 2,
+            name: "Pas de date fixée",
+          },
+          {
+            id: 3,
+            name: "Dans moins de deux semaines",
+          },
+          {
+            id: 4,
+            name: 'Dans moins d"un m ',
+          },
+          {
+            id: 5,
+            name: "Dans moins de 6 mois",
+          },
+        ],
+      },
+      {
+        type: "uploadImage",
+        stepNumber: 7,
+        title: "Photos ou plans (facultatif)",
+      },
+      {
+        type: "comment",
+        title:
+          "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif)",
+      },
+      
+      {
+        type: "email",
+        title: "Comment nos artisans peuvent vous contacter ?   ",
+      },
+      {
+        type: "complete",
+        title: "Enregistrer un nouveau compte",
+      },
+    ],
+  },
+  // four 
+  {
+    name:'Sciage et carottage (ouverture dans un mur)',
+    path:'sciage-et-carottage',
+    id:4,
+    steps: [
+      {
+        title:
+          "Décrivez votre projet et échangez avec les artisans près de chez vous. ",
+        type: "text",
+    
+      },
+      {
+        type: "checkBox",
+   
+        title: "De quelle prestation avez-vous besoin ? (facultatif) ",
+        options: [
+          {
+            id: 1,
+            svg: "https://www.travaux.com/static/svg-icons/drill.svg",
+            name: "Carottage (perçage)",
+          },
+          {
+            id: 2,
+            svg: "https://www.travaux.com/static/svg-icons/saw.svg",
+            name: "Sciage",
+          },
+       
+        ],
+      },
+      {
+        type:'inputAndRadio',
+        inputTItle:"Quelle est la hauteur de l'escalier à créer en centimètres ? (facultatif) ",
+        subTItle:"Votre estimation aidera l'artisan à vous faire un devis pour votre projet. ",
+
+      },
+
+      {
+        type: "titleCheckBox",
+        title:
+          "Quel type de matériau souhaitez-vous pour vos fenêtres ? (facultatif) ",
+        options: [
+          {
+            id: 1,
+            name: "Mur porteur",
+          },
+          {
+            id: 2,
+            name: "Mur non porteur",
+          },
+          {
+            id: 3,
+            name: "Les deux ",
+          },
+          {
+            id: 4,
+            name: 'Je ne sais pas ',
+          },
+
+        ],
+      },
+      {
+        type: "uploadImage",
+        title: "Photos ou plans (facultatif)",
+      },
+      {
+        type: "comment",
+        stepNumber: 8,
+        title:
+          "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif)",
+      },
+      {
+        type: "email",
+
+        title: "Comment nos artisans peuvent vous contacter ?   ",
+      },
+      {
+        type: "complete",
+        title: "Enregistrer un nouveau compte",
+      },
+    ]
+
+  }
 ];
+// tarak129@

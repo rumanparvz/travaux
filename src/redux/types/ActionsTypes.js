@@ -8,4 +8,6 @@ export const actionTypes = {
   ADD_SERVICE_IMAGE: "add_image",
   ADD_SERVICE_COMMENT: "add_COMMENT",
   ADD_SERVICE_EMAIL: "add_EMAIL",
+  ADD_INPUT_RADIO: "add_input_radio",
+  ADD_DOUBLE_CHECKBOX: "add_doubleCheckbox",
 };

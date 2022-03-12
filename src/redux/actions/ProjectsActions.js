@@ -66,6 +66,20 @@ const serviceEmail = (serviceImage)=>{
 }
 
 
+const serviceInputRadio = (inputAndRadio)=>{
+  return{
+    type:actionTypes.ADD_INPUT_RADIO,
+    payLoad:inputAndRadio
+  }
+}
 
-export { ProjectPostalCode, serviceTypeCheckBox, serviceMultiPleProjectCheckBox, moreServicesMultiPleCheckBox, serviceOptionsBox, serviceTitleOptionBox, serviceImageUpload, serviceComment, serviceEmail };
+const serviceDoubleCheckBox = (doubleCheckBox)=>{
+
+  return {
+    type:actionTypes.ADD_DOUBLE_CHECKBOX,
+    payLoad:doubleCheckBox
+  }
+}
+
+export { ProjectPostalCode, serviceTypeCheckBox, serviceMultiPleProjectCheckBox, moreServicesMultiPleCheckBox, serviceOptionsBox, serviceTitleOptionBox, serviceImageUpload, serviceComment, serviceEmail, serviceInputRadio, serviceDoubleCheckBox };
 
