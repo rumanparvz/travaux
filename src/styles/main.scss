@@ -1,4 +1,5 @@
 @import './global/global';
+@import './abstract/variable';
 @import './overides/bootstrap';
 @import './global/reset';
 @import './components/common/navbar';
@@ -9,3 +10,8 @@
 @import './components/common/footer';
 @import './components/publishProjects/rootTitle';
 @import './components/publishProjects/uploadImage';
+@import './components/serviceCartDetails/header';
+@import './components/serviceCartDetails/headerParent.scss';
+@import './components/serviceCartDetails/detailsCart.scss';
+@import './components/serviceCartDetails/findCraftMan.scss';
+@import './components/serviceCartDetails/moreServices.scss';

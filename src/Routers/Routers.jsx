@@ -12,6 +12,8 @@ import EmailPage from "../pages/PublishServices/EmailPage";
 import OptionalMultiCheckBox from "../pages/PublishServices/OptionalMultiCheckBox";
 import RootTextPostPage from "../pages/PublishServices/RootTextPostPage";
 import UploadImagePage from "../pages/PublishServices/UploadImagePage";
+import FenetrePortePage from "../pages/ServiceCartDetails/FenetrePortePage";
+import PlomberiePage from "../pages/ServiceCartDetails/PlomberiePage";
 const Routers = () => {
   console.log(serviceData);
   return (
@@ -28,6 +30,8 @@ const Routers = () => {
         <Route path="/post-service-request/comment/:comment" element={<CommentTextPage />}></Route>
         <Route path="/post-service-request/email/:email" element={<EmailPage />}></Route>
         <Route path="/post-service-request/complete/:complete" element={<CompletePages />}></Route>
+        <Route path="/plomberie" element={<PlomberiePage />}></Route>
+        <Route path="/fenetre-porte" element={<FenetrePortePage />}></Route>
       </Routes>
     </div>
   );

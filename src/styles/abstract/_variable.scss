@@ -1,6 +1,123 @@
-$primary: #fdd670;
-$secondary: #fa343b;
+$primary: #3f27ba;
+$secondary: #6f6f6f;
 $buttonColor: #e04f54;
 $white: #ffffff;
 $black: #221a06;
 $light: #f7f8fa;
+$headerBgLight: #f9f8f6;
+
+// margin top
+.mt-30 {
+  margin-top: 30px;
+}
+.mt-35 {
+  margin-top: 35px;
+}
+.mt-55 {
+  margin-top: 55px;
+}
+.mt-65{
+  margin-top: 65px;
+}
+.mt-100 {
+  margin-top: 100px;
+}
+.mt-145 {
+  margin-top: 145px;
+}
+// margin bottom
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mb-15 {
+  margin-bottom: 15px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mb-25 {
+  margin-bottom: 25px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+.mb-40 {
+  margin-bottom: 40px;
+}
+.mb-50 {
+  margin-bottom: 50px;
+}
+.mb-60 {
+  margin-bottom: 60px;
+}
+.mb-70 {
+  margin-bottom: 70px;
+}
+.mb-80 {
+  margin-bottom: 80px;
+}
+.mb-145 {
+  margin-bottom: 145px;
+}
+.mb-100 {
+  margin-bottom: 100px;
+}
+.pt-90 {
+  padding-top: 90px;
+}
+
+.lightBgColor {
+  background-color: #f9f8f6;
+}
+
+// height
+.h-600 {
+  height: 650px;
+}
+.h-650 {
+  height: 700px;
+}
+
+.buttonBg {
+  background: #3f27ba;
+    color: #fff;
+    padding: 15px 35px;
+    font-size: 15px !important;
+    font-weight: 700;
+    border-radius: 30px !important;
+    border: 1px solid transparent;
+    height: 55px;
+  &:focus {
+    outline: 2px solid #3f27ba !important;
+    outline-offset: 1.5px;
+  }
+}
+.borderBtnAlign {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  .buttonBorder {
+    background: transparent;
+    color: #3f27ba;
+    border: 1px solid #3f27ba;
+    padding: 15px 45px;
+    font-size: 15px !important;
+    font-weight: 400;
+    border-radius: 30px !important;
+    transition: 0.5s;
+    &:hover {
+      background-color: #3f27ba;
+      color: #fff;
+    }
+  }
+}
+
+.box-shadow {
+  box-shadow: 5px 1px 10px -1px #808080b3;
+    background-color: #fff;
+}
+.compoTitle{
+  color: #2c2c2c;
+    font-size: 30px;
+    font-weight: 700;
+}

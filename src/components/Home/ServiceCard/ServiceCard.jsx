@@ -15,7 +15,7 @@ const ServiceCard = () => {
         "Vous voulez en savoir plus sur les travaux de plomberie ? Grâce à nos articles, nous pouvons vous donner",
       linkTitle: "Toutes les informations sur plomberie",
       img: plumbing,
-      path: "/",
+      path: "/plomberie",
       subDescription: {
         title: "6244 plombiers ",
         linkTitle: "Toutes les informations sur plomberie",
@@ -34,7 +34,7 @@ const ServiceCard = () => {
         "Vous voulez en savoir plus sur les travaux de plomberie ? Grâce à nos articles, nous pouvons vous donner",
       linkTitle: "Toutes les informations sur plomberie",
       img: window,
-      path: "/",
+      path: "/fenetre-porte",
       subDescription: {
         title: "6244 plombiers ",
         linkTitle: "Toutes les informations sur plomberie",
@@ -92,7 +92,7 @@ const ServiceCard = () => {
               <div className="content">
                 <p className="text-secondary">Trouvez les bons artisans :</p>
                 <p><span style={{fontWidth:'600'}}>{subDescription.title}</span> en France</p>
-                <p className="linkTab" ><Link to={subDescription.path} className="text-primary"><AiOutlineArrowRight /> {subDescription.linkTitle}</Link></p>
+                <p className="linkTab" ><Link to={`/post-service-request/complete/${subDescription.path}`}className="text-primary"><AiOutlineArrowRight /> {subDescription.linkTitle}</Link></p>
               </div>
             </div>
           </div>

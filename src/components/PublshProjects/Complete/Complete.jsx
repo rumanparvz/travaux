@@ -8,7 +8,6 @@ const Complete = () => {
   
   const {service} = useSelector((state) => state) 
 
-console.log(service);
 
   return (
     <div>
