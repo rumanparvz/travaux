@@ -8,12 +8,11 @@ import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 const CheckBoxOptions = () => {
   const { checkBox } = useParams();
-
   const { stepName, singlePostData, length, preStepName ,processStep} = ServiceSteps( checkBox, "checkBox");
   const dispatch = useDispatch();
-
   const handleCheckBoxChange = (svg, name) => {
     dispatch(serviceTypeCheckBox({  svg, natureType: name }));
+  
   };
 
   return (
@@ -27,12 +26,13 @@ const CheckBoxOptions = () => {
         <h5 className="pt-4">{singlePostData[0].title}</h5>
         <div className="check_Box row mb-5">
           {singlePostData[0].options.map(({ svg, name, id }) => (
-            <div className="col-md-4 col-sm-6  pt-3 mb-5" key={id}>
-              <Card className="pt-4 ">
+            <div className="col-md-4 col-sm-6  pt-3 mb-5" key={id} >
+              <Card className="pt-4 " >
                 <label
                   for={id}
                   style={{ cursor: "pointer" }}
                   onClick={() => handleCheckBoxChange(svg, name)}
+                 
                 >
                   
                   <input
@@ -58,6 +58,7 @@ const CheckBoxOptions = () => {
               </Card>
             </div>
           ))}
+   
           <div className="checkBox_button d-flex justify-content-between align-items-center">
             <div>
               <Link

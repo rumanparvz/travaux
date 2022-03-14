@@ -12,6 +12,7 @@ const initialState = {
   comment: {},
   doubleRadioOptionBox:{},
   email: {},
+  doubleTitleRadio:{}
   
 };
 
@@ -49,6 +50,11 @@ const serviceProjectsReducers = (state = initialState, action) => {
 
         case actionTypes.ADD_DOUBLE_CHECKBOX:
           return { ...state, doubleRadioOptionBox: action.payLoad };
+
+          
+        case actionTypes.ADD_DOUBLE_TITLE_RADIO:
+          return { ...state, doubleTitleRadio: action.payLoad };
+
 
     default:
       return state;

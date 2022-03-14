@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import AllServicePostData from "../../../hooks/AllServicePostData";
+import { serviceComment } from "../../../redux/actions/ProjectsActions";
 import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
@@ -12,11 +12,12 @@ const CommentText = () => {
 const dispatch = useDispatch()
 
  const handleSubmit = ()=>{
-  // dispatch(serviceComment({comment:commentText}))
+  dispatch(serviceComment({comment:commentText}))
   // AllPostData('hmm')
-    AllServicePostData({comments:commentText})
 
  }
+
+
 
   return (
     <div>

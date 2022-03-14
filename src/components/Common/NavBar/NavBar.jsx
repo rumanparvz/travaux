@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
 const NavBar = () => {
@@ -52,7 +52,7 @@ const NavBar = () => {
             <Nav.Link href="#home">
               <h6 style={{color:isHomeNav? 'black':''}}>Publish a project</h6>
             </Nav.Link>
-            <Nav.Link href="#link">
+            <Nav.Link  as={Link} to='/connexion'>
               <h6 style={{color:isHomeNav? 'black':''}}>Connexion</h6>
             </Nav.Link>
             <Nav.Link href="#link" className="active register">

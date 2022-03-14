@@ -624,6 +624,240 @@ export const serviceData = [
         ],
       },
       {
+        type:'doubleTitleRadio',
+        title:'Quand souhaitez-vous que le travail soit terminé ? (facultatif)   ',
+        options: [
+          {
+            id: 1,
+            name: "Urgent",
+          },
+          {
+            id: 2,
+            name: "Pas de date fixée",
+          },
+          {
+            id: 3,
+            name: "Dans moins de deux semaines",
+          },
+          {
+            id: 4,
+            name: 'Dans moins d"un moins ',
+          },
+          {
+            id: 5,
+            name: 'Dans moins de 6 mois',
+          },
+
+        ],
+      },
+      {
+        type: "uploadImage",
+        title: "Photos ou plans (facultatif)",
+      },
+      {
+        type: "comment",
+        stepNumber: 8,
+        title:
+          "Souhaitez-vous ajouter des informations complémentaires concernant votre projet ? (facultatif)",
+      },
+      {
+        type: "email",
+
+        title: "Comment nos artisans peuvent vous contacter ?   ",
+      },
+      {
+        type: "complete",
+        title: "Enregistrer un nouveau compte",
+      },
+    ]
+
+  },
+  //FIVE
+  {
+    name:'Installation ou rénovation couverture/toiture',
+    path:'installation-renovation-couverture-toiture',
+    id:4,
+    steps: [
+      {
+        title:
+          "Décrivez votre projet et échangez avec les artisans près de chez vous.",
+        type: "text",
+    
+      },
+      {
+        type: "checkBox",
+   
+        title: "Quelle est la nature de vos travaux ? ",
+        options: [
+          {
+            id: 1,
+            svg: "https://www.travaux.com/static/svg-icons/renovations.svg",
+            name: "Installation neuve",
+          },
+          {
+            id: 2,
+            svg: "https://www.travaux.com/static/svg-icons/replacement.svg",
+            name: "Remplacement",
+          },
+          {
+            id:3,
+            svg:"https://www.travaux.com/static/svg-icons/install.svg",
+            name:'Réparation'
+          },
+          {
+            id: 4,
+            svg: "https://www.travaux.com/static/svg-icons/paintRoller.svg",
+            name: "Peinture ",
+          },
+          {
+            id: 5,
+            svg: "https://www.travaux.com/static/svg-icons/mop.svg",
+            name: "Nettoyage",
+          },
+          {
+            id:6,
+            svg:"https://www.travaux.com/static/svg-icons/helmet.svg",
+            name:'Traitement'
+          },
+          {
+            id:7,
+            svg:'https://www.travaux.com/static/svg-icons/more.svg',
+            name:"Autre"
+          }
+       
+        ],
+      },
+      {
+        type: "doubleCheckBox",
+        title: "Pour quel type de toit ? (facultatif) Pour quel type de bâtiment ? ",
+        options: [
+          {
+            id: 1,
+            svg: "https://www.travaux.com/static/svg-icons/house1Level.svg",
+            name: "Plat",
+          },
+          {
+            id: 2,
+            svg: "https://www.travaux.com/static/svg-icons/standaloneHouse.svg",
+            name: "Incliné",
+          },
+          {
+            id: 3,
+            svg: "https://www.travaux.com/static/svg-icons/communication.svg",
+            name: "A définir",
+          },
+          {
+            id: 4,
+            svg: "https://www.travaux.com/static/svg-icons/more.svg",
+            name: "Autre",
+          },
+
+
+        ],
+      },
+      {
+        type:'inputAndRadio',
+        inputTItle:"Quelle est la hauteur de l'escalier à créer en centimètres ? (facultatif) ",
+        subTItle:"Votre estimation aidera l'artisan à vous faire un devis pour votre projet. ",
+
+      },
+
+      {
+        type: "titleCheckBox",
+        title:
+          "Quel type de matériau souhaitez-vous pour vos fenêtres ? (facultatif) ",
+        options: [
+          {
+            id: 1,
+            name: "Mur porteur",
+          },
+          {
+            id: 2,
+            name: "Mur non porteur",
+          },
+          {
+            id: 3,
+            name: "Les deux ",
+          },
+          {
+            id: 4,
+            name: 'Je ne sais pas ',
+          },
+
+        ],
+      },
+      {
+        type:'doubleTitleRadio',
+        title:'Quand souhaitez-vous que le travail soit terminé ? (facultatif)   ',
+        options: [
+          {
+            id: 1,
+            name: "Urgent",
+          },
+          {
+            id: 2,
+            name: "Pas de date fixée",
+          },
+          {
+            id: 3,
+            name: "Dans moins de deux semaines",
+          },
+          {
+            id: 4,
+            name: 'Dans moins d"un moins ',
+          },
+          {
+            id: 5,
+            name: 'Dans moins de 6 mois',
+          },
+
+        ],
+      },
+      {
+        type: "titleCheckBox",
+        title:
+          "Quel type de couverture ? (facultatif) ",
+        options: [
+          {
+            id: 1,
+            name: "Tuiles",
+          },
+          {
+            id: 2,
+            name: "Zinc",
+          },
+          {
+            id: 3,
+            name: "Ardoise",
+          },
+          {
+            id: 4,
+            name: 'Chaume ',
+          },
+          {
+            id:5,
+            name:'Toiture terrasse'
+          },
+          {
+            id:6,
+            name:'Bardeau'
+          },
+          {
+            id:7,
+            name:'Acier'
+          },
+          {
+            id:8,
+            name:'A définir'
+          },
+          {
+            id:9,
+            name:'Autre'
+          }
+
+        ],
+      },
+      {
         type: "uploadImage",
         title: "Photos ou plans (facultatif)",
       },
