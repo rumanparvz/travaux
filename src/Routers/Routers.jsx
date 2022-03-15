@@ -16,7 +16,10 @@ import EmailPage from "../pages/PublishServices/EmailPage";
 import OptionalMultiCheckBox from "../pages/PublishServices/OptionalMultiCheckBox";
 import RootTextPostPage from "../pages/PublishServices/RootTextPostPage";
 import UploadImagePage from "../pages/PublishServices/UploadImagePage";
+<<<<<<< HEAD
 import RegisterPages from "../pages/Register/RegisterPages";
+=======
+>>>>>>> rajuahmmad
 import FenetrePortePage from "../pages/ServiceCartDetails/FenetrePortePage";
 import PlomberiePage from "../pages/ServiceCartDetails/PlomberiePage";
 const Routers = () => {
@@ -37,6 +40,7 @@ const Routers = () => {
         <Route path="/post-service-request/comment/:comment" element={<CommentTextPage />}></Route>
         <Route path="/post-service-request/email/:email" element={<EmailPage />}></Route>
         <Route path="/post-service-request/complete/:complete" element={<CompletePages />}></Route>
+<<<<<<< HEAD
         <Route path="/post-service-request/doubleTitleRadio/:doubleTitleRadio" element={<DoubleTitleCheckBox />}></Route>
 
 
@@ -45,6 +49,10 @@ const Routers = () => {
              {/* Login  */}
              <Route path="/connexion" element={<LoginPages />}></Route>
              <Route path="/professionnel/inscription/nouvelle" element={<RegisterPages />}></Route>
+=======
+        <Route path="/plomberie" element={<PlomberiePage />}></Route>
+        <Route path="/fenetre-porte" element={<FenetrePortePage />}></Route>
+>>>>>>> rajuahmmad
       </Routes>
 
     </div>
