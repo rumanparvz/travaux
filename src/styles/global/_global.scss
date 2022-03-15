@@ -48,3 +48,18 @@
     font-size: 20px;
     box-shadow: 10px 10px 10px #dde;
 }
+.primary_button{
+  padding: 10px 20px ;
+  background-color: #017acd;
+  transition: .3s;
+  border: none;
+  color: white;
+  padding: 18px 29px;
+  border-radius: 57px;
+
+
+  &:hover{
+    background-color: #01528a;
+    transition: .3s;
+  }
+}

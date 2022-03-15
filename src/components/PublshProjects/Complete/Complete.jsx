@@ -13,7 +13,6 @@ const Complete = () => {
 
   
 
-console.log(service);
 
   return (
     <div>

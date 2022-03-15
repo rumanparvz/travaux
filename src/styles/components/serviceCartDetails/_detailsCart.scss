@@ -1,0 +1,44 @@
+.details_cart {
+  cursor: pointer;
+  .details_caer_thamb {
+    border-radius: 8px;
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      transition: 1s;
+    }
+    .img_name {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      background: rgba(245, 240, 215, 0.8);
+      border-radius: 15px;
+      padding: 5px 12px;
+    }
+  }
+  a{
+    color: #330698;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  p{
+    color: #2c2c2c;
+    font-size: 15px;
+    margin-top: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+  &:hover {
+    .details_caer_thamb {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

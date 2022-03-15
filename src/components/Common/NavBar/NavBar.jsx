@@ -17,8 +17,7 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" className="nav_header" style={ {  borderBottom: isHomeNav ? '1px solid #ddd' : ''}}>
       <Container>
-        <Navbar.Brand href="/">
-          {" "}
+        <Navbar.Brand as={Link} to='/'>
           <svg
             aria-label="Travaux.com"
             data-testid="travauxLogo"
@@ -50,14 +49,16 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav navbar_items">
           <Nav className="ms-auto header_link d-flex justify-content-center align-items-center">
             <Nav.Link href="#home">
-              <h6 style={{color:isHomeNav? 'black':''}}>Publish a project</h6>
+              <h6 style={{color:isHomeNav? 'black':'',display: location.pathname ==='/professionnel/inscription/nouvelle'?'none':''}} 
+            >Publish a project</h6>
             </Nav.Link>
             <Nav.Link  as={Link} to='/connexion'>
               <h6 style={{color:isHomeNav? 'black':''}}>Connexion</h6>
             </Nav.Link>
-            <Nav.Link href="#link" className="active register">
+            <Nav.Link href="#link" className="active register" as={Link} to={location.pathname==='/professionnel/inscription/nouvelle'?'/': '/professionnel/inscription/nouvelle'}>
               {" "}
-              <button style={ {    backgroundColor: isHomeNav ? 'white' : '', color:isHomeNav ? 'black':''}}>S'inscrire en tant que professionnel</button>
+              <button style={ {    backgroundColor: isHomeNav ? 'white' : '', color:isHomeNav ? 'black':''}}>
+               {location.pathname ==="/professionnel/inscription/nouvelle" ? "Je suis un particulier" :"S'inscrire en tant que professionnel"}</button>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

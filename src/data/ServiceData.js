@@ -14,6 +14,8 @@ export const serviceData = [
         type: "checkBox",
    
         title: "Quelle est la nature de vos travaux ?",
+        stepNumber: 2,
+        title: "Quelle est la nature de vos travaux   ?",
         options: [
           {
             id: 1,

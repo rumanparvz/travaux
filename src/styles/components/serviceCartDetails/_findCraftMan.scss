@@ -1,0 +1,33 @@
+.find_crafts_man{
+    h4 {
+        font-weight: 700;
+        word-spacing: 3px;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    p {
+        margin-bottom: 40px;
+        font-size: 15px;
+    }
+    a{
+        span{
+            &:not(:last-child){
+                background: #E5CC50;
+                width: 20px;
+                height: 20px;
+                color: #3F27BA;
+                border-radius: 50px;
+                display: inline-block;
+                text-align: center;
+                line-height: 17px;
+                font-size: 14px;
+                margin-right: 12px;
+            }
+            &:not(:first-child){
+                color: #3F27BA;
+                font-weight: 600;
+                font-size: 15px;
+            }
+        }
+    }
+}

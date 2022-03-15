@@ -92,7 +92,7 @@ const ServiceCard = () => {
               <div className="content">
                 <p className="text-secondary">Trouvez les bons artisans :</p>
                 <p><span style={{fontWidth:'600'}}>{subDescription.title}</span> en France</p>
-                <p className="linkTab" ><Link to={subDescription.path} className="text-primary"><AiOutlineArrowRight /> {subDescription.linkTitle}</Link></p>
+                <p className="linkTab" ><Link to={`/post-service-request/complete/${subDescription.path}`}className="text-primary"><AiOutlineArrowRight /> {subDescription.linkTitle}</Link></p>
               </div>
             </div>
           </div>
