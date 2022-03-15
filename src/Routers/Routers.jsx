@@ -16,8 +16,12 @@ import EmailPage from "../pages/PublishServices/EmailPage";
 import OptionalMultiCheckBox from "../pages/PublishServices/OptionalMultiCheckBox";
 import RootTextPostPage from "../pages/PublishServices/RootTextPostPage";
 import UploadImagePage from "../pages/PublishServices/UploadImagePage";
+import CouvertureToiturePage from "../pages/ServiceCartDetails/CouvertureToiturePage";
 import FenetrePortePage from "../pages/ServiceCartDetails/FenetrePortePage";
+import PeinturePage from "../pages/ServiceCartDetails/PeinturePage";
+import PlatrePage from "../pages/ServiceCartDetails/PlatrePage";
 import PlomberiePage from "../pages/ServiceCartDetails/PlomberiePage";
+import SolsCarrelagePage from "../pages/ServiceCartDetails/SolsCarrelagePage";
 const Routers = () => {
   console.log(serviceData);
   return (
@@ -41,6 +45,10 @@ const Routers = () => {
         <Route path="/post-service-request/doubleTitleRadio/:doubleTitleRadio" element={<DoubleTitleCheckBox />}></Route>
         {/* Login  */}
         <Route path="/connexion" element={<LoginPages />}></Route>
+        <Route path="/couverture-toiture" element={<CouvertureToiturePage />}></Route>
+        <Route path="/peinture" element={<PeinturePage />}></Route>
+        <Route path="/platre" element={<PlatrePage />}></Route>
+        <Route path="/sols-carrelage" element={<SolsCarrelagePage />}></Route>
         
 
       </Routes>
