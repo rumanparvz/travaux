@@ -1,11 +1,16 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import DoubleCheckBox from "../components/PublshProjects/DoubleCheckBox/DoubleCheckBox";
+<<<<<<< HEAD
+=======
+import DoubleTitleCheckBox from "../components/PublshProjects/DoubleTitleCheckbox/DoubleTitleCheckBox";
+>>>>>>> noman_branch
 import InputAndRadioBox from "../components/PublshProjects/InputAndRadioBox/InputAndRadioBox";
 import MultiPulCheckBox from "../components/PublshProjects/MultiPulCheckBok/MultiPulCheckBox";
 import RadioSErviceOption from "../components/PublshProjects/RadioServiceOption/RadioSErviceOption";
 import { serviceData } from "../data/ServiceData";
 import HomePage from "../pages/Home/HomePage";
+import LoginPages from "../pages/LoginPages/LoginPages";
 import CheckBoxOptionPage from "../pages/PublishServices/CheckBoxOptionPage";
 import CombinedTitleCheckBokPage from "../pages/PublishServices/CombinedTitleCheckBokPage";
 import CommentTextPage from "../pages/PublishServices/CommentTextPage";
@@ -36,6 +41,11 @@ const Routers = () => {
         <Route path="/post-service-request/complete/:complete" element={<CompletePages />}></Route>
         <Route path="/plomberie" element={<PlomberiePage />}></Route>
         <Route path="/fenetre-porte" element={<FenetrePortePage />}></Route>
+        <Route path="/post-service-request/doubleTitleRadio/:doubleTitleRadio" element={<DoubleTitleCheckBox />}></Route>
+        {/* Login  */}
+        <Route path="/connexion" element={<LoginPages />}></Route>
+        
+
       </Routes>
     </div>
   );
