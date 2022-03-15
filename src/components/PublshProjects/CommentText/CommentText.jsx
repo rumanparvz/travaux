@@ -13,8 +13,11 @@ const dispatch = useDispatch()
 
  const handleSubmit = ()=>{
   dispatch(serviceComment({comment:commentText}))
+  // AllPostData('hmm')
 
  }
+
+
 
   return (
     <div>

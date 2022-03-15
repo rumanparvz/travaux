@@ -15,6 +15,8 @@ const EmailInput = () => {
   const handleSubmit = ()=>{
 
     dispatch(serviceEmail({email:emailText}))
+   
+
   }
   
   return (

@@ -36,7 +36,7 @@ const MultiPulCheckBox = () => {
   return (
     <div>
       <NavBar />
-      <div className="container pt-5">
+      <div className="container pt-5 mb-5">
         <h6 className="pt-2">Étape {processStep} sur  {length}</h6>
         <ProcessBar processStep={processStep} length={length} />
 
