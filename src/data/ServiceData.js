@@ -12,16 +12,9 @@ export const serviceData = [
       },
       {
         type: "checkBox",
-<<<<<<< HEAD
-<<<<<<< HEAD
         stepNumber: 2,
         title: "Quelle est la nature de vos travaux   ?",
-=======
-=======
->>>>>>> noman_branch
-   
         title: "Quelle est la nature de vos travaux ?",
->>>>>>> noman_branch
         options: [
           {
             id: 1,

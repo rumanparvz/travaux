@@ -1,10 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import DoubleCheckBox from "../components/PublshProjects/DoubleCheckBox/DoubleCheckBox";
-<<<<<<< HEAD
-=======
 import DoubleTitleCheckBox from "../components/PublshProjects/DoubleTitleCheckbox/DoubleTitleCheckBox";
->>>>>>> noman_branch
 import InputAndRadioBox from "../components/PublshProjects/InputAndRadioBox/InputAndRadioBox";
 import MultiPulCheckBox from "../components/PublshProjects/MultiPulCheckBok/MultiPulCheckBox";
 import RadioSErviceOption from "../components/PublshProjects/RadioServiceOption/RadioSErviceOption";

@@ -1,12 +1,15 @@
 import React from 'react';
+import Footer from '../../components/Common/Footer/Footer';
 import DoorShield from '../../components/ServiceCartDetails/FenetrePorte/DoorShield/DoorShield';
 import FenetrePorteFindCraftsman from '../../components/ServiceCartDetails/FenetrePorte/FenetrePorteFindCraftsman/FenetrePorteFindCraftsman';
 import FenetrePorteHeader from '../../components/ServiceCartDetails/FenetrePorte/FenetrePorteHeader/FenetrePorteHeader';
 import GarageDoor from '../../components/ServiceCartDetails/FenetrePorte/GarageDoor/GarageDoor';
 import GardeCorps from '../../components/ServiceCartDetails/FenetrePorte/GardeCorps/GardeCorps';
+import MoreFenetrePorteServices from '../../components/ServiceCartDetails/FenetrePorte/MoreFenetrePorteServices/MoreFenetrePorteServices';
 import Portail from '../../components/ServiceCartDetails/FenetrePorte/Portail/Portail';
 import Veranda from '../../components/ServiceCartDetails/FenetrePorte/Veranda/Veranda';
 import Volet from '../../components/ServiceCartDetails/FenetrePorte/Volet/Volet';
+import VoletRoulant from '../../components/ServiceCartDetails/FenetrePorte/VoletRoulant/VoletRoulant';
 import WindowDoor from '../../components/ServiceCartDetails/FenetrePorte/WindowDoor/WindowDoor';
 const FenetrePortePage = () => {
     return (
@@ -20,6 +23,9 @@ const FenetrePortePage = () => {
             <Volet />
             <Portail />
             <GardeCorps />
+            <VoletRoulant />
+            <MoreFenetrePorteServices />
+            <Footer />
         </div>
     );
 };

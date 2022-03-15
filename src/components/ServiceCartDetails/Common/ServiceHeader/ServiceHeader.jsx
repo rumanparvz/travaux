@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../../../Common/NavBar/NavBar";
 
-const Header = ({ data }) => {
+const ServiceHeader = ({ data }) => {
   return (
     <div className="service_cart_details_header">
       <NavBar />
@@ -15,4 +15,4 @@ const Header = ({ data }) => {
   );
 };
 
-export default Header;
+export default ServiceHeader;

@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from '../../Common/Header/Header'
+import ServiceHeader from '../ServiceHeader/ServiceHeader'
 const HeaderParent = ({data}) => {
     return (
         <div className="header_parent">
-            <Header data={data} />
+            <ServiceHeader data={data} />
         </div>
     );
 };
