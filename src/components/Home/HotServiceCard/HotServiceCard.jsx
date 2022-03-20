@@ -15,7 +15,7 @@ const HotServiceCard = () => {
         "Vous voulez en savoir plus sur les travaux de plomberie ? Grâce à nos articles, nous pouvons vous donner",
       linkTitle: "Toutes les informations sur plomberie",
       img: plumbing,
-      path: "/",
+      path: "/peinture",
       subDescription: {
         title: "6244 plombiers ",
         linkTitle: "Toutes les informations sur plomberie",
@@ -34,7 +34,7 @@ const HotServiceCard = () => {
         "Vous voulez en savoir plus sur les travaux de plomberie ? Grâce à nos articles, nous pouvons vous donner",
       linkTitle: "Toutes les informations sur plomberie",
       img: window,
-      path: "/",
+      path: "/platre",
       subDescription: {
         title: "6244 plombiers ",
         linkTitle: "Toutes les informations sur plomberie",
@@ -53,7 +53,7 @@ const HotServiceCard = () => {
         "Vous voulez en savoir plus sur les travaux de plomberie ? Grâce à nos articles, nous pouvons vous donner",
       linkTitle: "Toutes les informations sur plomberie",
       img: door,
-      path: "/",
+      path: "/sols-carrelage",
       subDescription: {
         title: "6244 plombiers ",
         linkTitle: "Toutes les informations sur plomberie",

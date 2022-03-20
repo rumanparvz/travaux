@@ -32,7 +32,7 @@ const Veranda = () => {
     },
   ];
   return (
-    <div className="h-650 box-shadow mt-100">
+    <div className="h-650 box-shadow mt-30">
       <div className="container  d-flex align-items-center pt-90 mb-80">
         <h3 className="me-5 compoTitle">Véranda</h3>
         <button className="buttonBg">Publiez votre projet gratuitement</button>

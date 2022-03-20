@@ -16,10 +16,20 @@ import EmailPage from "../pages/PublishServices/EmailPage";
 import OptionalMultiCheckBox from "../pages/PublishServices/OptionalMultiCheckBox";
 import RootTextPostPage from "../pages/PublishServices/RootTextPostPage";
 import UploadImagePage from "../pages/PublishServices/UploadImagePage";
+<<<<<<< HEAD
 import RegisterPages from "../pages/Register/RegisterPages";
+=======
+import CouvertureToiturePage from "../pages/ServiceCartDetails/CouvertureToiturePage";
+>>>>>>> rajuahmmad
 import FenetrePortePage from "../pages/ServiceCartDetails/FenetrePortePage";
+import PeinturePage from "../pages/ServiceCartDetails/PeinturePage";
+import PlatrePage from "../pages/ServiceCartDetails/PlatrePage";
 import PlomberiePage from "../pages/ServiceCartDetails/PlomberiePage";
+<<<<<<< HEAD
 
+=======
+import SolsCarrelagePage from "../pages/ServiceCartDetails/SolsCarrelagePage";
+>>>>>>> rajuahmmad
 const Routers = () => {
   console.log(serviceData);
   return (
@@ -38,6 +48,7 @@ const Routers = () => {
         <Route path="/post-service-request/comment/:comment" element={<CommentTextPage />}></Route>
         <Route path="/post-service-request/email/:email" element={<EmailPage />}></Route>
         <Route path="/post-service-request/complete/:complete" element={<CompletePages />}></Route>
+<<<<<<< HEAD
 
         <Route path="/post-service-request/doubleTitleRadio/:doubleTitleRadio" element={<DoubleTitleCheckBox />}></Route>
 
@@ -53,6 +64,19 @@ const Routers = () => {
 
         <Route path="/plomberie" element={<PlomberiePage />}></Route>
         <Route path="/fenetre-porte" element={<FenetrePortePage />}></Route>
+=======
+        <Route path="/plomberie" element={<PlomberiePage />}></Route>
+        <Route path="/fenetre-porte" element={<FenetrePortePage />}></Route>
+        <Route path="/post-service-request/doubleTitleRadio/:doubleTitleRadio" element={<DoubleTitleCheckBox />}></Route>
+        {/* Login  */}
+        <Route path="/connexion" element={<LoginPages />}></Route>
+        <Route path="/couverture-toiture" element={<CouvertureToiturePage />}></Route>
+        <Route path="/peinture" element={<PeinturePage />}></Route>
+        <Route path="/platre" element={<PlatrePage />}></Route>
+        <Route path="/sols-carrelage" element={<SolsCarrelagePage />}></Route>
+        
+
+>>>>>>> rajuahmmad
       </Routes>
 
     </div>
