@@ -3,8 +3,8 @@ import { Card } from "react-bootstrap";
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { Link } from "react-router-dom";
 import plumbing from "../../../assets/images/tc-21-600w.avif";
-import window from "../../../assets/images/tc-22-600w.avif";
-import door from "../../../assets/images/tc-25-600w.avif";
+import door from "../../../assets/images/tc-22-600w.avif";
+import window from "../../../assets/images/tc-25-600w.avif";
 const ServiceCard = () => {
   const serviceData = [
     {
@@ -15,7 +15,7 @@ const ServiceCard = () => {
         "Vous voulez en savoir plus sur les travaux de plomberie ? Grâce à nos articles, nous pouvons vous donner",
       linkTitle: "Toutes les informations sur plomberie",
       img: plumbing,
-      path: "/plomberie",
+      path: "plomberie",
       subDescription: {
         title: "6244 plombiers ",
         linkTitle: "Toutes les informations sur plomberie",
@@ -34,7 +34,7 @@ const ServiceCard = () => {
         "Vous voulez en savoir plus sur les travaux de plomberie ? Grâce à nos articles, nous pouvons vous donner",
       linkTitle: "Toutes les informations sur plomberie",
       img: window,
-      path: "/fenetre-porte",
+      path: "fenetre-porte",
       subDescription: {
         title: "6244 plombiers ",
         linkTitle: "Toutes les informations sur plomberie",
@@ -48,12 +48,12 @@ const ServiceCard = () => {
     {
       id: 3,
       serviceTitle: "Couverture-Toiture",
-      icon: "https://www.travaux.com/static/svg-icons/roofing.svg",
+      icon: "https://www.travaux.com/static/svg-icons/roofing.svg  ",
       description:
         "Vous voulez en savoir plus sur les travaux de plomberie ? Grâce à nos articles, nous pouvons vous donner",
       linkTitle: "Toutes les informations sur plomberie",
       img: door,
-      path: "/couverture-toiture",
+      path: "couverture-toiture",
       subDescription: {
         title: "6244 plombiers ",
         linkTitle: "Toutes les informations sur plomberie",
@@ -77,7 +77,7 @@ const ServiceCard = () => {
               <Card.Body>
                 <Card.Title> <img src={icon} alt="" style={{width:'30px'}}/> {serviceTitle}</Card.Title>
                 <Card.Text className="text-secondary">{description}</Card.Text>
-                <p className="linkTab" ><Link to={path} className="text-primary"><AiOutlineArrowRight /> {linkTitle}</Link></p>
+                <p className="linkTab" ><Link to={`/${path}`} className="text-primary"><AiOutlineArrowRight /> {linkTitle}</Link></p>
               </Card.Body>
             </div>
             <div className="card_footer d-flex justify-content-center align-items-center gap-3">

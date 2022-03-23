@@ -1,32 +1,32 @@
 import React from 'react';
-// import MorePlumbingServices from '../../components/ServiceCartDetails/Common/MorePlumbingServices/MorePlumbingServices';
-import GreaseTrap from '../../components/ServiceCartDetails/Plomberie/GreaseTrap/GreaseTrap';
-import InstallationWhirlpoolBath from '../../components/ServiceCartDetails/Plomberie/InstallationWhirlpoolBath/InstallationWhirlpoolBath';
-import MiniStation from '../../components/ServiceCartDetails/Plomberie/MiniStation/MiniStation';
-import MorePlumbingServices from '../../components/ServiceCartDetails/Plomberie/MorePlumbingServices/MorePlumbingServices';
-import PlomberieFindCraftsman from '../../components/ServiceCartDetails/Plomberie/PlomberieFindCraftsman/PlomberieFindCraftsman';
-import PlomberieHeader from '../../components/ServiceCartDetails/Plomberie/PlomberieHeader/PlomberieHeader';
-import Plumbing from '../../components/ServiceCartDetails/Plomberie/Plumbing/Plumbing';
-import SepticTank from '../../components/ServiceCartDetails/Plomberie/SepticTank/SepticTank';
-import SmallPlumbingJobs from '../../components/ServiceCartDetails/Plomberie/SmallPlumbingJobs/SmallPlumbingJobs';
-import WaterHeater from '../../components/ServiceCartDetails/Plomberie/WaterHeater/WaterHeater';
-import WaterSoftener from '../../components/ServiceCartDetails/Plomberie/WaterSoftener/WaterSoftener';
 import Footer from '../../components/Common/Footer/Footer';
-
+import NavBar from '../../components/Common/NavBar/NavBar';
+import Adoucisseur from '../../components/ServiceCartDetails/Plomberie/DetailsCard/Adoucisseur';
+import Baignoire from '../../components/ServiceCartDetails/Plomberie/DetailsCard/Baignoire';
+import Chauffeeau from '../../components/ServiceCartDetails/Plomberie/DetailsCard/Chauffeeau';
+import Fosse from '../../components/ServiceCartDetails/Plomberie/DetailsCard/Fosse';
+import MiniStation from '../../components/ServiceCartDetails/Plomberie/DetailsCard/MiniStation';
+import Petits from '../../components/ServiceCartDetails/Plomberie/DetailsCard/Petits';
+import PloberieTItle from '../../components/ServiceCartDetails/Plomberie/DetailsCard/PloberieTItle';
+import Plomberie from '../../components/ServiceCartDetails/Plomberie/DetailsCard/Plomberie';
+import PlomberieServiceLink from '../../components/ServiceCartDetails/Plomberie/DetailsCard/PlomberieServiceLink';
+import PlomilsCardLink from '../../components/ServiceCartDetails/Plomberie/DetailsCard/PlomilsCardLink';
+import Septique from '../../components/ServiceCartDetails/Plomberie/DetailsCard/Septique';
 const PlomberiePage = () => {
     return (
-        <div className="lightBgColor">
-            <PlomberieHeader />
-            <WaterHeater />
-            <PlomberieFindCraftsman />
-            <SepticTank />
-            <WaterSoftener />
-            <Plumbing />
+        <div>
+            <NavBar />
+            <PloberieTItle />
+            <Chauffeeau />
+            <PlomilsCardLink />
+            <Fosse />
+            <Adoucisseur />
+            <Plomberie />
             <MiniStation />
-            <InstallationWhirlpoolBath />
-            <SmallPlumbingJobs />
-            <GreaseTrap />
-            <MorePlumbingServices />
+            <Baignoire />
+            <Petits />
+            <Septique />
+            <PlomberieServiceLink />
             <Footer />
         </div>
     );

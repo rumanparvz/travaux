@@ -12,7 +12,7 @@ const CraftsmenJobs = () => {
         { link: "Toutes les informations sur fenêtre et porte" },
         { link: "Vitrier - miroitier" },
       ],
-      path:'/'
+      path:'/plomberie'
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const CraftsmenJobs = () => {
         { link: "Toutes les informations sur couverture-toiture" },
         { link: "Couvreurs - charpentiers" },
       ],
-      path:'/'
+      path:'/couverture-toiture'
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ const CraftsmenJobs = () => {
         { link: "Toutes les informations sur peinture" },
         { link: "Peintres" },
       ],
-      path:'/'
+      path:'/peinture'
     },
     {
         id: 4,
@@ -48,7 +48,7 @@ const CraftsmenJobs = () => {
           { link: "Professionnels second œuvre" },
           { link: "Professionnels tout corps d'etat" },
         ],
-        path:'/'
+        path:'/construction-renovation-maison'
       },
       {
         id: 5,
@@ -59,7 +59,7 @@ const CraftsmenJobs = () => {
           { link: "Ebénistes" },
           { link: "Menuisiers" },
         ],
-        path:'/'
+        path:'/ebenisterie'
       },
       {
         id: 6,
@@ -69,7 +69,7 @@ const CraftsmenJobs = () => {
           { link: "Toutes les informations sur electricité" },
           { link: "Électriciens" },
         ],
-        path:'/'
+        path:'/electricite'
       },
       {
         id: 7,
@@ -178,7 +178,7 @@ const CraftsmenJobs = () => {
                     <img
                       src={icon}
                       alt=""
-                      className="img-fluid "
+                      className="img-fluid mt-3 "
                       style={{ width: "30px" }}
                     />
                   </div>

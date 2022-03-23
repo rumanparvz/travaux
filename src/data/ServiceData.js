@@ -12,13 +12,9 @@ export const serviceData = [
       },
       {
         type: "checkBox",
-<<<<<<< HEAD
    
-=======
         stepNumber: 2,
         title: "Quelle est la nature de vos travaux   ?",
->>>>>>> rajuahmmad
-        title: "Quelle est la nature de vos travaux ?",
         options: [
           {
             id: 1,
