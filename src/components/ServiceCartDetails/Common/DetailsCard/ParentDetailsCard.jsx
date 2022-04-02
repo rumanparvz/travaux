@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import DetailsCard from "./DetailsCard";
 const ParentDetailsCard = ({ data }) => {
   console.log(data);
@@ -16,10 +17,12 @@ const ParentDetailsCard = ({ data }) => {
           >
             <div className="container ">
               <div className="title d-flex justify-content-between align-items-center">
-                <h1 className="w-50">{title}</h1>
-                <button className="main_button">
-                  Publiez votre projet gratuitement
-                </button>
+                <h1 className="w-50">{title} </h1>
+                <Link to={`${`/post-service-request/${title}`}`}>
+                  <button className="main_button">
+                    Publiez votre projet gratuitement
+                  </button>
+                </Link>
               </div>
               <div className="row mt-4">
                 {allCards.slice(0, masonaryLangth).map((mesonry) => (

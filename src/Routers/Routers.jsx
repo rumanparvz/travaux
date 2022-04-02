@@ -6,6 +6,7 @@ import InputAndRadioBox from "../components/PublshProjects/InputAndRadioBox/Inpu
 import MultiPulCheckBox from "../components/PublshProjects/MultiPulCheckBok/MultiPulCheckBox";
 import RadioSErviceOption from "../components/PublshProjects/RadioServiceOption/RadioSErviceOption";
 import { serviceData } from "../data/ServiceData";
+import AdminDashboardPage from "../pages/AdminDahsboardPage/AdminDashboardPage";
 import HomePage from "../pages/Home/HomePage";
 import LoginPages from "../pages/LoginPages/LoginPages";
 import CheckBoxOptionPage from "../pages/PublishServices/CheckBoxOptionPage";
@@ -17,12 +18,8 @@ import OptionalMultiCheckBox from "../pages/PublishServices/OptionalMultiCheckBo
 import RootTextPostPage from "../pages/PublishServices/RootTextPostPage";
 import UploadImagePage from "../pages/PublishServices/UploadImagePage";
 import RegisterPages from "../pages/Register/RegisterPages";
-import ConstructionRénovationMaisonPage from "../pages/ServiceCartDetails/ConstructionRénovationMaisonPage";
-import CouvertureToiture from "../pages/ServiceCartDetails/CouvertureToiture";
-import FenetrePortePage from "../pages/ServiceCartDetails/FenetrePortePage";
-import PeinturePage from "../pages/ServiceCartDetails/PeinturePage";
-import PlatrePage from "../pages/ServiceCartDetails/PlatrePage";
 import ServiceDetailsPage from "../pages/ServiceCartDetails/ServiceDetailsPage";
+import ServiceDetailsReview from "../pages/ServiceCartDetails/ServiceDetailsReview";
 
 const Routers = () => {
   console.log(serviceData);
@@ -45,25 +42,15 @@ const Routers = () => {
         <Route path="/post-service-request/doubleTitleRadio/:doubleTitleRadio" element={<DoubleTitleCheckBox />}></Route>
 
              {/* Login  */}
-             <Route path="/connexion" element={<LoginPages />}></Route>
-             <Route path="/professionnel/inscription/nouvelle" element={<RegisterPages />}></Route>
-
-    
+        <Route path="/connexion" element={<LoginPages />}></Route>
+        <Route path="/professionnel/inscription/nouvelle" element={<RegisterPages />}></Route>
         <Route path="/post-service-request/doubleTitleRadio/:doubleTitleRadio" element={<DoubleTitleCheckBox />}></Route>
-        {/* Login  */}
-
-
-      {/* mY */}
-      <Route path="/construction-renovation-maison" element={<ConstructionRénovationMaisonPage  /> }/>
-      {/* <Route path="/plomberie" element={<PlomberiePage   /> }/> */}
-      <Route path="/fenetre-porte" element={<FenetrePortePage   /> }/>
-      <Route path="/couverture-toiture" element={<CouvertureToiture    /> }/>
-      <Route path="/peinture" element={<PeinturePage    /> }/>
-      <Route path="/platre" element={<PlatrePage    /> }/>
-
+    
       {/* add  */}
       <Route path="/:service" element={<ServiceDetailsPage    /> }/>
-        
+      <Route path="/:service/:review" element={<ServiceDetailsReview    /> }/>
+      <Route path="/admin/:panel" element={<AdminDashboardPage    /> }/>
+
       </Routes>
 
     </div>

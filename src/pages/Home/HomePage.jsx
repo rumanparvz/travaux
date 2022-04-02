@@ -20,6 +20,7 @@ const HomePage = () => {
      <ChooseCraftsman />
      <ProjectCount />
      <Footer />
+
     </>
   );
 };

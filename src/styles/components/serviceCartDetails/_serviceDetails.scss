@@ -1,0 +1,28 @@
+.searchItem{
+    .input_items p {
+        color: #3f27ba;
+        font-size: 20px;
+        font-weight: 600;
+        transition: .3s;
+        padding: 10px 15px;
+    }
+    
+    
+    
+    .details_search_item {
+        border: 2px solid #e8f0fe;
+        width: 90%;
+        margin-top: 5px;
+        padding: 10px;
+        color: #330691;
+
+    }
+    
+    
+    .input_items p:hover {
+        background: #ebebf8;
+        transition: .3s;
+        padding: 10px 15px;
+    }
+    
+}

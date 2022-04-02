@@ -66,77 +66,24 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p className="text-primary py-3">
+        <p className=" py-3">
           Filiale du groupe HomeAdvisor International
         </p>
+        <p>Etats-Unis: <Link to='/'>Homeadvisor</Link> & <Link to='/'> Angi</Link> Angleterre: <Link to='/'>MyBuilder</Link> Canada: <Link to='/'> Homestars</Link>France: <Link to='/'>123 Devis</Link> Allemagne: <Link to='/'>MyHammer</Link> L'Autriche: <Link to='/'>MyHammer</Link> Italie: <Link to='/'>Instapro</Link> Hollande: <Link to='/'>Werkspot</Link></p>
 
-        <p>
-          {" "}
-          Etats-Unis:{" "}
-          <a
-            href="https://www.homeadvisor.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Homeadvisor
-          </a>
-          <a href="https://www.angi.com/" target="_blank" rel="noreferrer">
-            Angi
-          </a>
-          Angleterre:
-          <a href="https://www.mybuilder.com/" target="_blank" rel="noreferrer">
-            MyBuilder
-          </a>
-          :Canada
-          <a href="https://homestars.com/" target="_blank" rel="noreferrer">
-            Homestars
-          </a>
-          France:
-          <a href="https://www.123devis.com/" target="_blank" rel="noreferrer">
-            123 Devis
-          </a>
-          Allemagne:
-          <a href="https://www.my-hammer.de/" target="_blank" rel="noreferrer">
-            MyHammer
-          </a>{" "}
-          L'Autriche:
-          <a href="https://www.my-hammer.at/" target="_blank" rel="noreferrer">
-            MyHammer
-          </a>
-          Italie:
-          <a href="https://www.instapro.it/" target="_blank" rel="noreferrer">
-            Instapro
-          </a>
-          Hollande:
-          <a href="https://www.werkspot.nl/" target="_blank" rel="noreferrer">
-            Werkspot
-          </a>
-        </p>
-        <nav>
-          <p>
-            <a href="https://www.travaux.com/metiers">Professions</a>{" "}
-            <a href="https://www.travaux.com/activites">Activities</a>{" "}
-            <a href="https://www.travaux.com/toutes-villes">Location</a>{" "}
-            <a href="https://www.travaux.com/guides-des-prix">Price</a>{" "}
-            <a href="https://www.travaux.com/politique-confidentialite">per</a>{" "}
-            <a href="https://www.travaux.com/conditions-generales">activity</a>{" "}
-            <a href="https://www.travaux.com/conditions-generales">
-              Confidentiality
-            </a>{" "}
-            <a href="https://www.travaux.com/conditions-generales">and</a>{" "}
-            <a href="https://www.travaux.com/conditions-generales">cookie</a>{" "}
-            <a href="https://www.travaux.com/conditions-generales">
-              management{" "}
-            </a>
-            <a href="https://www.travaux.com/conditions-generales">
-              Terms of Service
-            </a>{" "}
-            <a href="https://www.travaux.com/conditions-generales">
-              {" "}
-              Terms of Sales
-            </a>
-          </p>
-        </nav>
+      </div>
+      <div className="item">
+        <ul className="d-md-flex align-items-center gap-4" >
+          <li><Link to='/' className="text-primary">Métiers</Link></li>
+          <li><Link to='/' className="text-primary">Activités</Link></li>
+          <li><Link to='/' className="text-primary">Localisation</Link></li>
+          <li><Link to='/' className="text-primary">Prix ​​par activité</Link></li>
+        </ul>
+        <ul className="d-md-flex align-items-center gap-4 py-1 pb-2" >
+          <li><Link to='/' className="text-primary">Confidentialité et gestion des cookies</Link></li>
+          <li><Link to='/' className="text-primary">Conditions Générales d'Utilisation</Link></li>
+        </ul>
+        <p><Link to='/'>Conditions générales de vente</Link></p>
       </div>
     </div>
   );
