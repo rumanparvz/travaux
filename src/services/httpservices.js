@@ -1,9 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'https://ancient-gorge-88070.herokuapp.com/api',
+  baseURL: 'https://ancient-gorge-88070.herokuapp.com/api' ,
 });
-
 
 const responseBody = (res) => res.data.data;
 export const request = {

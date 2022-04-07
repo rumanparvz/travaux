@@ -17,6 +17,9 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" className="nav_header" style={ {  borderBottom: isHomeNav ? '1px solid #ddd' : ''}}>
       <Container>
+      <Nav.Link as={Link} to='/admin/createService'> 
+              Admin
+            </Nav.Link>
         <Navbar.Brand as={Link} to='/'>
           <svg
             aria-label="Travaux.com"
@@ -48,6 +51,7 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav navbar_items">
           <Nav className="ms-auto header_link d-flex justify-content-center align-items-center">
+     
             <Nav.Link href="#home">
               <h6 style={{color:isHomeNav? 'black':'',display: location.pathname ==='/professionnel/inscription/nouvelle'?'none':''}} 
             >Publish a project</h6>
@@ -60,6 +64,7 @@ const NavBar = () => {
               <button style={ {    backgroundColor: isHomeNav ? 'white' : '', color:isHomeNav ? 'black':''}}>
                {location.pathname ==="/professionnel/inscription/nouvelle" ? "Je suis un particulier" :"S'inscrire en tant que professionnel"}</button>
             </Nav.Link>
+         
           </Nav>
         </Navbar.Collapse>
       </Container>

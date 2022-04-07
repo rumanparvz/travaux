@@ -3,9 +3,10 @@ import DetailsCardHeader from '../../Common/DetailsCardHeader/DetailsCardHeader'
 
 const ServiceDetailsTItle = ({content}) => {
  
+    console.log('content',content);
     return (
         <div>
-           <DetailsCardHeader content={content} />
+           <DetailsCardHeader content={content[0]} />
         </div>
     );
 };

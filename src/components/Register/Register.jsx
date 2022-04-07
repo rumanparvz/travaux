@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React from "react";
+import { Link } from "react-router-dom";
 import NavBar from "../Common/NavBar/NavBar";
-
 const Register = () => {
   return (
     <div className="register_section ">
@@ -23,7 +23,10 @@ const Register = () => {
             votre zone de travail afin que tous les projets de chantiers que
             vous recevez soient exactement là où vous voulez intervenir.
           </p>
+          <Link to="/job/registration">
           <button className="primary_button">S’inscrire maintenant</button>
+            </Link>
+    
         </div>
       </div>
       <div className="middle_content text-center py-5">
@@ -175,28 +178,43 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <div className="register_footer pb-5 " style={{ backgroundColor: "#f9f8f6" }}>
-        <div className="container" style={{borderBottom:'8px solid #94d3ff'}}>
+      <div
+        className="register_footer pb-5 "
+        style={{ backgroundColor: "#f9f8f6" }}
+      >
+        <div
+          className="container"
+          style={{ borderBottom: "8px solid #94d3ff" }}
+        >
           <div className="row  d-flex justify-content-between py-5 ">
             <div className="col-md-6">
               <h3>Recevez des projets de chantier dans votre zone</h3>
             </div>
+
             <div className="col-md-6 ">
-              <button className="primary_button ms-5 ">
-                S’inscrire maintenant
-              </button>
+ 
+                <button className="primary_button ms-5 ">
+                  S’inscrire maintenant
+                </button>
+       
             </div>
           </div>
         </div>
         <div className="container">
           <div className="row">
             <div className="col-md-6 py-3">
-              <a href="#" className="text-primary mx-4">Besoin d'aide</a>
-              <a href="#" className="text-primary mx-3">Confidentialité et gestion des cookies</a> <br /> 
-              <a href="#" className="text-primary mx-4">Conditions Générales d'Utilisation</a>
+              <a href="#" className="text-primary mx-4">
+                Besoin d'aide
+              </a>
+              <a href="#" className="text-primary mx-3">
+                Confidentialité et gestion des cookies
+              </a>{" "}
+              <br />
+              <a href="#" className="text-primary mx-4">
+                Conditions Générales d'Utilisation
+              </a>
             </div>
             <div className="col-md-6 py-3">
-           
               <p className="text-secondary p">Copyright© Travaux.com - 2022</p>
             </div>
           </div>

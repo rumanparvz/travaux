@@ -1,15 +1,23 @@
-import { LaptopOutlined, UserOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
-import React from "react";
+import React, { useState } from "react";
+import { AiFillHome } from 'react-icons/ai';
 import { Link, useParams } from "react-router-dom";
+import CreateProducts from "../../components/Admin/CreateProducts";
 import CreateService from "../../components/Admin/CreateService";
+import CreateSingleProduct from "../../components/Admin/CreateSingleProduct";
+import MangeServices from "../../components/Admin/ManageService/MangeServices";
 const AdminDashboardPage = () => {
+  const [categoryId, setCategoryId] = useState({
+    categoryById: "",
+    subCategoryById: "",
+  });
   const { SubMenu } = Menu;
   const { panel } = useParams();
   const { Header, Content, Footer, Sider } = Layout;
+
   return (
     <div>
-      
       <div className="container-fluid row">
         <div className="col-md-2">
           {" "}
@@ -17,32 +25,28 @@ const AdminDashboardPage = () => {
             <Content>
               <Layout>
                 <Sider className="site-layout-background" width={200}>
+                  <Menu mode="inline">
+                    <Menu.Item key="10">
+                      <Link to="/"><AiFillHome /> Home</Link>
+                    </Menu.Item>
+                  </Menu>
                   <Menu mode="inline" style={{ height: "100%" }}>
                     <SubMenu
-                      key="sub1"
+                      key="sub4"
                       icon={<UserOutlined />}
-                      title=" Service Category"
+                      title="  Service"
                     >
-                      <Menu.Item key="1">
+                      <Menu.Item key="10">
                         <Link to="/admin/createService">Create Service</Link>
                       </Menu.Item>
-                      <Menu.Item key="3">Delete Service</Menu.Item>
+                      <Menu.Item key="11">
+                        <Link to="/admin/manageServices">
+                          Manage Services Service
+                        </Link>
+                      </Menu.Item>
+                      
                     </SubMenu>
-                    <SubMenu
-                      key="sub2"
-                      icon={<LaptopOutlined />}
-                      title="Service Category"
-                    >
-                      <Menu.Item key="5">Create Post Category</Menu.Item>
-                      <SubMenu title="Sub Category ">
-                        <Menu.Item key="39">Create Post</Menu.Item>
-                        <Menu.Item key="40">Create Header</Menu.Item>
-                        <SubMenu title="Details ">
-                          <Menu.Item key="41">Description</Menu.Item>
-                          <Menu.Item key="42">table</Menu.Item>
-                        </SubMenu>
-                      </SubMenu>
-                    </SubMenu>
+
                   </Menu>
                 </Sider>
               </Layout>
@@ -51,10 +55,25 @@ const AdminDashboardPage = () => {
         </div>
         <div className="col-md-10">
           {panel === "createService" ? (
-            <CreateService />
-          ) : panel === "add" ? (
-            <h1>ADD</h1>
-          ) : null}
+            <CreateService
+              setCategoryId={setCategoryId}
+              categoryId={setCategoryId}
+            />
+          ) : panel === "createProduct" ? (
+            <CreateProducts
+              categoryId={categoryId}
+              setCategoryId={setCategoryId}
+            />
+          ) : panel === "createSingleProduct" ? (
+            <CreateSingleProduct
+              categoryId={categoryId}
+              setCategoryId={setCategoryId}
+            />
+          ) : panel === "manageServices" ? (
+            <MangeServices />
+          ) :
+          
+          null}
         </div>
       </div>
     </div>

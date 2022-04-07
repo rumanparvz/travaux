@@ -10,7 +10,8 @@ const MoreServiceCard = ({services}) => {
     <div className="container py-5">
    
         <div>
-          <h4>{services.title}</h4>
+
+          <h4>{services.title} </h4>
           <div className="row">
             {services.links.map((link) => (
               <div onClick={()=>navigator(`${link.id}`)} className="col-md-12 d-flex justify-content-between align-items-center py-4 " style={{borderBottom:'1px solid #ddd',cursor:'pointer'}}>

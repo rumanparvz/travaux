@@ -1,0 +1,23 @@
+.register_button {
+  color: white;
+  background: #017acd;
+  width: 100%;
+  border: navajowhite;
+  border-radius: 26px;
+  padding: 12px 0px;
+  transition: 0.3s;
+  &:hover {
+    background: #01528a;
+    transition: 0.3s;
+  }
+}
+.container-fluid.row.free-registration h1 {
+  padding: 1% 0px;
+  margin-bottom: 7%;
+}
+
+.container-fluid.row.free-registration svg {
+  color: #017acd;
+  font-size: 26px;
+  margin-right: 10px;
+}

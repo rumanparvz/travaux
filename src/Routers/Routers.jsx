@@ -1,10 +1,17 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Currenct from "../components/Admin/Currenct";
 import DoubleCheckBox from "../components/PublshProjects/DoubleCheckBox/DoubleCheckBox";
 import DoubleTitleCheckBox from "../components/PublshProjects/DoubleTitleCheckbox/DoubleTitleCheckBox";
 import InputAndRadioBox from "../components/PublshProjects/InputAndRadioBox/InputAndRadioBox";
 import MultiPulCheckBox from "../components/PublshProjects/MultiPulCheckBok/MultiPulCheckBox";
 import RadioSErviceOption from "../components/PublshProjects/RadioServiceOption/RadioSErviceOption";
+import AllResults from "../components/Register/AllResults";
+import ContractInfo from "../components/Register/ContactInfo";
+import FreeRegistration from "../components/Register/FreeRegistration";
+import OfferServices from "../components/Register/OfferServices";
+import Serit from "../components/Register/Serit";
+import ServiceProductDetails from "../components/ServiceCartDetails/Services/Details/ServiceProductDetails";
 import { serviceData } from "../data/ServiceData";
 import AdminDashboardPage from "../pages/AdminDahsboardPage/AdminDashboardPage";
 import HomePage from "../pages/Home/HomePage";
@@ -47,9 +54,16 @@ const Routers = () => {
         <Route path="/post-service-request/doubleTitleRadio/:doubleTitleRadio" element={<DoubleTitleCheckBox />}></Route>
     
       {/* add  */}
-      <Route path="/:service" element={<ServiceDetailsPage    /> }/>
+      <Route path="/:servicesId" element={<ServiceDetailsPage    /> }/>
       <Route path="/:service/:review" element={<ServiceDetailsReview    /> }/>
       <Route path="/admin/:panel" element={<AdminDashboardPage    /> }/>
+      <Route path="/currency" element={<Currenct    /> }/>
+      <Route path="/serviceCardDetails/:id" element={<ServiceProductDetails    /> }/>
+      <Route path="/job/registration" element={<FreeRegistration    /> }/>
+      <Route path="/register/contract" element={< ContractInfo   /> }/>
+      <Route path="/register/serit" element={< Serit   /> }/>
+      <Route path="/register/results" element={< AllResults   /> }/>
+      <Route path="/register/offerSErvice" element={< OfferServices   /> }/>
 
       </Routes>
 

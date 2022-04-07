@@ -1,8 +1,11 @@
 import React from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import ServiceDetails from "../../../data/ServiceDetails";
+import useAsync from "../../../hooks/useAsync";
+import { category } from "../../../services/ServiceCategory/ServiceCategory";
 const CraftsmenJobs = () => {
+  const {data}=useAsync(category.getAllCategory)
+
   return (
     <div
       style={{ backgroundColor: "#f9f8f6" }}
@@ -13,18 +16,16 @@ const CraftsmenJobs = () => {
         <div className="row">
           <div className="job_section">
             <div className="section_header row">
-              {ServiceDetails.map(
+              {data?.map(
                 ({
-                  serviceTitle,
-                  id,
+                  title,
+                  _id,
                   icon,
-                  linkTitle,
-                  path,
-                  subDescription,
+               
                 }) => (
                   <div
                     className="d-flex justify-content-center  col-md-4 gap-3 "
-                    key={id}
+                    key={_id}
                   >
                     <div className="icon">
                       <img
@@ -35,19 +36,19 @@ const CraftsmenJobs = () => {
                       />
                     </div>
                     <div className="header">
-                      <h5 className="py-4">{serviceTitle}</h5>
+                      <h5 className="py-4">{title}</h5>
                       <div></div>
                       <p className="linkTab">
-                        <Link to={`/${path}`} className="text-primary">
-                          <AiOutlineArrowRight /> {linkTitle}
+                        <Link to={`/`} className="text-primary">
+                          <AiOutlineArrowRight /> linkTitle
                         </Link>
                       </p>
                       <p className="linkTab">
                         <Link
-                          to={`/${path}/${subDescription.path}`}
+                          to=""
                           className="text-primary"
                         >
-                          <AiOutlineArrowRight /> {subDescription.linkTitle}
+                          <AiOutlineArrowRight /> subDescription.linkTitle
                         </Link>
                       </p>
                     </div>
