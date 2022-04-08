@@ -1,11 +1,16 @@
 import { Form, Input } from "antd";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addRegistrationData } from "../../redux/actions/ProjectsActions";
 
 const ContactInfo = () => {
-    const navigate= useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const registrationData = useSelector((state) => state.service.registrationData);
   const onFinish = (values) => {
     console.log("Success:", values);
+    dispatch(addRegistrationData({ ...registrationData, ...values }));
     navigate('/register/serit')
   };
 
@@ -36,7 +41,7 @@ const ContactInfo = () => {
       >
         <Form.Item
           label="First Name"
-          name="username"
+          name="firstName"
           rules={[
             {
               required: true,
@@ -62,7 +67,7 @@ const ContactInfo = () => {
 
         <Form.Item
           label=" Telephone"
-          name="number"
+          name="phoneNumber"
           rules={[
             {
               required: true,

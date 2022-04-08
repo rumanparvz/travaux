@@ -85,6 +85,13 @@ const serviceDoublTitleRadio = (doubleCheckBox) => {
   };
 };
 
+const addRegistrationData = (registrationData) => {
+  return {
+    type: actionTypes.ADD_REGISTRATION_DATA,
+    payLoad: registrationData,
+  };
+}
+
 export {
   ProjectPostalCode,
   serviceTypeCheckBox,
@@ -97,6 +104,7 @@ export {
   serviceEmail,
   serviceInputRadio,
   serviceDoubleCheckBox,
-  serviceDoublTitleRadio
+  serviceDoublTitleRadio,
+  addRegistrationData
 };
 

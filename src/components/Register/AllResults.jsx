@@ -1,12 +1,32 @@
 import { Form, Input } from "antd";
+import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addRegistrationData } from "../../redux/actions/ProjectsActions";
 
 const AllResults = () => {
   const navigate = useNavigate();
-  const onFinish = (values) => {
-    console.log("Success:", values);
-    navigate("/register/offerService");
+  const dispatch = useDispatch();
+  const registrationData = useSelector((state) => state.service.registrationData);
+  const onFinish = async (values) => {
+    try {
+      const newValues = {
+        siretNo: parseInt(values.siretNo),
+        companyName: values.companyName,
+        address: values.address,
+        postalCode: parseInt(values.postalCode)
+
+      }
+      const result = await axios.post('https://ancient-gorge-88070.herokuapp.com/auth/addSiret', newValues);
+      if (result.data) {
+        console.log("Success:", result.data);
+        dispatch(addRegistrationData({ ...registrationData, siretNo: result?.data?.data?.siretNo }));
+        navigate("/register/offerService");
+      }
+    } catch (e) {
+      console.log("Error:", e.message);
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -36,7 +56,7 @@ const AllResults = () => {
         >
           <Form.Item
             label="First Name"
-            name="siret"
+            name="siretNo"
             rules={[
               {
                 required: true,
@@ -44,12 +64,12 @@ const AllResults = () => {
               },
             ]}
           >
-            <Input placeholder="Number Siret" className="py-3" />
+            <Input placeholder="Number Siret" className="py-3" defaultValue={registrationData.siretNo} />
           </Form.Item>
 
           <Form.Item
             label=" Company Name"
-            name="name"
+            name="companyName"
             rules={[
               {
                 required: true,
@@ -78,7 +98,7 @@ const AllResults = () => {
 
           <Form.Item
             label="Postal code"
-            name="number"
+            name="postalCode"
             rules={[
               {
                 required: true,
@@ -86,9 +106,10 @@ const AllResults = () => {
               },
             ]}
           >
-            <Input.Password
+            <Input
               placeholder="Enter your postal code"
               className="py-3"
+              defaultValue={registrationData.postalCode}
             />
           </Form.Item>
 

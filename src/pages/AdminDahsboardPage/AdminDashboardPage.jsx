@@ -6,6 +6,8 @@ import { Link, useParams } from "react-router-dom";
 import CreateProducts from "../../components/Admin/CreateProducts";
 import CreateService from "../../components/Admin/CreateService";
 import CreateSingleProduct from "../../components/Admin/CreateSingleProduct";
+import CreateSingleService from "../../components/Admin/createSingleService";
+import CreateSubCategory from "../../components/Admin/createSubCategory";
 import MangeServices from "../../components/Admin/ManageService/MangeServices";
 const AdminDashboardPage = () => {
   const [categoryId, setCategoryId] = useState({
@@ -40,11 +42,17 @@ const AdminDashboardPage = () => {
                         <Link to="/admin/createService">Create Service</Link>
                       </Menu.Item>
                       <Menu.Item key="11">
+                        <Link to="/admin/createSubCategory">Create Sub Category</Link>
+                      </Menu.Item>
+                      <Menu.Item key="12">
+                        <Link to="/admin/createSingleService">Create Single Service</Link>
+                      </Menu.Item>
+                      <Menu.Item key="13">
                         <Link to="/admin/manageServices">
                           Manage Services Service
                         </Link>
                       </Menu.Item>
-                      
+
                     </SubMenu>
 
                   </Menu>
@@ -71,9 +79,15 @@ const AdminDashboardPage = () => {
             />
           ) : panel === "manageServices" ? (
             <MangeServices />
+          ) : panel === "createSingleService" ? (
+            <CreateSingleService categoryId={categoryId}
+              setCategoryId={setCategoryId} />
+          ) : panel === "createSubCategory" ? (
+            <CreateSubCategory categoryId={categoryId}
+              setCategoryId={setCategoryId} />
           ) :
-          
-          null}
+
+            null}
         </div>
       </div>
     </div>

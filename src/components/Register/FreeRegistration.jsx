@@ -1,22 +1,56 @@
 import { Form, Input } from "antd";
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { AiFillLike, AiTwotoneMail } from "react-icons/ai";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { ImStatsDots } from "react-icons/im";
 import { TiRadarOutline } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addRegistrationData } from "../../redux/actions/ProjectsActions";
 import NavBar from "../Common/NavBar/NavBar";
+
 
 const FreeRegistration = () => {
   const [select, setSelect] = useState(null);
+  const [jobs, setJobs] = useState([])
+  const dispatch = useDispatch();
+  const registrationData = useSelector((state) => state.service.registrationData);
 
+  console.log(registrationData);
   const navigate = useNavigate();
+  console.log({ select })
 
-  const onFinish = (values) => {
-    const newValues = { ...values, select: select };
+  const onFinish = async (values) => {
+    const newValues = { ...values, jobId: select };
     console.log("Received values of form: ", newValues);
-    navigate("/register/contract");
+    dispatch(addRegistrationData(newValues));
+    const isUserExist = await axios.post("https://ancient-gorge-88070.herokuapp.com/auth/emailValidation", newValues);
+    console.log(isUserExist?.data);
+    if (isUserExist?.data?.needLogin === true) {
+      console.log("need login");
+      navigate("/login");
+    } else {
+      console.log("need contract");
+      navigate("/register/contract");
+    }
   };
+
+  const getCategory = async () => {
+    const categories = await axios.get("http://localhost:5000/api/category");
+    const newCategory = categories?.data?.data.map((category) => {
+      const categoryObj = {};
+      categoryObj.id = category._id;
+      categoryObj.name = category.subTitle;
+      return categoryObj;
+    })
+    setJobs(newCategory);
+  }
+
+  useEffect(() => {
+    getCategory();
+  }, []);
+  console.log(jobs);
 
   return (
     <div className="container-fluid row free-registration">
@@ -51,10 +85,9 @@ const FreeRegistration = () => {
             aria-label="Default select example "
             onChange={(e) => setSelect(e.target.value)}
           >
-            <option selected> 🔎 English</option>
-            <option value="bangla">bangla</option>
-            <option value="hindi">Hindi</option>
-            <option value="arobi">Arobi</option>
+            {
+              jobs.map((job, index) => <option key={job.id} value={job.id} selected={index === 0}>{index === 0 && '🔎'}{job.name}</option>)
+            }
           </select>
 
           {/*  */}

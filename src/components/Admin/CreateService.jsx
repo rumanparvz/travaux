@@ -74,7 +74,7 @@ const CreateService = ({ categoryId, setCategoryId }) => {
       icon: logo,
       title: values.title,
       description: values.description,
-      createdAt: new Date(),
+      subTitle: values.subTitle
     };
 console.log("newData",newValue);
     axios
@@ -139,6 +139,9 @@ console.log("newData",newValue);
         </Form.Item>
         <Form.Item name={["title"]} label="Title" rules={[{ required: true }]}>
           <Input placeholder="Title" />
+        </Form.Item>
+        <Form.Item name={["subTitle"]} label="Sub Title" rules={[{ required: true }]}>
+          <Input placeholder="Sub title" />
         </Form.Item>
         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }} disabled>
           {!loading && (
