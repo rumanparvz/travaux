@@ -36,11 +36,12 @@ const CreateSubCategory = () => {
         setLoading(true)
         const newValue = {
             categoryId: categoryId,
-            title: values.title
+            title: values.title,
+            additionalInfo
         };
         console.log(newValue);
         console.log("newValue", newValue);
-        axios.post('https://ancient-gorge-88070.herokuapp.com/api/createSubCategory', newValue)
+        axios.post('http://localhost:5000/api/createSubCategory', newValue)
             .then((res) => {
                 // navigate('/admin/createSingleProduct')
                 setLoading(false)
@@ -64,10 +65,70 @@ const CreateSubCategory = () => {
         setJobs(newCategory);
     }
 
+    const [additionalInfo, setAdditionalInfo] = useState([]);
+    const [questions, setQuestions] = useState({});
+    const [options, setOptions] = useState([]);
+
+    const handleQuestions = (e) => {
+        const newAdditionalInfo = {}
+        newAdditionalInfo[e.target.name] = e.target.value
+        setQuestions({ ...questions, ...newAdditionalInfo })
+    }
+    const [optionsObj, setOptionsObj] = useState({});
+
+    const handleOptions = (e, id) => {
+        const newOptions = [];
+        const newOptionsObj = {};
+
+        if (e.target.type === 'text') {
+            newOptionsObj[e.target.name] = e.target.value
+            newOptionsObj.id = id
+        } else {
+            newOptionsObj[e.target.name] = 'ok'
+        }
+        setOptionsObj({ ...optionsObj, ...newOptionsObj });
+    }
+
+    const handleAddAdditionalInfo = () => {
+        const newAdditionalInfo = {
+            title: questions.title,
+            type: questions.type,
+            keyword: questions.keyword,
+            options: options.map(option => {
+                const newOption = {};
+                newOption.name = option.name;
+                if (option.file) {
+                    newOption.icon = option.file;
+                }
+                return newOption;
+            })
+        }
+        setAdditionalInfo([...additionalInfo, newAdditionalInfo])
+        setQuestions({})
+        setOptionsObj({})
+    }
+
+    console.log(additionalInfo);
+
+    useEffect(() => {
+        if (optionsObj.id) {
+            const newOptions = [...options];
+            const optionsId = options.filter(option => option.id === optionsObj.id);
+            if (optionsId.length > 0) {
+                const index = newOptions.indexOf(optionsId[0]);
+                newOptions[index] = optionsObj;
+                setOptions(newOptions);
+            } else {
+                newOptions.push(optionsObj);
+                setOptions(newOptions);
+            }
+        }
+    }, [optionsObj])
+
     useEffect(() => {
         getCategory();
     }, []);
-    console.log(jobs);
+    console.log(options);
 
     return (
         <div className="w-75 pt-5">
@@ -90,15 +151,51 @@ const CreateSubCategory = () => {
                 <Form.Item name={["title"]} label="Title" rules={[{ required: true }]}>
                     <Input placeholder="Title" />
                 </Form.Item>
-                <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }} disabled>
-                    {!loading && (
-                        <Button type="primary" htmlType="submit">
-                            Submit
-                        </Button>
-                    )}
-                    {loading && <div class="spinner-border" role="status"></div>}
-                </Form.Item>
+                {
+                    additionalInfo.length && <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }} disabled className="mt-3 ms-5">
+                        {!loading && (
+                            <Button type="primary" htmlType="submit" className="ms-5">
+                                Submit Form
+                            </Button>
+                        )}
+                        {loading && <div class="spinner-border" role="status"></div>}
+                    </Form.Item>
+                }
             </Form>
+            <div className="d-flex flex-column align-items-center justify-content-center">
+                <h3>Additional Info</h3>
+                <p>Add some questions</p>
+                <div className="d-flex">
+                    <input type="text" name="title" placeholder="Enter your questions" onBlur={handleQuestions} />
+                    <input type="text" name="type" className="d-flex ms-5" placeholder="Type" onBlur={handleQuestions} />
+                    <input type="text" name="keyword" className="d-flex ms-5" placeholder="Keyword" onBlur={handleQuestions} />
+                </div>
+                <p>Add some options</p>
+                <div className="ms-5">
+                    <div className="d-flex ms-5">
+                        <input type="text" name="name" placeholder="options 1" className="mt-0" onBlur={(e) => handleOptions(e, 1)} />
+                        <input type="file" name="file" className="d-flex ms-5 mt-0" onBlur={(e) => handleOptions(e, 1)} />
+                    </div>
+                    <div className="d-flex ms-5">
+                        <input type="text" name="name" placeholder="options 2" className="mt-3" onBlur={(e) => handleOptions(e, 3)} />
+                        <input type="file" name="file" className="d-flex ms-5 mt-3" onBlur={(e) => handleOptions(e, 3)} />
+                    </div>
+                    <div className="d-flex ms-5">
+                        <input type="text" name="name" placeholder="options 3" className="mt-3" onBlur={(e) => handleOptions(e, 5)} />
+                        <input type="file" name="file" className="d-flex ms-5 mt-3" onBlur={(e) => handleOptions(e, 5)} />
+                    </div>
+                    <div className="d-flex ms-5">
+                        <input type="text" name="name" placeholder="options 3" className="mt-3" onBlur={(e) => handleOptions(e, 7)} />
+                        <input type="file" name="file" className="d-flex ms-5 mt-3" onBlur={(e) => handleOptions(e, 7)} />
+                    </div>
+                    <div className="d-flex ms-5">
+                        <input type="text" name="name" placeholder="options 4" className="mt-3" onBlur={(e) => handleOptions(e, 9)} />
+                        <input type="file" name="file" className="d-flex ms-5 mt-3" onBlur={(e) => handleOptions(e, 9)} />
+                    </div>
+                    <button className="ms-5" onClick={handleAddAdditionalInfo}>Add Info</button>
+                </div>
+            </div>
+
         </div>
     );
 };

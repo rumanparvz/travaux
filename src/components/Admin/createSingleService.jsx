@@ -36,11 +36,11 @@ const CreateSingleService = ({ categoryId }) => {
     const [subCategories, setSubCategories] = useState([])
 
     const handleGetSubCategory = (categoryId) => {
-        console.log({categoryId})
+        console.log({ categoryId })
         axios.get(`https://ancient-gorge-88070.herokuapp.com/api/getSubcategoryByCategoryId/${categoryId}`)
             .then((res) => {
                 console.log(res)
-                const responses = res?.data?.data.map(response=>{
+                const responses = res?.data?.data.map(response => {
                     const responseObj = {};
                     responseObj.id = response._id;
                     responseObj.name = response.title;
@@ -93,9 +93,12 @@ const CreateSingleService = ({ categoryId }) => {
     }, []);
     console.log(jobs);
 
+
+
     return (
         <div className="w-75 pt-5">
             <h1 className="text-center py-4">Create Single Product </h1>
+
             <Form
                 {...layout}
                 name="nest-messages"
@@ -104,22 +107,22 @@ const CreateSingleService = ({ categoryId }) => {
             >
                 <Form.Item name={["category"]} label="Category" rules={[{ required: true }]}>
                     <Select onChange={handleGetSubCategory}>
-                    {
-                        jobs.map((job, index) => <option key={job.id} value={job.id} selected={index === 0}>{index === 0 && '🔎'}{job.name}</option>)
-                    }
-                    </Select>
-                    </Form.Item>
-                    {
-                        subCategories.length ?  
-                        <Form.Item name={["subCategory"]} label="Sub Category" rules={[{ required: true }]}>
-                        <Select >
                         {
-                            subCategories.map((subCategory, index) => <option key={subCategory.id} value={subCategory?.id} selected={index === 0}>{subCategory?.name}</option>)
+                            jobs.map((job, index) => <option key={job.id} value={job.id} selected={index === 0}>{index === 0 && '🔎'}{job.name}</option>)
                         }
-                        </Select> 
+                    </Select>
+                </Form.Item>
+                {
+                    subCategories.length ?
+                        <Form.Item name={["subCategory"]} label="Sub Category" rules={[{ required: true }]}>
+                            <Select >
+                                {
+                                    subCategories.map((subCategory, index) => <option key={subCategory.id} value={subCategory?.id} selected={index === 0}>{subCategory?.name}</option>)
+                                }
+                            </Select>
                         </Form.Item>
                         : ''
-                    }
+                }
                 <Form.Item name={["title"]} label="Title" rules={[{ required: true }]}>
                     <Input placeholder="Title" />
                 </Form.Item>
@@ -129,6 +132,7 @@ const CreateSingleService = ({ categoryId }) => {
                 <Form.Item name={["number"]} label="Number">
                     <Input />
                 </Form.Item>
+
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }} disabled>
                     <Button type="primary" htmlType="submit">
                         Submit
