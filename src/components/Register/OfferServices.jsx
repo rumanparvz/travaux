@@ -12,7 +12,7 @@ const OfferServices = () => {
 
   const navigate = useNavigate();
   const handleSubmit = () => {
-    navigate("");
+    navigate("/register/googleMap");
   };
   return (
     <div className="container mt-5">

@@ -9,7 +9,9 @@ import RadioSErviceOption from "../components/PublshProjects/RadioServiceOption/
 import AllResults from "../components/Register/AllResults";
 import ContractInfo from "../components/Register/ContactInfo";
 import FreeRegistration from "../components/Register/FreeRegistration";
+import GoogleMapLocation from "../components/Register/GoogleMapLocation";
 import OfferServices from "../components/Register/OfferServices";
+import PayPalPaymentGateway from "../components/Register/PayPalPaymentGateway";
 import Serit from "../components/Register/Serit";
 import ServiceProductDetails from "../components/ServiceCartDetails/Services/Details/ServiceProductDetails";
 import { serviceData } from "../data/ServiceData";
@@ -57,13 +59,15 @@ const Routers = () => {
       <Route path="/:servicesId" element={<ServiceDetailsPage    /> }/>
       <Route path="/:service/:review" element={<ServiceDetailsReview    /> }/>
       <Route path="/admin/:panel" element={<AdminDashboardPage    /> }/>
-      <Route path="/currency" element={<Currenct    /> }/>
+      <Route path="/currency" element={<Currenct    /> }/> 
       <Route path="/serviceCardDetails/:id" element={<ServiceProductDetails    /> }/>
       <Route path="/job/registration" element={<FreeRegistration    /> }/>
       <Route path="/register/contract" element={< ContractInfo   /> }/>
+      <Route path="/register/googleMap" element={< GoogleMapLocation   /> }/>
       <Route path="/register/serit" element={< Serit   /> }/>
       <Route path="/register/results" element={< AllResults   /> }/>
       <Route path="/register/offerSErvice" element={< OfferServices   /> }/>
+      <Route path="/register/payPalPaymentGateway" element={< PayPalPaymentGateway   /> }/>
 
       </Routes>
 
