@@ -37,7 +37,7 @@ const FreeRegistration = () => {
   };
 
   const getCategory = async () => {
-    const categories = await axios.get("http://localhost:5000/api/category");
+    const categories = await axios.get("https://ancient-gorge-88070.herokuapp.com/api/category");
     const newCategory = categories?.data?.data.map((category) => {
       const categoryObj = {};
       categoryObj.id = category._id;
