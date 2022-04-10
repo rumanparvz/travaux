@@ -5,8 +5,8 @@ const [cordinate,setCordinate]=useState({lat:0,lan:0})
 const [bounds,setBounds]=useState({})
 console.log(bounds);
 
-const cordinates = {lat: 59.95,
-lng: 30.33}
+const cordinates = {lat: 48.8566,
+lng: 2.3522}
   return (
     <div className="container w-75 m-auto pt-5 mt-5">
       <h1 style={{ fontWeight: "revert" }}>
