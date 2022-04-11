@@ -56,10 +56,16 @@
   color: white;
   padding: 18px 29px;
   border-radius: 57px;
-
+font-weight: 700;
 
   &:hover{
     background-color: #01528a;
     transition: .3s;
   }
+}
+.forget_input{
+  width: 80%;
+  height: 55px;
+  border: 2px solid gray;
+   border-radius: 5px;
 }
