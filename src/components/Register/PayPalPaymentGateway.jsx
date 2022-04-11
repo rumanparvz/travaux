@@ -1,8 +1,21 @@
 import React, { useState } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 import { PayPalButton } from "react-paypal-button-v2";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addRegistrationData } from "../../redux/actions/ProjectsActions";
+
 const PayPalPaymentGateway = () => {
-    const [state, setState] = useState(0)
+  const [state, setState] = useState(0)
+  const dispatch = useDispatch();
+  const registrationData = useSelector((state) => state.service.registrationData);
+
+  const navigate = useNavigate()
+
+  const handleSubmit = () => {
+    dispatch(addRegistrationData({ ...registrationData, paymentInfo: 123456789 }));
+    navigate("/");
+  }
   return (
     <div className="container w-50 m-auto mt-5 pt-5">
       <h1>Configurez votre paiement pour plus tard</h1>
@@ -25,7 +38,7 @@ const PayPalPaymentGateway = () => {
         <h3>Choisissez votre mode de paiement</h3>
       </div>
       <div className="paymentIntrigation">
-          <input value={state} type="number" onChange={(e)=>setState(e.target.value)}/>
+        <input value={state} type="number" onChange={(e) => setState(e.target.value)} />
         <PayPalButton
           amount="0.01"
           // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
@@ -42,9 +55,12 @@ const PayPalPaymentGateway = () => {
           }}
           options={{
             clientId: "AVvisEJyoSAXEor_D2fYzWYDrx9ekGkKKY-4-uslf7bNovsGEDWTxcZgrX1IGqB9T5CpQpzE-5mMfGb1",
-            currency:'USD',
+            currency: 'USD',
           }}
         />
+      </div>
+      <div className="d-flex align-items-center justify-content-center">
+        <button onClick={handleSubmit} className="btn btn-primary mt-2 w-25 ms-0"> Register </button>
       </div>
     </div>
   );

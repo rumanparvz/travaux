@@ -2,10 +2,38 @@ import { Checkbox } from "antd";
 import React from "react";
 import { Accordion } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addRegistrationData } from "../../redux/actions/ProjectsActions";
 
 const OfferServices = () => {
+  const checkboxData = [
+    {
+      id: 1,
+      label: 'Cleanning',
+    },
+    {
+      id: 2,
+      label: 'plumbing',
+    },
+    {
+      id: 3,
+      label: 'flooring',
+    },
+    {
+      id: 4,
+      label: 'electrical',
+    },
+    {
+      id: 5,
+      label: 'carpentry',
+    }
+  ]
+
+  const dispatch = useDispatch();
+  const registrationData = useSelector((state) => state.service.registrationData);
   function onChange(checkedValues) {
     console.log("checked = ", checkedValues);
+    dispatch(addRegistrationData({ ...registrationData, services: checkedValues }));
   }
 
   const plainOptions = ["Apple", "Pear", "Orange"];
@@ -25,8 +53,8 @@ const OfferServices = () => {
             <Accordion.Header>Electrician </Accordion.Header>
             <Accordion.Body>
               <Checkbox.Group
-                options={plainOptions}
-                defaultValue={["Apple"]}
+                options={checkboxData.map((item) => item.label)}
+                defaultValue={[checkboxData[0].label]}
                 onChange={onChange}
               />
               <br />

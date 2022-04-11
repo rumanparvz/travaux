@@ -28,6 +28,7 @@ const CreateSubCategory = () => {
     const [disable, setDisable] = useState(false);
     const [loading, setLoading] = useState(false)
     const [categoryId, setCategoryId] = useState('')
+    const [imageLoader, setImageLoader] = useState(false);
     const handleSetOptions = (id) => {
         setCategoryId(id)
     }
@@ -41,7 +42,7 @@ const CreateSubCategory = () => {
         };
         console.log(newValue);
         console.log("newValue", newValue);
-        axios.post('http://localhost:5000/api/createSubCategory', newValue)
+        axios.post('https://ancient-gorge-88070.herokuapp.com/api/createSubCategory', newValue)
             .then((res) => {
                 // navigate('/admin/createSingleProduct')
                 setLoading(false)
@@ -75,6 +76,7 @@ const CreateSubCategory = () => {
         setQuestions({ ...questions, ...newAdditionalInfo })
     }
     const [optionsObj, setOptionsObj] = useState({});
+    const [image, setImage] = useState([]);
 
     const handleOptions = (e, id) => {
         const newOptions = [];
@@ -84,10 +86,28 @@ const CreateSubCategory = () => {
             newOptionsObj[e.target.name] = e.target.value
             newOptionsObj.id = id
         } else {
-            newOptionsObj[e.target.name] = 'ok'
+            setImageLoader(true)
+            const imageFile = e.target.files[0];
+            const data = new FormData();
+            data.append("file", imageFile);
+            data.append("upload_preset", "serviceImages");
+            data.append("cloud_name", "dzghsspe7");
+            if (imageFile) {
+                axios
+                    .post("https://api.cloudinary.com/v1_1/dzghsspe7/image/upload", data)
+                .then((res) => {
+                    console.log({ res: res.data.url })
+                    newOptionsObj.file = res.data.url
+                    setImage([...image, { id: id, file: res.data.url }])
+
+                    setImageLoader(false);
+                })
+            }
         }
+        console.log(newOptionsObj)
         setOptionsObj({ ...optionsObj, ...newOptionsObj });
     }
+    console.log(image)
 
     const handleAddAdditionalInfo = () => {
         const newAdditionalInfo = {
@@ -97,8 +117,10 @@ const CreateSubCategory = () => {
             options: options.map(option => {
                 const newOption = {};
                 newOption.name = option.name;
-                if (option.file) {
-                    newOption.icon = option.file;
+                for (const img of image) {
+                    if (img.id === option.id) {
+                        newOption.icon = img.file
+                    }
                 }
                 return newOption;
             })
@@ -174,7 +196,7 @@ const CreateSubCategory = () => {
                 <div className="ms-5">
                     <div className="d-flex ms-5">
                         <input type="text" name="name" placeholder="options 1" className="mt-0" onBlur={(e) => handleOptions(e, 1)} />
-                        <input type="file" name="file" className="d-flex ms-5 mt-0" onBlur={(e) => handleOptions(e, 1)} />
+                        <input type="file" name="file" className="d-flex ms-5 mt-0" onChange={(e) => handleOptions(e, 1)} />
                     </div>
                     <div className="d-flex ms-5">
                         <input type="text" name="name" placeholder="options 2" className="mt-3" onBlur={(e) => handleOptions(e, 3)} />
@@ -182,16 +204,19 @@ const CreateSubCategory = () => {
                     </div>
                     <div className="d-flex ms-5">
                         <input type="text" name="name" placeholder="options 3" className="mt-3" onBlur={(e) => handleOptions(e, 5)} />
-                        <input type="file" name="file" className="d-flex ms-5 mt-3" onBlur={(e) => handleOptions(e, 5)} />
+                        <input type="file" name="file" className="d-flex ms-5 mt-3" onChange={(e) => handleOptions(e, 5)} />
                     </div>
                     <div className="d-flex ms-5">
                         <input type="text" name="name" placeholder="options 3" className="mt-3" onBlur={(e) => handleOptions(e, 7)} />
-                        <input type="file" name="file" className="d-flex ms-5 mt-3" onBlur={(e) => handleOptions(e, 7)} />
+                        <input type="file" name="file" className="d-flex ms-5 mt-3" onChange={(e) => handleOptions(e, 7)} />
                     </div>
                     <div className="d-flex ms-5">
                         <input type="text" name="name" placeholder="options 4" className="mt-3" onBlur={(e) => handleOptions(e, 9)} />
-                        <input type="file" name="file" className="d-flex ms-5 mt-3" onBlur={(e) => handleOptions(e, 9)} />
+                        <input type="file" name="file" className="d-flex ms-5 mt-3" onChange={(e) => handleOptions(e, 9)} />
                     </div>
+                    {
+                        imageLoader && <div className="spinner-border" role="status"></div>
+                    }
                     <button className="ms-5" onClick={handleAddAdditionalInfo}>Add Info</button>
                 </div>
             </div>
