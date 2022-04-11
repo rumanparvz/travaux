@@ -9,6 +9,7 @@ const Register = () => {
       <div className="row container-fluid">
         <div className="col-md-6">
           <img
+            className="img-fluid"
             src="https://www.travaux.com/static/service-pro/register-landing-page/bgImgDesktop.png"
             alt=""
           />
