@@ -4,6 +4,9 @@ import { PayPalButton } from "react-paypal-button-v2";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addRegistrationData } from "../../redux/actions/ProjectsActions";
+import axios from "axios";
+import Cookies from "js-cookie";
+
 
 const PayPalPaymentGateway = () => {
   const [state, setState] = useState(0)
@@ -12,9 +15,20 @@ const PayPalPaymentGateway = () => {
 
   const navigate = useNavigate()
 
-  const handleSubmit = () => {
+  console.log(registrationData);
+
+  const handleSubmit = async () => {
     dispatch(addRegistrationData({ ...registrationData, paymentInfo: 123456789 }));
-    navigate("/");
+    try {
+      const response = await axios.post("http://localhost:5000/auth/signup", registrationData);
+      if (response) {
+        navigate("/");
+        Cookies.set("refreshToken", response?.data?.data?.refreshToken);
+        Cookies.set("accessToken", response?.data?.data?.accessToken);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <div className="container w-50 m-auto mt-5 pt-5">

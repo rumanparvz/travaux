@@ -21,7 +21,7 @@ const AllResults = () => {
       const result = await axios.post('https://ancient-gorge-88070.herokuapp.com/auth/addSiret', newValues);
       if (result.data) {
         console.log("Success:", result.data);
-        dispatch(addRegistrationData({ ...registrationData, siretNo: result?.data?.data?.siretNo }));
+        dispatch(addRegistrationData({ ...registrationData, siretNo: result?.data?.data?.siretNo, postalCode: newValues.postalCode }));
         navigate("/register/offerService");
       }
     } catch (e) {

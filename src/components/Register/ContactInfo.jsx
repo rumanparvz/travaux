@@ -78,6 +78,7 @@ const ContactInfo = () => {
           <Input
             placeholder="Your number for your future customers"
             className="py-3"
+            type="number"
           />
         </Form.Item>
 
