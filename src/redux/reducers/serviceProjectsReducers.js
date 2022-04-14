@@ -10,12 +10,17 @@ const initialState = {
   inputRadio: {},
   image: {},
   comment: {},
-  doubleRadioOptionBox:{},
+  doubleRadioOptionBox: {},
   email: {},
-  doubleTitleRadio:{},
+<<<<<<< HEAD
+  doubleTitleRadio: {},
   registrationData: {},
   productsData: {}
-  
+
+=======
+  doubleTitleRadio: {},
+  registrationData: {},
+>>>>>>> 492c94696e8c702868584476830746f7205378f2
 };
 
 const serviceProjectsReducers = (state = initialState, action) => {
@@ -43,24 +48,28 @@ const serviceProjectsReducers = (state = initialState, action) => {
 
     case actionTypes.ADD_SERVICE_COMMENT:
       return { ...state, comment: action.payLoad };
-      
+
     case actionTypes.ADD_SERVICE_EMAIL:
       return { ...state, email: action.payLoad };
 
-      case actionTypes.ADD_INPUT_RADIO:
-        return { ...state, inputRadio: action.payLoad };
+    case actionTypes.ADD_INPUT_RADIO:
+      return { ...state, inputRadio: action.payLoad };
 
-        case actionTypes.ADD_DOUBLE_CHECKBOX:
-          return { ...state, doubleRadioOptionBox: action.payLoad };
 
-          
-        case actionTypes.ADD_DOUBLE_TITLE_RADIO:
-          return { ...state, doubleTitleRadio: action.payLoad };
-        case actionTypes.ADD_REGISTRATION_DATA:
-          return { ...state, registrationData: action.payLoad };
-        case actionTypes.ADD_PRODUCT_DATA:
-          return { ...state, productsData: action.payLoad };
+    case actionTypes.ADD_DOUBLE_TITLE_RADIO:
+      return { ...state, doubleTitleRadio: action.payLoad };
+    case actionTypes.ADD_REGISTRATION_DATA:
+      return { ...state, registrationData: action.payLoad };
+    case actionTypes.ADD_PRODUCT_DATA:
+      return { ...state, productsData: action.payLoad };
+    case actionTypes.ADD_DOUBLE_CHECKBOX:
+      return { ...state, doubleRadioOptionBox: action.payLoad };
 
+    case actionTypes.ADD_DOUBLE_TITLE_RADIO:
+      return { ...state, doubleTitleRadio: action.payLoad };
+    case actionTypes.ADD_REGISTRATION_DATA:
+      console.log(action.payLoad);
+      return { ...state, registrationData: action.payLoad };
 
     default:
       return state;

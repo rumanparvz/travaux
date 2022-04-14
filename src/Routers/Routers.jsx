@@ -18,7 +18,7 @@ import OfferServices from "../components/Register/OfferServices";
 import PayPalPaymentGateway from "../components/Register/PayPalPaymentGateway";
 import Serit from "../components/Register/Serit";
 import ServiceProductDetails from "../components/ServiceCartDetails/Services/Details/ServiceProductDetails";
-import { serviceData } from "../data/ServiceData";
+// import { serviceData } from "../data/ServiceData";
 import AdminDashboardPage from "../pages/AdminDahsboardPage/AdminDashboardPage";
 import HomePage from "../pages/Home/HomePage";
 import LoginPages from "../pages/LoginPages/LoginPages";
