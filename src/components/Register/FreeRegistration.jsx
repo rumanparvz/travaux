@@ -50,7 +50,7 @@ const FreeRegistration = () => {
   useEffect(() => {
     getCategory();
   }, []);
-  console.log(jobs);
+  console.log(select);
 
   return (
     <div className="container-fluid row free-registration">
@@ -120,6 +120,7 @@ const FreeRegistration = () => {
               type="primary"
               htmlType="submit"
               className="login-form-button register_button "
+              disabled={select === null}
             >
               Inscription gratuite
             </button>
