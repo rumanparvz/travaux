@@ -22,7 +22,7 @@ const AdminDashboardPage = () => {
     <div>
       <div className="container-fluid row">
         <div className="col-md-2">
-          {" "}
+         
           <Layout>
             <Content>
               <Layout>
