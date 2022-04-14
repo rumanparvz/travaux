@@ -39,7 +39,7 @@ const NavBar = () => {
       setRole(decoded.role);
       console.log(decoded);
     }
-  })
+  },[])
 
 
   return (

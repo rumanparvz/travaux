@@ -16,7 +16,9 @@ const PrixDes = () => {
     readingTime,
     images,
     subCategory,
+    resume,
     additionalInfo,
+    resumeDescription,
   } = fakeData;
 
  
@@ -24,7 +26,8 @@ const info1 = additionalInfo[0];
 const info2 = additionalInfo[1];
 const info3 = additionalInfo[2];
 const info4 = additionalInfo[3];
-  console.log(info1);
+const info5 = additionalInfo[4];
+  
   return (
     <div>
       <NavBar />
@@ -74,25 +77,9 @@ const info4 = additionalInfo[3];
       <div className="container">
         <div className="row mt-5">
           <div className="col col-md-6 col-lg-6">
-            <h5>Résumé :</h5>
-            <p>
-              Installation d'une porte blindée classique ou d'un bloc porte,
-              nombre de points de la serrure, esthétisme de la porte d'entrée
-              blindée déterminent le coût de la menuiserie et de son
-              installation (de 600 à plus de 5000 €). Et dans le cadre d'une
-              rénovation, le blindage de la porte est une alternative parfois
-              moins onéreuse.
-            </p>
-            <p>
-              La <span className="prix_text-bold">porte blindée</span> est dotée
-              d'un certain nombre de systèmes de sécurité de façon à retarder,
-              voire{" "}
-              <span className="prix_text-bold">
-                éliminer les risques d'effraction.{" "}
-              </span>
-              Renforcée, la porte d'entrée devient une
-              <span className="prix_text-bold"> porte de sécurité.</span>
-            </p>
+            <h5>{resume} :</h5>
+            <p>{resumeDescription}</p>
+
             <h6 className="prix_text-bold">
               Temps de lecture : {readingTime} Minutes
             </h6>
@@ -115,6 +102,11 @@ const info4 = additionalInfo[3];
               <a href="#four">
                 <p className="m-0">
                   4.<span className="prix_text-blue ms-3">{info4.title}</span>
+                </p>
+              </a>
+              <a href="#five">
+                <p className="m-0">
+                  5.<span className="prix_text-blue ms-3">{info5.title}</span>
                 </p>
               </a>
             </div>
@@ -205,16 +197,9 @@ const info4 = additionalInfo[3];
                 <BiRightArrowAlt />
               </button>
             </Link>
-            <div className="mt-5">
-              <h3>
-                Les prix des porte d'entrée / blindage porte chantiers récemment
-                complétés
-              </h3>
-              <p>
-                Afin de vous aider à vous projeter avec votre projet, nous vous
-                avons compilé des chantiers récemment réalisés et les prix
-                correspondant.
-              </p>
+            <div className="mt-5" id="five">
+              <h4>{info5.title}</h4>
+              <p>{info5.options}</p>
             </div>
           </div>
           <div></div>
