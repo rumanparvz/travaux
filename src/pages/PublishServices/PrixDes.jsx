@@ -25,10 +25,10 @@ const PrixDes = () => {
     <div>
       <NavBar />
       <div>
-        <div>
-          <img className="prixDes" src={bannerImg} alt="" />
+        <div className="prixDes">
+          <img src={bannerImg} alt="" />
         </div>
-        <div className="text_image  container">
+        <div className="text_image container">
           <div>
             <span>
               <Link className="me-2 prix_text-blue" to="/">
@@ -51,7 +51,7 @@ const PrixDes = () => {
             <p>{description}</p>
           </div>
         </div>
-        <div className="prix_input-body py-4">
+        <div className="prix_input-body py-4 mt-5">
           <div className="container text-white">
             <p>Trouvez un artisan près de chez vous !</p>
             <p className="m-0">
