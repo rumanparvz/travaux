@@ -93,30 +93,38 @@ const PrixDes = () => {
               Temps de lecture : {readingTime} Minutes
             </h6>
             <div>
-              <p className="m-0">
-                1.{" "}
-                <span className="prix_text-blue">
-                  Prix d'une porte blindée classique
-                </span>
-              </p>
-              <p className="m-0">
-                2.{" "}
-                <span className="prix_text-blue">
-                  Prix d'un bloc porte blindée
-                </span>
-              </p>
-              <p className="m-0">
-                3.
-                <span className="prix_text-blue">
-                  Prix d'un blindage de porte
-                </span>
-              </p>
-              <p className="m-0">
-                4.
-                <span className="prix_text-blue">
-                  Pose de la porte blindée par un professionnel
-                </span>
-              </p>
+              <a href="#one" rel="noopener noreferrer">
+                <p className="m-0">
+                  1.{" "}
+                  <span className="prix_text-blue">
+                    Prix d'une porte blindée classique
+                  </span>
+                </p>
+              </a>
+              <a href="#two" rel="noopener noreferrer">
+                <p className="m-0">
+                  2.{" "}
+                  <span className="prix_text-blue">
+                    Prix d'un bloc porte blindée
+                  </span>
+                </p>
+              </a>
+              <a href="#three">
+                <p className="m-0">
+                  3.
+                  <span className="prix_text-blue">
+                    Prix d'un blindage de porte
+                  </span>
+                </p>
+              </a>
+              <a href="#four">
+                <p className="m-0">
+                  4.
+                  <span className="prix_text-blue">
+                    Pose de la porte blindée par un professionnel
+                  </span>
+                </p>
+              </a>
             </div>
           </div>
           <div></div>
@@ -147,7 +155,7 @@ const PrixDes = () => {
             are taken from price averages of various construction websites.
           </p>
         </div>
-        <div className="row mt-5">
+        <div className="row mt-5" id="one">
           <div className="col col-md-6 col-lg-6">
             <h5>Le prix d'une porte blindée classique</h5>
             <p>
@@ -202,7 +210,7 @@ const PrixDes = () => {
                 <BiRightArrowAlt />
               </button>
             </Link>
-            <div>
+            <div id="two">
               <h3>Le prix d'un bloc porte blindée</h3>
               <p>
                 Un bloc porte blindée est une porte blindée haute sécurité. En
@@ -277,7 +285,7 @@ const PrixDes = () => {
                 </span>
               ))}
             </div>
-            <div>
+            <div id="three">
               <h3>Le prix d'un blindage de porte</h3>
               <p>
                 Le blindage consiste à venir renforcer une porte d'entrée
@@ -339,7 +347,7 @@ const PrixDes = () => {
                 <BiRightArrowAlt />
               </button>
             </Link>
-            <div>
+            <div className="mt-5" id="four">
               <h3>Prix de la pose de la porte blindée par un professionnel</h3>
               <p>
                 L'installation d'une porte blindée simple, d'un bloc porte
