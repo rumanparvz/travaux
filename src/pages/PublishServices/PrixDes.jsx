@@ -47,8 +47,11 @@ const PrixDes = () => {
           </div>
           <h3 className="my-3">{title}</h3>
           <p className="date">{updateAt}</p>
-          <div className="mt-5 description_prix">
-            <p>{description}</p>
+          <div className="mt-5 description_prix row ">
+            <div className="col-md-6 col-lg-6">
+              <p>{description}</p>
+            </div>
+            <div></div>
           </div>
         </div>
         <div className="prix_input-body py-4 mt-5">
