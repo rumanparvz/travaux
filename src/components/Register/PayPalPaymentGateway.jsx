@@ -20,7 +20,7 @@ const PayPalPaymentGateway = () => {
   const handleSubmit = async () => {
     dispatch(addRegistrationData({ ...registrationData, paymentInfo: 123456789 }));
     try {
-      const response = await axios.post("http://localhost:5000/auth/signup", registrationData);
+      const response = await axios.post("https://ancient-gorge-88070.herokuapp.com/auth/signup", registrationData);
       if (response) {
         navigate("/");
         Cookies.set("refreshToken", response?.data?.data?.refreshToken);
