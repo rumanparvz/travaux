@@ -17,6 +17,7 @@ const PrixDes = () => {
     readingTime,
     images,
     subCategory,
+    
   } = fakeData;
 
   console.log(category);
@@ -134,14 +135,14 @@ const PrixDes = () => {
             <thead>
               <tr>
                 <th></th>
-                <th>Prix minimum</th>
+                <th>Prix minimum</th>  
                 <th>Prix moyen</th>
                 <th>Prix maximum</th>
               </tr>
             </thead>
             <tbody>
-              {priceDescription?.map((pb) => (
-                <tr key={pb.id}>
+              {priceDescription?.map((pb, index) => (
+                <tr key={index}>
                   <td>{pb?.type}</td>
                   <td>{pb?.minPrice} €</td>
                   <td>{pb?.averagePrice} €</td>
@@ -278,8 +279,8 @@ const PrixDes = () => {
               </button>
             </Link>
             <div className="mt-4">
-              {images.map((pd) => (
-                <span>
+              {images.map((pd, index) => (
+                <span key={index}>
                   <img className="map_img" src={pd} alt="" />
                   <p>{subCategory}</p>
                 </span>
