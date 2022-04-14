@@ -1,4 +1,3 @@
-
 import { request } from '../httpservices'
 export const category={
     getAllCategory:()=>request.get('/category'),

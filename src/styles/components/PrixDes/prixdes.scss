@@ -1,0 +1,58 @@
+.text_image {
+  margin-top: -2rem;
+@REM   background-color: green;
+  border-radius: 10px;
+  padding: 20px;
+  
+}
+.date{
+    margin-bottom: 0;
+}
+.description_prix p{
+    margin: 0;
+}
+.prix_input-body{
+    background: #017ACD;
+}
+.prix_input{
+  width: 20rem;
+  border: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.prix_btn{
+    margin-left: 20px;
+    background: #330691;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 3rem;
+}
+.prix_text-bold{
+  font-weight: 700;
+}
+.prix_text-blue{
+  color: blue;
+}
+.map_img{
+  width: 50rem;
+  height: 30rem;
+  margin-top: 15px;
+}
+ul li{
+  list-style: disc inside;
+  margin-left: 10px;
+}
+@media only screen and (min-width: 991px) {
+  .prixDes {
+    width: 100%;
+    height: 25rem;
+    border-radius: 1rem;
+    
+  }
+}
+@media only screen and (max-width: 320px) {
+  .prixDes {
+    width: 100%;
+    height: 9rem;
+  }
+}

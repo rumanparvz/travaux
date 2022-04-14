@@ -28,6 +28,7 @@ import CommentTextPage from "../pages/PublishServices/CommentTextPage";
 import CompletePages from "../pages/PublishServices/CompletePages";
 import EmailPage from "../pages/PublishServices/EmailPage";
 import OptionalMultiCheckBox from "../pages/PublishServices/OptionalMultiCheckBox";
+import PrixDes from "../pages/PublishServices/PrixDes.jsx";
 import RootTextPostPage from "../pages/PublishServices/RootTextPostPage";
 import UploadImagePage from "../pages/PublishServices/UploadImagePage";
 import RegisterPages from "../pages/Register/RegisterPages";
@@ -35,7 +36,7 @@ import ServiceDetailsPage from "../pages/ServiceCartDetails/ServiceDetailsPage";
 import ServiceDetailsReview from "../pages/ServiceCartDetails/ServiceDetailsReview";
 
 const Routers = () => {
-  console.log(serviceData);
+  // console.log(serviceData);
   return (
     <div>
       <Routes>
@@ -56,6 +57,7 @@ const Routers = () => {
           path="/post-service-request/multipleCheckBox/:multipleCheckBox"
           element={<MultiPulCheckBox />}
         ></Route>
+        <Route path="/prixDes" element={<PrixDes />}></Route>
         <Route
           path="/post-service-request/moreMultipleCheckBox/:moreMultipleCheckBox"
           element={<OptionalMultiCheckBox />}
