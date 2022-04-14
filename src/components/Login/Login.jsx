@@ -49,13 +49,16 @@ const Login = () => {
         console.log(loginInfo);
         setIsLoading(true);
         const response = await axios.post('https://ancient-gorge-88070.herokuapp.com/auth/signIn', loginInfo);
-        if (response?.data) {
+        console.log(response?.data);
+        if (response?.data?.data?.accessToken) {
           Cookies.set('accessToken', response?.data?.data?.accessToken);
           Cookies.set('refreshToken', response?.data?.data?.refreshToken);
           setIsLoading(false);
           setError({});
           navigate('/');
-          console.log(response?.data);
+        } else {
+          setIsLoading(false);
+          setError({ msg: response?.data?.message });
         }
       } else {
         setError({ msg: "Please fill all the fields" });
