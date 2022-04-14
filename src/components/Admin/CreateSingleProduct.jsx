@@ -23,12 +23,6 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 const CreateSingleProduct = ({ categoryId }) => {
-  console.log(
-    "allah",
-    categoryId.categoryById,
-    "hoallah",
-    categoryId.subCategoryById
-  );
 
   const [disable, setDisable] = useState(false);
 
@@ -50,7 +44,7 @@ const CreateSingleProduct = ({ categoryId }) => {
       )
       .then((res) => {
         console.log(res);
-        navigate("/");
+        navigate("/admin/createSingleService");
       });
 
     // POST

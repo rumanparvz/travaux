@@ -13,7 +13,8 @@ const initialState = {
   doubleRadioOptionBox:{},
   email: {},
   doubleTitleRadio:{},
-  registrationData: {}
+  registrationData: {},
+  productsData: {}
   
 };
 
@@ -56,8 +57,9 @@ const serviceProjectsReducers = (state = initialState, action) => {
         case actionTypes.ADD_DOUBLE_TITLE_RADIO:
           return { ...state, doubleTitleRadio: action.payLoad };
         case actionTypes.ADD_REGISTRATION_DATA:
-          console.log(action.payLoad);
           return { ...state, registrationData: action.payLoad };
+        case actionTypes.ADD_PRODUCT_DATA:
+          return { ...state, productsData: action.payLoad };
 
 
     default:

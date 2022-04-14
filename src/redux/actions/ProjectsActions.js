@@ -92,6 +92,14 @@ const addRegistrationData = (registrationData) => {
   };
 }
 
+const addToProductData = (productData) => {
+  console.log("productData", productData);
+  return {
+    type: actionTypes.ADD_PRODUCT_DATA,
+    payLoad: productData,
+  };
+}
+
 export {
   ProjectPostalCode,
   serviceTypeCheckBox,
@@ -105,6 +113,7 @@ export {
   serviceInputRadio,
   serviceDoubleCheckBox,
   serviceDoublTitleRadio,
-  addRegistrationData
+  addRegistrationData,
+  addToProductData
 };
 
