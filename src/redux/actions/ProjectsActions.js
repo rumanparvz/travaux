@@ -120,10 +120,7 @@ export {
   serviceDoubleCheckBox,
   serviceDoublTitleRadio,
   addRegistrationData,
-<<<<<<< HEAD
-  addPostData
-=======
+  addPostData,
   addToProductData
->>>>>>> 7720d53d58aa354c67afcd9b9f80e138ce6eb780
 };
 
