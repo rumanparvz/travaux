@@ -17,8 +17,6 @@ const dispatch = useDispatch()
 
  }
 
-
-
   return (
     <div>
       <NavBar />

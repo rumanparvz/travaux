@@ -91,6 +91,12 @@ const addRegistrationData = (registrationData) => {
     payLoad: registrationData,
   };
 }
+const addPostData = (postData) => {
+  return {
+    type: actionTypes.ADD_POST_DATA,
+    payLoad: postData,
+  };
+}
 
 export {
   ProjectPostalCode,
@@ -105,6 +111,7 @@ export {
   serviceInputRadio,
   serviceDoubleCheckBox,
   serviceDoublTitleRadio,
-  addRegistrationData
+  addRegistrationData,
+  addPostData
 };
 

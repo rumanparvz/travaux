@@ -1,36 +1,45 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { serviceData } from "../../../data/ServiceData";
 const Header = () => {
-
-  console.log('try',serviceData);
-
+  const [data, setData] = useState([]);
+  console.log("try", serviceData);
   const [text, setText] = useState("");
-  const [suggest, setSuggest] = useState([]);
 
-  console.log('h',suggest.slice(0, 10));
+  console.log("text", text);
+  console.log("resApi", data);
 
-  // useEffect(() => {
-  //   axios.get(serviceData).then((res) => {
-  //     setservicePostData(res.data);
-  //     console.log('res',res);
-  //   });
-  // }, []);
-
-  const handleChange = (text) => {
-    let matches = [];
-
-    if (text.length > 0) {
-      matches = serviceData.filter((title) => {
-        const regex = new RegExp(`${text}`, "");
-        return title.name.match(regex);
-
-      });
+  useEffect(() => {
+    if (text !== "") {
+      console.log('hi');
+      axios
+        .get(
+          `https://ancient-gorge-88070.herokuapp.com/api/subCategory?search=${text}`
+        )
+        .then((res) => {
+          setData(res.data.data);
+        });
     }
+  }, [text]);
 
+  // const handleChange = (text) => {
+  //   let matches = [];
+
+  //   if (text.length > 0) {
+  //     matches = serviceData.filter((title) => {
+  //       const regex = new RegExp(`${text}`, "");
+  //       return title.name.match(regex);
+
+  //     });
+  //   }
+
+  //   setText(text);
+  //   setSuggest(matches);
+  // };
+  const handleChange = (text) => {
     setText(text);
-    setSuggest(matches);
   };
 
   return (
@@ -51,12 +60,25 @@ const Header = () => {
           className="form-control"
           placeholder="Par exemple:Peinture"
           required
-          onChange={(e) => handleChange(e.target.value)}
+          onBlur={(e) => handleChange(e.target.value)}
         />
 
         <button className="btn text-white">Trouver un artisan</button>
 
-        {suggest.length !== 0 && (
+         {
+           (text === null || text !== '') &&         <div className="search_item">
+           <p>Quel type de projet cherchez-vous ?</p>
+           {data?.slice(0, 10)?.map(({ categoryDescription, _id ,title}) => (
+             <div className="input_item " key={_id}>
+               <Link to={`/post-service-request/${categoryDescription}`}>
+                 <p className="pt-2 ">{title}</p>
+               </Link>
+             </div>
+           ))}
+         </div>
+         }
+
+        {/* {suggest.length !== 0 && (
           <div className="search_item">
             <p>Quel type de projet cherchez-vous ?</p>
             {suggest?.slice(0, 10)?.map(({name,path,id}) => (
@@ -66,7 +88,7 @@ const Header = () => {
             ))}
         
           </div>
-        )}
+        )} */}
 
         <h6 className="text-white py-5 my-5 ">
           <Link
@@ -86,4 +108,3 @@ const Header = () => {
 };
 
 export default Header;
-

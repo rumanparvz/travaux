@@ -27,21 +27,21 @@ const RadioSErviceOption = () => {
         <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
-          {singlePostData[0].options.map(({ check, id }) => (
-            <div className="col-md-12 " key={id}>
+          {singlePostData[0].options.map(({ name, _id }) => (
+            <div className="col-md-12 " key={_id}>
               <label
-                for={id}
+                for={_id}
                 className="check_box_item d-flex justify-content-between align-items-center"
                 style={{cursor:'pointer'}}
               >
-                <label for={id}>
-                  <p>{check}</p>
+                <label for={_id}>
+                  <p>{name}</p>
                 </label>
                 <input
                   type="radio"
-                  value={check}
+                  value={name}
                   name="radio"
-                  id={id}
+                  id={_id}
                   onChange={handleChange}
                 />
               </label>

@@ -11,5 +11,6 @@ export const actionTypes = {
   ADD_INPUT_RADIO: "add_input_radio",
   ADD_DOUBLE_CHECKBOX: "add_doubleCheckbox",
   ADD_DOUBLE_TITLE_RADIO: "add_doubleTitle_radio",
-  ADD_REGISTRATION_DATA: "add_registration_data"
+  ADD_REGISTRATION_DATA: "add_registration_data",
+  ADD_POST_DATA: "ADD_POST"
 };

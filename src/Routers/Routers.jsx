@@ -4,7 +4,6 @@ import Currenct from "../components/Admin/Currenct";
 import ForgotPassword from "../components/Login/ForgotPassword.jsx";
 import LoginHappy from "../components/Login/LoginHappy.js";
 import ResetPassword from "../components/Login/ResetPassword.jsx";
-
 import DoubleCheckBox from "../components/PublshProjects/DoubleCheckBox/DoubleCheckBox";
 import DoubleTitleCheckBox from "../components/PublshProjects/DoubleTitleCheckbox/DoubleTitleCheckBox";
 import InputAndRadioBox from "../components/PublshProjects/InputAndRadioBox/InputAndRadioBox";
@@ -34,6 +33,7 @@ import RegisterPages from "../pages/Register/RegisterPages";
 import ServiceDetailsPage from "../pages/ServiceCartDetails/ServiceDetailsPage";
 import ServiceDetailsReview from "../pages/ServiceCartDetails/ServiceDetailsReview";
 
+
 const Routers = () => {
   console.log(serviceData);
   return (
@@ -45,7 +45,7 @@ const Routers = () => {
           element={<RootTextPostPage />}
         ></Route>
         <Route
-          path="/post-service-request/checkBox/:checkBox"
+          path="/post-service-request/checkbox/:checkbox"
           element={<CheckBoxOptionPage />}
         ></Route>
         <Route
@@ -53,7 +53,7 @@ const Routers = () => {
           element={<DoubleCheckBox />}
         ></Route>
         <Route
-          path="/post-service-request/multipleCheckBox/:multipleCheckBox"
+          path="/post-service-request/multipleCheckbox/:multipleCheckbox"
           element={<MultiPulCheckBox />}
         ></Route>
         <Route
@@ -65,7 +65,7 @@ const Routers = () => {
           element={<RadioSErviceOption />}
         ></Route>
         <Route
-          path="/post-service-request/inputAndRadio/:inputAndRadio"
+          path="/post-service-request/radio/:radio"
           element={<InputAndRadioBox />}
         ></Route>
         <Route

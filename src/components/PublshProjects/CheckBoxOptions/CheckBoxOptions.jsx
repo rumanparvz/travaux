@@ -7,8 +7,8 @@ import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 const CheckBoxOptions = () => {
-  const { checkBox } = useParams();
-  const { stepName, singlePostData, length, preStepName ,processStep} = ServiceSteps( checkBox, "checkBox");
+  const { checkbox } = useParams();
+  const { stepName, singlePostData, length, preStepName ,processStep} = ServiceSteps( checkbox, "checkbox");
   const dispatch = useDispatch();
   const handleCheckBoxChange = (svg, name) => {
     dispatch(serviceTypeCheckBox({  svg, natureType: name }));
@@ -63,14 +63,14 @@ const CheckBoxOptions = () => {
             <div>
               <Link
               
-              to={`/post-service-request/${checkBox}`}
+              to={`/post-service-request/${checkbox}`}
               
               >
                 <button className="secondary_button">Précédent</button>{" "}
               </Link>
             </div>
             <div>
-              <Link to={`/post-service-request/${stepName}/${checkBox}`}>
+              <Link to={`/post-service-request/${stepName}/${checkbox}`}>
                 <button className="main_button"> Suivant</button>{" "}
               </Link>
             </div>
