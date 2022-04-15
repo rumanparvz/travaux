@@ -1,9 +1,7 @@
 import { Button, Form, Input, Select } from "antd";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { category } from "../../services/ServiceCategory/ServiceCategory";
-import Step from "./Step";
 
 const layout = {
     labelCol: { span: 8 },
@@ -42,7 +40,7 @@ const CreateSubCategory = () => {
         };
         console.log(newValue);
         console.log("newValue", newValue);
-        axios.post('https://ancient-gorge-88070.herokuapp.com/api/createSubCategory', newValue)
+        axios.post('http://localhost:5000/api/createSubCategory', newValue)
             .then((res) => {
                 // navigate('/admin/createSingleProduct')
                 setLoading(false)
@@ -126,8 +124,8 @@ const CreateSubCategory = () => {
             })
         }
         setAdditionalInfo([...additionalInfo, newAdditionalInfo])
-        setQuestions({})
-        setOptionsObj({})
+        // setQuestions({})
+        // setOptionsObj({})
     }
 
     console.log(additionalInfo);
