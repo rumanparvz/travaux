@@ -7,9 +7,9 @@ import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 
 const InputAndRadioBox = () => {
-  const { inputAndRadio } = useParams();
+  const { radio } = useParams();
   const { stepName, singlePostData, length, preStepName, processStep } =
-    ServiceSteps(inputAndRadio, "inputAndRadio");
+    ServiceSteps(radio, "radio");
   const dispatch = useDispatch();
 
   const [inputState, setInputState] = useState({});
@@ -29,12 +29,13 @@ const InputAndRadioBox = () => {
         <h6 className="py-3">
           Étape {processStep} sur {length}
         </h6>
+        
         <ProcessBar processStep={processStep} length={length} />
 
-        <h5 className="py-3">{singlePostData[0].inputTItle}</h5>
+        <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
-          <p className="text-secondary">{singlePostData[0].inputTItle}</p>
+          <p className="text-secondary">{singlePostData[0].title}</p>
           <input
             type="number"
             className="form-control w-50 my-3 py-3 ms-4"
@@ -43,24 +44,24 @@ const InputAndRadioBox = () => {
             placeholder="ex:2"
             onChange={handleChange}
           />
-          <h5 className="ms-2">{singlePostData[0].checkBoxTitle}</h5>
-          {singlePostData[0].checkBoxTitle && (
+          <h5 className="ms-2">{singlePostData[0].title}</h5>
+          {singlePostData[0].title && (
             <div>
-              {singlePostData[0].options.map(({ name, id }) => (
-                <div className="col-md-12 " key={id}>
+              {singlePostData[0].options.map(({ name, _id }) => (
+                <div className="col-md-12 " key={_id}>
                   <label
-                    for={id}
+                    for={_id}
                     className="check_box_item d-flex justify-content-between align-items-center"
                     style={{ cursor: "pointer" }}
                   >
-                    <label for={id}>
+                    <label for={_id}>
                       <p>{name}</p>
                     </label>
                     <input
                       type="radio"
                       value={name}
                       name="place"
-                      id={id}
+                      id={_id}
                       onChange={handleChange}
                     />
                   </label>
@@ -73,14 +74,14 @@ const InputAndRadioBox = () => {
             <div>
               <Link
                 //   to={`/post-service-request/${path}`}
-                to={`/post-service-request/${preStepName}/${inputAndRadio}`}
+                to={`/post-service-request/${preStepName}/${radio}`}
               >
                 {" "}
                 <button className="secondary_button">Précédent</button>{" "}
               </Link>
             </div>
             <div>
-              <Link to={`/post-service-request/${stepName}/${inputAndRadio}`}>
+              <Link to={`/post-service-request/${stepName}/${radio}`}>
                 {" "}
                 <button className="main_button" onClick={handleSubmit}>
                   {" "}

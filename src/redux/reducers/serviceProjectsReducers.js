@@ -14,10 +14,12 @@ const initialState = {
   email: {},
   doubleTitleRadio: {},
   registrationData: {},
-  productsData: {}
+  productsData: {},
+  postData: []
 };
 
 const serviceProjectsReducers = (state = initialState, action) => {
+
   switch (action.type) {
     case actionTypes.ADD_POSTAL_CODE:
       return { ...state, postCode: action.payLoad };
@@ -48,12 +50,15 @@ const serviceProjectsReducers = (state = initialState, action) => {
 
     case actionTypes.ADD_INPUT_RADIO:
       return { ...state, inputRadio: action.payLoad };
-
-
     case actionTypes.ADD_DOUBLE_TITLE_RADIO:
       return { ...state, doubleTitleRadio: action.payLoad };
     case actionTypes.ADD_REGISTRATION_DATA:
+      console.log(action.payLoad);
       return { ...state, registrationData: action.payLoad };
+    // FETCH
+    case actionTypes.ADD_POST_DATA:
+      return { ...state, postData: action.payLoad };
+    // FETCH
     case actionTypes.ADD_PRODUCT_DATA:
       return { ...state, productsData: action.payLoad };
     case actionTypes.ADD_DOUBLE_CHECKBOX:

@@ -2,19 +2,18 @@ export const serviceData = [
   {
     name: "fenetre-porte-fenetre",
     id: 1,
-    path: "gardiennage-societe-de-surveillance",
+    path: "response",
     steps: [
-      {
-        title:
-          "Décrivez votre projet et échangez avec les artisans près de chez vous. ",
-        type: "text",
+      // {
+      //   title:
+      //     "Décrivez votre projet et échangez avec les artisans près de chez vous. ",
+      //   type: "text",
     
-      },
+      // },
       {
-        type: "checkBox",
+        type: "checkbox",
    
-        stepNumber: 2,
-        title: "Quelle est la nature de vos travaux   ?",
+        title: "Quelle est la nature de vos travaux  ddd  ?",
         options: [
           {
             id: 1,
@@ -73,7 +72,6 @@ export const serviceData = [
       },
       {
         type: "moreMultipleCheckBox",
- 
         title: "Quel type de fenêtre souhaitez-vous ? (facultatif)",
         options: [
           {

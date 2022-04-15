@@ -91,6 +91,12 @@ const addRegistrationData = (registrationData) => {
     payLoad: registrationData,
   };
 }
+const addPostData = (postData) => {
+  return {
+    type: actionTypes.ADD_POST_DATA,
+    payLoad: postData,
+  };
+}
 
 const addToProductData = (productData) => {
   console.log("productData", productData);
@@ -114,6 +120,7 @@ export {
   serviceDoubleCheckBox,
   serviceDoublTitleRadio,
   addRegistrationData,
+  addPostData,
   addToProductData
 };
 
