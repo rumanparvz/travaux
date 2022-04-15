@@ -17,6 +17,7 @@ import GoogleMapLocation from "../components/Register/GoogleMapLocation";
 import OfferServices from "../components/Register/OfferServices";
 import PayPalPaymentGateway from "../components/Register/PayPalPaymentGateway";
 import Serit from "../components/Register/Serit";
+import SingleServiceInfo from "../components/ServiceCartDetails/Common/SingleServiceInfo";
 import ServiceProductDetails from "../components/ServiceCartDetails/Services/Details/ServiceProductDetails";
 // import { serviceData } from "../data/ServiceData";
 import AdminDashboardPage from "../pages/AdminDahsboardPage/AdminDashboardPage";
@@ -58,6 +59,7 @@ const Routers = () => {
           element={<MultiPulCheckBox />}
         ></Route>
         <Route path="/prixDes" element={<PrixDes />}></Route>
+        <Route path="/singleServiceInfo/:id" element={<SingleServiceInfo />}></Route>
         <Route
           path="/post-service-request/moreMultipleCheckBox/:moreMultipleCheckBox"
           element={<OptionalMultiCheckBox />}
