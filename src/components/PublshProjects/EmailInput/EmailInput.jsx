@@ -48,7 +48,7 @@ const EmailInput = () => {
             </div>
             <div>
               <Link
-                to={`/post-service-request/${stepName}/${email}`}
+                to='/connexion'
               >
                 {" "}
                 <button className="main_button" onClick={handleSubmit}> Suivant</button>{" "}
