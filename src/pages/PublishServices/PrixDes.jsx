@@ -6,7 +6,6 @@ import fakeData from "../../data/FakeData.js";
 import { BiRightArrowAlt } from "react-icons/bi";
 
 const PrixDes = () => {
-  
   const {
     priceDescription,
     bannerImg,
@@ -21,13 +20,12 @@ const PrixDes = () => {
     resumeDescription,
   } = fakeData;
 
- 
-const info1 = additionalInfo[0];
-const info2 = additionalInfo[1];
-const info3 = additionalInfo[2];
-const info4 = additionalInfo[3];
-const info5 = additionalInfo[4];
-  
+  const info1 = additionalInfo[0];
+  const info2 = additionalInfo[1];
+  const info3 = additionalInfo[2];
+  const info4 = additionalInfo[3];
+  const info5 = additionalInfo[4];
+
   return (
     <div>
       <NavBar />
@@ -38,14 +36,14 @@ const info5 = additionalInfo[4];
         <div className="text_image container">
           <div>
             <span>
-              <Link className="me-2 prix_text-blue" to="/">
+              <Link className="me-2 text_blue" to="/">
                 Accueil
               </Link>
               /
             </span>
 
             <span>
-              <Link className="mx-2 prix_text-blue" to="/">
+              <Link className="mx-2 text_blue" to="/">
                 Fenêtre et porte
               </Link>
               /
@@ -86,27 +84,27 @@ const info5 = additionalInfo[4];
             <div>
               <a href="#one" rel="noopener noreferrer">
                 <p className="m-0">
-                  1.<span className="prix_text-blue ms-3">{info1.title}</span>
+                  1.<span className="text_blue ms-3">{info1.title}</span>
                 </p>
               </a>
               <a href="#two" rel="noopener noreferrer">
                 <p className="m-0">
-                  2.<span className="prix_text-blue ms-3">{info2.title}</span>
+                  2.<span className="text_blue ms-3">{info2.title}</span>
                 </p>
               </a>
               <a href="#three">
                 <p className="m-0">
-                  3.<span className="prix_text-blue ms-3">{info3.title}</span>
+                  3.<span className="text_blue ms-3">{info3.title}</span>
                 </p>
               </a>
               <a href="#four">
                 <p className="m-0">
-                  4.<span className="prix_text-blue ms-3">{info4.title}</span>
+                  4.<span className="text_blue ms-3">{info4.title}</span>
                 </p>
               </a>
               <a href="#five">
                 <p className="m-0">
-                  5.<span className="prix_text-blue ms-3">{info5.title}</span>
+                  5.<span className="text_blue ms-3">{info5.title}</span>
                 </p>
               </a>
             </div>

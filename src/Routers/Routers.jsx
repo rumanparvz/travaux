@@ -20,6 +20,7 @@ import SingleServiceInfo from "../components/ServiceCartDetails/Common/SingleSer
 import ServiceProductDetails from "../components/ServiceCartDetails/Services/Details/ServiceProductDetails";
 // import { serviceData } from "../data/ServiceData";
 import AdminDashboardPage from "../pages/AdminDahsboardPage/AdminDashboardPage";
+import FromComment from "../pages/FromComment/FromComment.jsx";
 import HomePage from "../pages/Home/HomePage";
 import LoginPages from "../pages/LoginPages/LoginPages";
 import CheckBoxOptionPage from "../pages/PublishServices/CheckBoxOptionPage";
@@ -121,6 +122,7 @@ const Routers = () => {
         />
         <Route path="/job/registration" element={<FreeRegistration />} />
         <Route path="/login" element={<LoginHappy />} />
+        <Route path="/fromComment" element={<FromComment />} />
         <Route path="/register/contract" element={<ContractInfo />} />
         <Route path="/register/googleMap" element={<GoogleMapLocation />} />
         <Route path="/register/serit" element={<Serit />} />
