@@ -1,0 +1,23 @@
+from_comment-btn{
+    margin-bottom: 50px;
+}
+.from_comment-btn1 , .from_comment-btn2{
+  width: 140px;
+  display: inline-block;
+  padding: 14px 0px;
+  border-radius: 50px;
+  font-weight: 600;
+  border: 1px solid blue;
+}
+.from_comment-btn1{
+  color: blue;
+  background: #fff;
+  &:hover{
+    background: #F0F8FF;
+  }
+}
+.from_comment-btn2{
+  background: blue;
+  color: #fff;
+  float: right;
+}

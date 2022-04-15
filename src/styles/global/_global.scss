@@ -1,71 +1,75 @@
 * {
-    padding: 0;
-    margin: 0;
-  }
-  body{
-    background-color: #ffffff;
-  }
-  .main_button_color{
-    background-color: #3F27BA !important;
-    :hover{
-      background-color: #330691 !important;
-    }
-  }
-  .main_button{
-    padding: 13px 27px;
-    margin-top: 23px;
-    background: #3f27ba;
-    border: navajowhite;
-    border-radius: 24px;
-    color: white;
-    font-weight: 600;
-    transition: .3s;
-    &:hover{
-      background-color: #330691;
-      transition: .3s;
-    }
-  }
-
-  .secondary_button{
-    padding: 13px 27px;
-    margin-top: 23px;
-    background: transparent;
-    border: navajowhite;
-    border: 2px solid #330691;
-    color: #330691;
-    border-radius: 24px;
-    font-weight: 600;
-    transition: .3s;
-    &:hover{
-      background-color: #ddd;
-      transition: .3s;
-    }
-  }
-  .check_box_item {
-    background: #eeeeee;
-    margin: 10px;
-    padding: 10px;
-    font-size: 20px;
-    box-shadow: 10px 10px 10px #dde;
+  padding: 0;
+  margin: 0;
 }
-.primary_button{
-  padding: 10px 20px ;
+body {
+  background-color: #ffffff;
+}
+.main_button_color {
+  background-color: #3f27ba !important;
+  :hover {
+    background-color: #330691 !important;
+  }
+}
+.main_button {
+  padding: 13px 27px;
+  margin-top: 23px;
+  background: #3f27ba;
+  border: navajowhite;
+  border-radius: 24px;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+  &:hover {
+    background-color: #330691;
+    transition: 0.3s;
+  }
+}
+
+.secondary_button {
+  padding: 13px 27px;
+  margin-top: 23px;
+  background: transparent;
+  border: navajowhite;
+  border: 2px solid #330691;
+  color: #330691;
+  border-radius: 24px;
+  font-weight: 600;
+  transition: 0.3s;
+  &:hover {
+    background-color: #ddd;
+    transition: 0.3s;
+  }
+}
+.check_box_item {
+  background: #eeeeee;
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+  box-shadow: 10px 10px 10px #dde;
+}
+.primary_button {
+  padding: 10px 20px;
   background-color: #017acd;
-  transition: .3s;
+  transition: 0.3s;
   border: none;
   color: white;
   padding: 18px 29px;
   border-radius: 57px;
-font-weight: 700;
+  font-weight: 700;
 
-  &:hover{
+  &:hover {
     background-color: #01528a;
-    transition: .3s;
+    transition: 0.3s;
   }
 }
-.forget_input{
+.forget_input {
   width: 80%;
   height: 55px;
   border: 2px solid gray;
-   border-radius: 5px;
+  border-radius: 5px;
 }
+.text_blue {
+  color: blue;
+}
+

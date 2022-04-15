@@ -39,6 +39,7 @@ const HotServiceCard = () => {
                     </Link>
                   </p>
                   <Link to="/prixDes">PrixDes</Link>
+                  <Link to="/fromComment">FromComment</Link>
                 </Card.Body>
               </div>
               <div className="card_footer d-flex justify-content-center align-items-center gap-3">
