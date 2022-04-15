@@ -98,6 +98,14 @@ const addPostData = (postData) => {
   };
 }
 
+const addToProductData = (productData) => {
+  console.log("productData", productData);
+  return {
+    type: actionTypes.ADD_PRODUCT_DATA,
+    payLoad: productData,
+  };
+}
+
 export {
   ProjectPostalCode,
   serviceTypeCheckBox,
@@ -112,6 +120,10 @@ export {
   serviceDoubleCheckBox,
   serviceDoublTitleRadio,
   addRegistrationData,
+<<<<<<< HEAD
   addPostData
+=======
+  addToProductData
+>>>>>>> 7720d53d58aa354c67afcd9b9f80e138ce6eb780
 };
 

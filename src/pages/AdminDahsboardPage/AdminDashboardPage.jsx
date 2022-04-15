@@ -3,6 +3,7 @@ import { Layout, Menu } from "antd";
 import React, { useState } from "react";
 import { AiFillHome } from 'react-icons/ai';
 import { Link, useParams } from "react-router-dom";
+import CreateAdditionalData from "../../components/Admin/CreateAdditionalData";
 import CreateProducts from "../../components/Admin/CreateProducts";
 import CreateService from "../../components/Admin/CreateService";
 import CreateSingleProduct from "../../components/Admin/CreateSingleProduct";
@@ -22,7 +23,7 @@ const AdminDashboardPage = () => {
     <div>
       <div className="container-fluid row">
         <div className="col-md-2">
-          {" "}
+
           <Layout>
             <Content>
               <Layout>
@@ -47,7 +48,7 @@ const AdminDashboardPage = () => {
                       <Menu.Item key="12">
                         <Link to="/admin/createSingleService">Create Single Service</Link>
                       </Menu.Item>
-                      <Menu.Item key="13">
+                      <Menu.Item key="14">
                         <Link to="/admin/manageServices">
                           Manage Services Service
                         </Link>
@@ -86,8 +87,11 @@ const AdminDashboardPage = () => {
             <CreateSubCategory categoryId={categoryId}
               setCategoryId={setCategoryId} />
           ) :
+            panel === "createAdditionalData" ? (
+              <CreateAdditionalData />
+            ) :
 
-            null}
+              null}
         </div>
       </div>
     </div>

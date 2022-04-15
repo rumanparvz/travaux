@@ -12,10 +12,10 @@ const AllResults = () => {
   const onFinish = async (values) => {
     try {
       const newValues = {
-        siretNo: parseInt(values.siretNo),
+        siretNo: parseInt(values.siretNo) || registrationData.siretNo,
         companyName: values.companyName,
         address: values.address,
-        postalCode: parseInt(values.postalCode)
+        postalCode: parseInt(values.postalCode) || registrationData.postalCode
 
       }
       const result = await axios.post('https://ancient-gorge-88070.herokuapp.com/auth/addSiret', newValues);
@@ -59,7 +59,7 @@ const AllResults = () => {
             name="siretNo"
             rules={[
               {
-                required: true,
+                required: false,
                 message: "Siret!",
               },
             ]}
@@ -101,7 +101,7 @@ const AllResults = () => {
             name="postalCode"
             rules={[
               {
-                required: true,
+                required: false,
                 message: "Enter postal code",
               },
             ]}

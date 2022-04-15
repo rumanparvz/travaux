@@ -12,5 +12,9 @@ export const actionTypes = {
   ADD_DOUBLE_CHECKBOX: "add_doubleCheckbox",
   ADD_DOUBLE_TITLE_RADIO: "add_doubleTitle_radio",
   ADD_REGISTRATION_DATA: "add_registration_data",
+<<<<<<< HEAD
   ADD_POST_DATA: "ADD_POST"
+=======
+  ADD_PRODUCT_DATA: "add_product_data",
+>>>>>>> 7720d53d58aa354c67afcd9b9f80e138ce6eb780
 };

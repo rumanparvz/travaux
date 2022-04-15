@@ -17,7 +17,7 @@ import OfferServices from "../components/Register/OfferServices";
 import PayPalPaymentGateway from "../components/Register/PayPalPaymentGateway";
 import Serit from "../components/Register/Serit";
 import ServiceProductDetails from "../components/ServiceCartDetails/Services/Details/ServiceProductDetails";
-import { serviceData } from "../data/ServiceData";
+// import { serviceData } from "../data/ServiceData";
 import AdminDashboardPage from "../pages/AdminDahsboardPage/AdminDashboardPage";
 import HomePage from "../pages/Home/HomePage";
 import LoginPages from "../pages/LoginPages/LoginPages";
@@ -27,6 +27,7 @@ import CommentTextPage from "../pages/PublishServices/CommentTextPage";
 import CompletePages from "../pages/PublishServices/CompletePages";
 import EmailPage from "../pages/PublishServices/EmailPage";
 import OptionalMultiCheckBox from "../pages/PublishServices/OptionalMultiCheckBox";
+import PrixDes from "../pages/PublishServices/PrixDes.jsx";
 import RootTextPostPage from "../pages/PublishServices/RootTextPostPage";
 import UploadImagePage from "../pages/PublishServices/UploadImagePage";
 import RegisterPages from "../pages/Register/RegisterPages";
@@ -35,7 +36,7 @@ import ServiceDetailsReview from "../pages/ServiceCartDetails/ServiceDetailsRevi
 
 
 const Routers = () => {
-  console.log(serviceData);
+  // console.log(serviceData);
   return (
     <div>
       <Routes>
@@ -56,6 +57,7 @@ const Routers = () => {
           path="/post-service-request/multipleCheckbox/:multipleCheckbox"
           element={<MultiPulCheckBox />}
         ></Route>
+        <Route path="/prixDes" element={<PrixDes />}></Route>
         <Route
           path="/post-service-request/moreMultipleCheckBox/:moreMultipleCheckBox"
           element={<OptionalMultiCheckBox />}

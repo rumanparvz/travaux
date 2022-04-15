@@ -1,7 +1,10 @@
 import { Button, Form, Input, Select } from "antd";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ServiceStep from "./serviceSteps";
+import { addToProductData } from "../../redux/actions/ProjectsActions";
 // import { category } from "../../services/ServiceCategory/ServiceCategory";
 import Step from "./Step";
 
@@ -23,20 +26,25 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 const CreateSingleService = ({ categoryId }) => {
-    console.log(
-        "allah",
-        categoryId.categoryById,
-        "hoallah",
-        categoryId.subCategoryById
-    );
-
     const [disable, setDisable] = useState(false);
     const [select, setSelect] = useState(null);
     const [jobs, setJobs] = useState([])
     const [subCategories, setSubCategories] = useState([])
+    const [selectCategoryId, setSelectCategoryId] = useState('');
+    const [selectSubCategoryId, setSelectSubCategoryId] = useState('');
+    const [imageLoader, setImageLoader] = useState(false);
+    const [logoLoader, setLogoLoder] = useState(false);
+    const [image, setImage] = useState("");
+    const [logo, setLogo] = useState("");
+    const dispatch = useDispatch()
+
+    const handleSetSubcategoryId = (id) => {
+        setSelectSubCategoryId(id)
+        console.log(id)
+    }
 
     const handleGetSubCategory = (categoryId) => {
-        console.log({ categoryId })
+        setSelectCategoryId(categoryId);
         axios.get(`https://ancient-gorge-88070.herokuapp.com/api/getSubcategoryByCategoryId/${categoryId}`)
             .then((res) => {
                 console.log(res)
@@ -53,23 +61,27 @@ const CreateSingleService = ({ categoryId }) => {
     const navigate = useNavigate();
     const onFinish = (values) => {
         const newValue = {
-            categoryId: categoryId.categoryById,
-            subCategoryId: categoryId.subCategoryById,
+            categoryId: selectCategoryId,
+            subCategoryId: selectSubCategoryId,
             title: values.title,
             description: values.description,
             price: values.number,
+            bannerImage: image,
+            image: logo,
         };
+        dispatch(addToProductData(newValue))
         console.log(newValue);
         // CREATE PRODUCT
-        axios
-            .post(
-                "https://ancient-gorge-88070.herokuapp.com/api/createProduct",
-                newValue
-            )
-            .then((res) => {
-                console.log(res);
-                navigate("/");
-            });
+        // axios
+        //     .post(
+        //         "https://ancient-gorge-88070.herokuapp.com/api/createProduct",
+        //         newValue
+        //     )
+        //     .then((res) => {
+        //         console.log(res);
+        //         navigate("/");
+        //     });
+        navigate("/admin/createAdditionalData");
 
         // POST
         // category.postService(newValue)
@@ -88,6 +100,36 @@ const CreateSingleService = ({ categoryId }) => {
         setJobs(newCategory);
     }
 
+    const handleImageUpload = (e) => {
+        setImageLoader(true);
+        const imageFile = e.target.files[0];
+        const data = new FormData();
+        data.append("file", imageFile);
+        data.append("upload_preset", "serviceImages");
+        data.append("cloud_name", "dzghsspe7");
+        axios
+            .post("https://api.cloudinary.com/v1_1/dzghsspe7/image/upload", data)
+            .then((res) => {
+                setImage(res.data.url);
+                setImageLoader(false);
+            });
+    };
+
+    const handleLogoUpload = (e) => {
+        setLogoLoder(true);
+        const imageFile = e.target.files[0];
+        const data = new FormData();
+        data.append("file", imageFile);
+        data.append("upload_preset", "serviceImages");
+        data.append("cloud_name", "dzghsspe7");
+        axios
+            .post("https://api.cloudinary.com/v1_1/dzghsspe7/image/upload", data)
+            .then((res) => {
+                setLogo(res.data.url);
+                setLogoLoder(false);
+            });
+    };
+
     useEffect(() => {
         getCategory();
     }, []);
@@ -97,8 +139,8 @@ const CreateSingleService = ({ categoryId }) => {
 
     return (
         <div className="w-75 pt-5">
+            <ServiceStep number={0} />
             <h1 className="text-center py-4">Create Single Product </h1>
-
             <Form
                 {...layout}
                 name="nest-messages"
@@ -115,7 +157,7 @@ const CreateSingleService = ({ categoryId }) => {
                 {
                     subCategories.length ?
                         <Form.Item name={["subCategory"]} label="Sub Category" rules={[{ required: true }]}>
-                            <Select >
+                            <Select onChange={handleSetSubcategoryId}>
                                 {
                                     subCategories.map((subCategory, index) => <option key={subCategory.id} value={subCategory?.id} selected={index === 0}>{subCategory?.name}</option>)
                                 }
@@ -133,9 +175,31 @@ const CreateSingleService = ({ categoryId }) => {
                     <Input />
                 </Form.Item>
 
+                <Form.Item
+                    name={["image"]}
+                    label="Banner Image"
+                    rules={[{ required: false }]}
+                >
+                    {imageLoader && (
+                        <div class="spinner-border text-success" role="status"></div>
+                    )}
+                    <input type="file" name="image" id="image" onChange={handleImageUpload} />
+                </Form.Item>
+
+                <Form.Item
+                    name={["logo"]}
+                    label="Upload a logo"
+                    rules={[{ required: false }]}
+                >
+                    {logoLoader && (
+                        <div class="spinner-border text-success" role="status"></div>
+                    )}
+                    <input type="file" name="logo" id="logo" onChange={handleLogoUpload} />
+                </Form.Item>
+
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }} disabled>
                     <Button type="primary" htmlType="submit">
-                        Submit
+                        Next
                     </Button>
                 </Form.Item>
             </Form>

@@ -11,7 +11,7 @@ const NavBar = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [role, setRole] = useState("");
   const location = useLocation()
-  console.log(location.pathname);
+  // console.log(location.pathname);
 
   const handleLogout = async () => {
     const refreshToken = Cookies.get("refreshToken");
@@ -39,7 +39,7 @@ const NavBar = () => {
       setRole(decoded.role);
       console.log(decoded);
     }
-  })
+  },[])
 
 
   return (
