@@ -91,8 +91,8 @@ const SingleServiceInfo = () => {
       <div className="container">
         <div className="row mt-5">
           <div className="col col-md-6 col-lg-6">
-            <h5>{resume} :</h5>
-            <p>{resumeDescription}</p>
+            {/* <h5>{resume} :</h5>
+            <p>{resumeDescription}</p> */}
 
             <h6 className="prix_text-bold">
               Temps de lecture : {product?.additionalInfo?.length} Minutes
