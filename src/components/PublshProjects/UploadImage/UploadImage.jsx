@@ -1,19 +1,20 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Spinner } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { serviceImageUpload } from "../../../redux/actions/ProjectsActions";
+import { addProjectsData, serviceImageUpload } from "../../../redux/actions/ProjectsActions";
 import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
 
 const UploadImage = () => {
   const { uploadImage } = useParams();
-  const { stepName, singlePostData, length, preStepName ,processStep} = ServiceSteps(  uploadImage,  "uploadImage");
-const dispatch = useDispatch()
+  const { stepName, singlePostData, length, preStepName, processStep } = ServiceSteps(uploadImage, "uploadImage");
+  const dispatch = useDispatch()
   const [imageLoader, setImageLoader] = useState("");
   const [image, setImage] = useState("");
+  const projectsData = useSelector((state) => state.service.projectsData);
   console.log("image", image);
   const handleImageUpload = (e) => {
     setImageLoader("pending");
@@ -30,8 +31,9 @@ const dispatch = useDispatch()
       });
   };
 
-  const handleImage = ()=>{
-    dispatch(serviceImageUpload({image:image}))
+  const handleImage = () => {
+    dispatch(serviceImageUpload({ image: image }))
+    dispatch(addProjectsData({ ...projectsData, portfolio: image }));
   }
   return (
     <div>
@@ -58,7 +60,7 @@ const dispatch = useDispatch()
                 name=""
                 id="image"
                 onChange={(e) => handleImageUpload(e)}
-                style={{height:'1px' ,width:'1px'}}
+                style={{ height: '1px', width: '1px' }}
               />
             </label>
           </form>
@@ -89,7 +91,7 @@ const dispatch = useDispatch()
             <div>
               <Link
                 to={`/post-service-request/${stepName}/${uploadImage}`}
-                // /post-service-request/comment/:comment/:id
+              // /post-service-request/comment/:comment/:id
               >
                 {" "}
                 <button className="main_button" onClick={handleImage}> Suivant</button>{" "}

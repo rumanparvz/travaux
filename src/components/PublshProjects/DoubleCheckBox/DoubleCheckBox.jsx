@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { serviceDoubleCheckBox } from '../../../redux/actions/ProjectsActions';
+import { addProjectsData, serviceDoubleCheckBox } from '../../../redux/actions/ProjectsActions';
 import ProcessBar from '../../../utils/ProcessBar';
 import ServiceSteps from '../../../utils/ServiceSteps';
 import NavBar from '../../Common/NavBar/NavBar';
@@ -12,9 +12,11 @@ const DoubleCheckBox = () => {
 
     const { stepName, singlePostData, length, preStepName ,processStep} = ServiceSteps( doubleCheckBox, "doubleCheckBox");
     const dispatch = useDispatch();
+    const projectsData = useSelector((state) => state.service.projectsData);
   
-    const handleCheckBoxChange = (svg, name) => {
+    const handleCheckBoxChange = (svg, name, key) => {
       dispatch(serviceDoubleCheckBox({  svg, natureType: name }));
+      dispatch(addProjectsData({...projectsData, additionalInfo:[...projectsData?.additionalInfo, {key, name}] }));
     };
     return (
         <div className="checkBoxOption">
@@ -26,13 +28,13 @@ const DoubleCheckBox = () => {
           <ProcessBar processStep={processStep} length={length} />
           <h5 className="pt-4">{singlePostData[0].title}</h5>
           <div className="check_Box row mb-5">
-            {singlePostData[0].options.map(({ svg, name, id }) => (
+            {singlePostData[0].options.map(({ svg, name, id, key }) => (
               <div className="col-md-4 col-sm-6  pt-3 mb-5" key={id}>
                 <Card className="pt-4 ">
                   <label
                     for={id}
                     style={{ cursor: "pointer" }}
-                    onClick={() => handleCheckBoxChange(svg, name)}
+                    onClick={() => handleCheckBoxChange(svg, name, singlePostData[0]?.keyword)}
                   >
                     
                     <input

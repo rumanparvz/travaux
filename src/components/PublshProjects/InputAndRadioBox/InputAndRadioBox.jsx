@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { serviceInputRadio } from "../../../redux/actions/ProjectsActions";
+import { addProjectsData, serviceInputRadio } from "../../../redux/actions/ProjectsActions";
 import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
@@ -13,14 +13,16 @@ const InputAndRadioBox = () => {
   const dispatch = useDispatch();
 
   const [inputState, setInputState] = useState({});
-  console.log("inputSatate", inputState);
-  const handleChange = (e) => {
+  const projectsData = useSelector((state) => state.service.projectsData);
+  const handleChange = (e, key) => {
     const newStage = { ...inputState, [e.target.name]: e.target.value };
     setInputState(newStage);
+    dispatch(addProjectsData({...projectsData, additionalInfo:[...projectsData?.additionalInfo, {key, name: e.target.value}] }));
   };
 
   const handleSubmit = () => {
     dispatch(serviceInputRadio(inputState));
+    
   };
   return (
     <div>
@@ -42,12 +44,12 @@ const InputAndRadioBox = () => {
             name="size"
             id=""
             placeholder="ex:2"
-            onChange={handleChange}
+            onChange={(e)=>handleChange(e)}
           />
           <h5 className="ms-2">{singlePostData[0].title}</h5>
           {singlePostData[0].title && (
             <div>
-              {singlePostData[0].options.map(({ name, _id }) => (
+              {singlePostData[0].options.map(({ name, _id, key }) => (
                 <div className="col-md-12 " key={_id}>
                   <label
                     for={_id}
@@ -62,7 +64,7 @@ const InputAndRadioBox = () => {
                       value={name}
                       name="place"
                       id={_id}
-                      onChange={handleChange}
+                      onChange={(e)=>handleChange(e, singlePostData[0]?.keyword)}
                     />
                   </label>
                 </div>

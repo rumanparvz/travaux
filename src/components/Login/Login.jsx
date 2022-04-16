@@ -4,11 +4,17 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import NavBar from "../Common/NavBar/NavBar";
+import { useDispatch, useSelector } from "react-redux";
+import { addProjectsData } from "../../redux/actions/ProjectsActions";
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState({})
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
+
+  const dispatch = useDispatch();
+  const projectsData = useSelector((state) => state.service.projectsData);
 
   const navigate = useNavigate();
 
@@ -53,9 +59,19 @@ const Login = () => {
         if (response?.data?.data?.accessToken) {
           Cookies.set('accessToken', response?.data?.data?.accessToken);
           Cookies.set('refreshToken', response?.data?.data?.refreshToken);
+          Cookies.set('userId', response?.data?.data?.user?.userId);
           setIsLoading(false);
           setError({});
-          navigate('/');
+          const path = window.location.pathname;
+          if (path !== '/connexion') {
+            const res = await axios.post('https://ancient-gorge-88070.herokuapp.com/api/publishProject', { ...projectsData, contactEmail: loginInfo?.email, userId: response?.data?.data?.user?.userId });
+            if (res?.data) {
+              navigate('/');
+              dispatch(addProjectsData({}));
+            }
+          } else {
+            navigate('/');
+          }
         } else {
           setIsLoading(false);
           setError({ msg: response?.data?.message });
@@ -69,6 +85,16 @@ const Login = () => {
       setIsLoading(false);
     }
   }
+
+  // const handleSubmitProjects = async (e) => {
+  //   try {
+  //     const response = await axios.post('https://ancient-gorge-88070.herokuapp.com/api/publishProject', projectsData);
+  //     console.log(response);
+  //   }
+  //   catch (err) {
+  //     console.log(err);
+  //   }
+  // }
   return (
     <div className="login">
       <NavBar />
