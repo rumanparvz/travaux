@@ -15,7 +15,8 @@ const initialState = {
   doubleTitleRadio: {},
   registrationData: {},
   productsData: {},
-  postData: []
+  postData: [],
+  projectsData: {}
 };
 
 const serviceProjectsReducers = (state = initialState, action) => {
@@ -63,6 +64,8 @@ const serviceProjectsReducers = (state = initialState, action) => {
       return { ...state, productsData: action.payLoad };
     case actionTypes.ADD_DOUBLE_CHECKBOX:
       return { ...state, doubleRadioOptionBox: action.payLoad };
+    case actionTypes.ADD_PROJECTS_DATA:
+      return { ...state, projectsData: action.payLoad };
 
     default:
       return state;

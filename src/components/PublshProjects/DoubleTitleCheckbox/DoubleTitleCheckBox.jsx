@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { serviceDoublTitleRadio } from "../../../redux/actions/ProjectsActions";
+import { addProjectsData, serviceDoublTitleRadio } from "../../../redux/actions/ProjectsActions";
 import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
@@ -9,15 +9,13 @@ import NavBar from "../../Common/NavBar/NavBar";
 
 const DoubleTitleCheckBox = () => {
   const { doubleTitleRadio } = useParams();
-  const { stepName, singlePostData, length, preStepName,processStep } = ServiceSteps( doubleTitleRadio,"doubleTitleRadio" );
+  const { stepName, singlePostData, length, preStepName, processStep } = ServiceSteps(doubleTitleRadio, "doubleTitleRadio");
   const dispatch = useDispatch()
-  
+  const projectsData = useSelector((state) => state.service.projectsData);
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
-
-
+  const handleChange = (e, key) => {
     dispatch(serviceDoublTitleRadio({ doubleTItleRadioType: e.target.value }));
+    dispatch(addProjectsData({ ...projectsData, additionalInfo: [...projectsData?.additionalInfo, { key, name: e.target.value }] }));
   };
 
   console.log("ssss", singlePostData);
@@ -32,17 +30,17 @@ const DoubleTitleCheckBox = () => {
         <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
-          {singlePostData[0].options.map(({ name, id }) => (
+          {singlePostData[0].options.map(({ name, id, key }) => (
             <div className="col-md-12 " key={id}>
               <label
                 for={id}
                 className="check_box_item d-flex justify-content-between align-items-center"
-                style={{cursor:'pointer'}}
+                style={{ cursor: 'pointer' }}
               >
                 <label for="">
                   <p>{name}</p>
                 </label>
-                <input type="radio" value={name} onChange={handleChange} name="radio" id={id} />
+                <input type="radio" value={name} onChange={(e) => handleChange(e, singlePostData[0]?.keyword)} name="radio" id={id} />
               </label>
             </div>
           ))}

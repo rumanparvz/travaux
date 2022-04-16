@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { moreServicesMultiPleCheckBox } from "../../../redux/actions/ProjectsActions";
+import { addProjectsData, moreServicesMultiPleCheckBox } from "../../../redux/actions/ProjectsActions";
 import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
@@ -12,6 +12,7 @@ const OptionalMulticheCheckBox = () => {
   const { stepName, singlePostData, length, preStepName,processStep } = ServiceSteps(  moreMultipleCheckBox,  "moreMultipleCheckBox");
 
   const [optionalElement,setOptionalElement]=useState([])
+  const projectsData = useSelector((state) => state.service.projectsData);
  
   console.log(optionalElement);
   const dispatch = useDispatch()
@@ -27,8 +28,9 @@ const OptionalMulticheCheckBox = () => {
    }
  
  
-   const handleNextSubmit = ()=>{
+   const handleNextSubmit = (key)=>{
      dispatch(moreServicesMultiPleCheckBox(optionalElement))
+     dispatch(addProjectsData({...projectsData, additionalInfo:[...projectsData?.additionalInfo, {key, name: optionalElement}] }));
    }
 
 
@@ -45,7 +47,7 @@ const OptionalMulticheCheckBox = () => {
         <h5 className="py-3">{singlePostData[0].title}</h5>
 
         <div className="row">
-          {singlePostData[0].options.map(({ svg, name, id }) => (
+          {singlePostData[0].options.map(({ svg, name, id, key }) => (
             <div className="col-lg-2 col-lg-3 col-sm-4 mb-2 col-xs-6" key={id}>
               <Card className="pt-4 pb-3" style={{ height: "150px" }}>
                 <label for={id} style={{ cursor: "pointer" }}>
@@ -89,7 +91,7 @@ const OptionalMulticheCheckBox = () => {
                 to={`/post-service-request/${stepName}/${moreMultipleCheckBox}`}
               >
                 {" "}
-                <button className="main_button" onClick={handleNextSubmit}> Suivant</button>{" "}
+                <button className="main_button" onClick={()=>handleNextSubmit(singlePostData[0]?.keyword)}> Suivant</button>{" "}
               </Link>
             </div>
           </div>

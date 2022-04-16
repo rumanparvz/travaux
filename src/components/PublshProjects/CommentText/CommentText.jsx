@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { serviceComment } from "../../../redux/actions/ProjectsActions";
+import { addProjectsData, serviceComment } from "../../../redux/actions/ProjectsActions";
 import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
@@ -10,9 +10,11 @@ const CommentText = () => {
   const {stepName,singlePostData,length,preStepName,processStep}=ServiceSteps(comment,'comment')
  const [commentText,setComment ]=useState(null)
 const dispatch = useDispatch()
+const projectsData = useSelector((state) => state.service.projectsData)
 
  const handleSubmit = ()=>{
   dispatch(serviceComment({comment:commentText}))
+  dispatch(addProjectsData({...projectsData, about:commentText}));
   // AllPostData('hmm')
 
  }

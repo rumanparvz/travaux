@@ -1,13 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/Common/NavBar/NavBar.jsx";
+import Cookies from "js-cookie";
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { addProjectsData } from "../../redux/actions/ProjectsActions";
 
 const FromComment = () => {
-   
+  const [fromData, setFromData] = useState({});
+  const navigate = useNavigate();
+
+  const projectsData = useSelector((state) => state.service.projectsData);
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    const newObj = {};
+    newObj[e.target.name] = e.target.value;
+    setFromData({ ...fromData, ...newObj });
+  }
+
+  const handleSubmit = async () => {
+    console.log(fromData);
+    try {
+      const response = await axios.post("https://ancient-gorge-88070.herokuapp.com/auth/signup", { ...fromData, postalCode: projectsData.postalCode });
+      if (response) {
+        Cookies.set("refreshToken", response?.data?.data?.refreshToken);
+        Cookies.set("accessToken", response?.data?.data?.accessToken);
+        Cookies.set("userId", response?.data?.data?.user?.userId);
+        const res = await axios.post('https://ancient-gorge-88070.herokuapp.com/api/publishProject', { ...projectsData, contactEmail: fromData?.email, userId: response?.data?.data?.user?.userId });
+        if (res?.data) {
+          dispatch(addProjectsData({}));
+          navigate('/');
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div>
       <NavBar />
       <div className="container">
-        
+
         <div className="row">
           <div className="col col-md-6 col-lg-6">
             <h3 className="my-3">Enregistrer un nouveau compte</h3>
@@ -24,7 +59,21 @@ const FromComment = () => {
                 <input
                   className="form-control px-2 py-3 border border-3"
                   type="email"
-                  name=""
+                  name="email"
+                  onChange={handleChange}
+                  id=""
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="">
+                  Password<span className="text-danger">*</span>
+                </label>
+                <br />
+                <input
+                  className="form-control px-2 py-3 border border-3"
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
                   id=""
                 />
               </div>
@@ -35,8 +84,9 @@ const FromComment = () => {
                 <br />
                 <input
                   className="form-control px-2 py-3 border border-3"
-                  type="email"
-                  name=""
+                  type="text"
+                  name="firstName"
+                  onChange={handleChange}
                   id=""
                 />
               </div>
@@ -47,8 +97,9 @@ const FromComment = () => {
                 <br />
                 <input
                   className="form-control px-2 py-3 border border-3"
-                  type="email"
-                  name=""
+                  type="text"
+                  name="name"
+                  onChange={handleChange}
                   id=""
                 />
               </div>
@@ -66,11 +117,13 @@ const FromComment = () => {
                     +33
                   </button>
                   <input
-                    type="text"
+                    type="number"
+                    name="phoneNumber"
                     className="form-control px-2 py-3 border border-3"
                     placeholder=""
                     aria-label="Example text with button addon"
                     aria-describedby="button-addon1"
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -120,7 +173,7 @@ const FromComment = () => {
         </div>
         <div className="from_comment-btn">
           <button className="from_comment-btn1 ">Precedent</button>
-          <button className="from_comment-btn2">Suivant</button>
+          <button className="from_comment-btn2" onClick={handleSubmit}>Suivant</button>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ const NavBar = () => {
   const [role, setRole] = useState("");
   const location = useLocation()
   // const [isNav, setIsNav] = useState(false);
-  
+
 
   const handleLogout = async () => {
     const refreshToken = Cookies.get("refreshToken");
@@ -21,6 +21,7 @@ const NavBar = () => {
     if (res) {
       Cookies.remove("accessToken");
       Cookies.remove("refreshToken");
+      Cookies.remove("userId");
       setLoggedIn(false);
       setRole("");
     }
@@ -40,7 +41,7 @@ const NavBar = () => {
       setRole(decoded.role);
       console.log(decoded);
     }
-  },[])
+  }, [])
 
 
   return (
@@ -89,7 +90,7 @@ const NavBar = () => {
               <h6 style={{ color: isHomeNav ? 'black' : '' }}>Connexion</h6>
             </Nav.Link>}
             <Nav.Link href="#link" className="active register" as={Link} to={location.pathname === '/professionnel/inscription/nouvelle' ? '/' : '/professionnel/inscription/nouvelle'}>
-             
+
               <button style={{ backgroundColor: isHomeNav ? 'white' : '', color: isHomeNav ? 'black' : '' }}>
                 {location.pathname === "/professionnel/inscription/nouvelle" ? "Je suis un particulier" : "S'inscrire en tant que professionnel"}</button>
             </Nav.Link>

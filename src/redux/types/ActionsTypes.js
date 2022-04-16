@@ -14,4 +14,5 @@ export const actionTypes = {
   ADD_REGISTRATION_DATA: "add_registration_data",
   ADD_POST_DATA: "ADD_POST",
   ADD_PRODUCT_DATA: "add_product_data",
+  ADD_PROJECTS_DATA: "add_projects_data"
 };
