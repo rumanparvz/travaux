@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import { BiLike } from "react-icons/bi";
 import { FaRegEdit, FaUserFriends } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { addProjectsData, ProjectPostalCode } from "../../../redux/actions/ProjectsActions";
+import { ProjectPostalCode } from "../../../redux/actions/ProjectsActions";
 import ProcessBar from "../../../utils/ProcessBar";
 import ServiceSteps from "../../../utils/ServiceSteps";
 import NavBar from "../../Common/NavBar/NavBar";
@@ -30,11 +30,12 @@ const RootTitlePost = () => {
   ];
 
   const navigate = useNavigate();
-  const projectsData = useSelector((state) => state.service.projectsData);
   const handleSubmit = (e) => {
     if (postCode.length < 5) {
       setError("Le code postal n'est pas valide");
     } else {
+      console.log(postCode);
+
       dispatch(ProjectPostalCode({ postalCode: postCode }));
       navigate(`/post-service-request/${stepName}/${postText}`);
     }
@@ -60,7 +61,7 @@ const RootTitlePost = () => {
               name="post"
               id=""
               required
-              onChange={e => {setPostCode(e.target.value); dispatch(addProjectsData({ postalCode: e.target.value, categoryId: postData[0].categoryId, category: postData[0].category, subCategoryId: postData[0]?._id, subCategory: postData[0].title }))}}
+              onChange={(e) => setPostCode(e.target.value)}
             />
             {/* <span className="paris">Paris 20</span> */}
             {/* <Link to={`/post-service-request/${stepName}/${postText}`}> */}

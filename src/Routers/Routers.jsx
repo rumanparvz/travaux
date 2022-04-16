@@ -8,6 +8,7 @@ import DoubleCheckBox from "../components/PublshProjects/DoubleCheckBox/DoubleCh
 import DoubleTitleCheckBox from "../components/PublshProjects/DoubleTitleCheckbox/DoubleTitleCheckBox";
 import InputAndRadioBox from "../components/PublshProjects/InputAndRadioBox/InputAndRadioBox";
 import MultiPulCheckBox from "../components/PublshProjects/MultiPulCheckBok/MultiPulCheckBox";
+import MyProject from "../components/PublshProjects/MyProject/MyProject.jsx";
 import RadioSErviceOption from "../components/PublshProjects/RadioServiceOption/RadioSErviceOption";
 import AllResults from "../components/Register/AllResults";
 import ContractInfo from "../components/Register/ContactInfo";
@@ -60,7 +61,10 @@ const Routers = () => {
           element={<MultiPulCheckBox />}
         ></Route>
         <Route path="/prixDes" element={<PrixDes />}></Route>
-        <Route path="/singleServiceInfo/:id" element={<SingleServiceInfo />}></Route>
+        <Route
+          path="/singleServiceInfo/:id"
+          element={<SingleServiceInfo />}
+        ></Route>
         <Route
           path="/post-service-request/moreMultipleCheckBox/:moreMultipleCheckBox"
           element={<OptionalMultiCheckBox />}
@@ -123,6 +127,7 @@ const Routers = () => {
         <Route path="/job/registration" element={<FreeRegistration />} />
         <Route path="/login" element={<LoginHappy />} />
         <Route path="/fromComment" element={<FromComment />} />
+        <Route path="/myProject" element={<MyProject />} />
         <Route path="/register/contract" element={<ContractInfo />} />
         <Route path="/register/googleMap" element={<GoogleMapLocation />} />
         <Route path="/register/serit" element={<Serit />} />
