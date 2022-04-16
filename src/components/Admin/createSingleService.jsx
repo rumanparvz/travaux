@@ -33,9 +33,7 @@ const CreateSingleService = ({ categoryId }) => {
     const [selectCategoryId, setSelectCategoryId] = useState('');
     const [selectSubCategoryId, setSelectSubCategoryId] = useState('');
     const [imageLoader, setImageLoader] = useState(false);
-    const [logoLoader, setLogoLoder] = useState(false);
     const [image, setImage] = useState("");
-    const [logo, setLogo] = useState("");
     const dispatch = useDispatch()
 
     const handleSetSubcategoryId = (id) => {
@@ -66,8 +64,7 @@ const CreateSingleService = ({ categoryId }) => {
             title: values.title,
             description: values.description,
             price: values.number,
-            bannerImage: image,
-            image: logo,
+            bannerImage: image
         };
         dispatch(addToProductData(newValue))
         console.log(newValue);
@@ -112,21 +109,6 @@ const CreateSingleService = ({ categoryId }) => {
             .then((res) => {
                 setImage(res.data.url);
                 setImageLoader(false);
-            });
-    };
-
-    const handleLogoUpload = (e) => {
-        setLogoLoder(true);
-        const imageFile = e.target.files[0];
-        const data = new FormData();
-        data.append("file", imageFile);
-        data.append("upload_preset", "serviceImages");
-        data.append("cloud_name", "dzghsspe7");
-        axios
-            .post("https://api.cloudinary.com/v1_1/dzghsspe7/image/upload", data)
-            .then((res) => {
-                setLogo(res.data.url);
-                setLogoLoder(false);
             });
     };
 
@@ -184,17 +166,6 @@ const CreateSingleService = ({ categoryId }) => {
                         <div class="spinner-border text-success" role="status"></div>
                     )}
                     <input type="file" name="image" id="image" onChange={handleImageUpload} />
-                </Form.Item>
-
-                <Form.Item
-                    name={["logo"]}
-                    label="Upload a logo"
-                    rules={[{ required: false }]}
-                >
-                    {logoLoader && (
-                        <div class="spinner-border text-success" role="status"></div>
-                    )}
-                    <input type="file" name="logo" id="logo" onChange={handleLogoUpload} />
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }} disabled>

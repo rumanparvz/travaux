@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Input, Select } from "antd";
 import ServiceStep from './serviceSteps';
 import axios from 'axios';
@@ -10,6 +10,8 @@ const CreateAdditionalData = () => {
     const [tableObject, setTableObject] = React.useState({});
     const [additionalData, setAdditionalData] = React.useState([]);
     const [additionalDataObject, setAdditionalDataObject] = React.useState({});
+    const [logoLoader, setLogoLoder] = useState(false);
+    const [logo, setLogo] = useState("");
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
@@ -60,6 +62,24 @@ const CreateAdditionalData = () => {
             description: ''
         })
     }
+
+    const handleLogoUpload = (e) => {
+        setLogoLoder(true);
+        const imageFile = e.target.files[0];
+        const data = new FormData();
+        data.append("file", imageFile);
+        data.append("upload_preset", "serviceImages");
+        data.append("cloud_name", "dzghsspe7");
+        axios
+            .post("https://api.cloudinary.com/v1_1/dzghsspe7/image/upload", data)
+            .then((res) => {
+                setLogo(res.data.url);
+                setAdditionalDataObject({ ...additionalDataObject, image: res.data.url })
+                setLogoLoder(false);
+            });
+    };
+
+    console.log(additionalData);
     return (
         <div className="w-75 pt-5">
             <ServiceStep number={1} />
@@ -77,6 +97,10 @@ const CreateAdditionalData = () => {
                 <h6 className="text-center mt-5"> Add some info </h6>
                 <input type="text" name="title" placeholder="title" className="form-control w-75 mt-2" value={additionalDataObject?.title} onChange={(e) => handleChange(e, 'info')} />
                 <textarea type="text" name="description" placeholder="description" value={additionalDataObject?.description} className="form-control w-75 mt-2" onChange={(e) => handleChange(e, 'info')} > </textarea>
+                {logoLoader && (
+                    <div class="spinner-border text-success" role="status"></div>
+                )}
+                <input type="file" name="logo" id="logo" className="form-control w-75 mt-2" onChange={handleLogoUpload} />
                 <button className="btn btn-info mt-2" onClick={handleSetAdditionalData}>{additionalData.length ? 'Add another Info' : 'Add Info'}</button>
             </div>
             <div className="container d-flex flex-column align-items-center justify-content-center">

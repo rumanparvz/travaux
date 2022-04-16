@@ -17,17 +17,16 @@ const NavBar = () => {
  
   const handleLogout = async () => {
     const refreshToken = Cookies.get("refreshToken");
-    console.log(refreshToken);
-    const res = await axios.post(
-      "https://ancient-gorge-88070.herokuapp.com/auth/signOut",
-      { refreshToken }
-    );
-    if (res) {
-      Cookies.remove("accessToken");
-      Cookies.remove("refreshToken");
-      Cookies.remove("userId");
-      setLoggedIn(false);
-      setRole("");
+    if (refreshToken) {
+      console.log(refreshToken);
+      const res = await axios.post("https://ancient-gorge-88070.herokuapp.com/auth/signOut", { refreshToken });
+      if (res) {
+        Cookies.remove("accessToken");
+        Cookies.remove("refreshToken");
+        Cookies.remove("userId");
+        setLoggedIn(false);
+        setRole("");
+      }
     }
   };
 
@@ -47,6 +46,23 @@ const NavBar = () => {
       // console.log(decoded.email);
     }
   }, []);
+  
+
+  const intervalCount = setInterval(() => Cookies.get("accessToken") && handleCheckTokenExpired(), 10000)
+
+  const handleCheckTokenExpired = async () => {
+    const token = Cookies.get("accessToken");
+    const decoded = jwt_decode(token);
+    const currentTime = Date.now() / 1000;
+    console.log(currentTime, decoded.exp);
+    if (decoded.exp < currentTime) {
+      handleLogout();
+      clearInterval(intervalCount);
+    }
+  }
+
+
+
 
   return (
     <Navbar
