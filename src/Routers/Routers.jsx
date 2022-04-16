@@ -18,6 +18,7 @@ import PayPalPaymentGateway from "../components/Register/PayPalPaymentGateway";
 import Serit from "../components/Register/Serit";
 import SingleServiceInfo from "../components/ServiceCartDetails/Common/SingleServiceInfo";
 import ServiceProductDetails from "../components/ServiceCartDetails/Services/Details/ServiceProductDetails";
+import ServiceRequest from "../components/ServiceRequest/ServiceRequest";
 // import { serviceData } from "../data/ServiceData";
 import AdminDashboardPage from "../pages/AdminDahsboardPage/AdminDashboardPage";
 import FromComment from "../pages/FromComment/FromComment.jsx";
@@ -35,7 +36,6 @@ import UploadImagePage from "../pages/PublishServices/UploadImagePage";
 import RegisterPages from "../pages/Register/RegisterPages";
 import ServiceDetailsPage from "../pages/ServiceCartDetails/ServiceDetailsPage";
 import ServiceDetailsReview from "../pages/ServiceCartDetails/ServiceDetailsReview";
-
 
 const Routers = () => {
   // console.log(serviceData);
@@ -60,7 +60,10 @@ const Routers = () => {
           element={<MultiPulCheckBox />}
         ></Route>
         <Route path="/prixDes" element={<PrixDes />}></Route>
-        <Route path="/singleServiceInfo/:id" element={<SingleServiceInfo />}></Route>
+        <Route
+          path="/singleServiceInfo/:id"
+          element={<SingleServiceInfo />}
+        ></Route>
         <Route
           path="/post-service-request/moreMultipleCheckBox/:moreMultipleCheckBox"
           element={<OptionalMultiCheckBox />}
@@ -98,6 +101,7 @@ const Routers = () => {
           element={<DoubleTitleCheckBox />}
         ></Route>
         {/* Login  */}
+
         <Route path="/connexion" element={<LoginPages />}></Route>
         <Route path="/forgetPassword" element={<ForgotPassword />}></Route>
         <Route path="/resetPassword" element={<ResetPassword />}></Route>
@@ -132,6 +136,11 @@ const Routers = () => {
           path="/register/payPalPaymentGateway"
           element={<PayPalPaymentGateway />}
         />
+        {/* Filter range  */}
+        <Route
+          path="/service-pro/new-service-requests"
+          element={<ServiceRequest />}
+        ></Route>
       </Routes>
     </div>
   );
