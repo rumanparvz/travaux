@@ -4,10 +4,12 @@ import Currenct from "../components/Admin/Currenct";
 import ForgotPassword from "../components/Login/ForgotPassword.jsx";
 import LoginHappy from "../components/Login/LoginHappy.js";
 import ResetPassword from "../components/Login/ResetPassword.jsx";
+import PublishProject from "../components/PublishProject/PublishProject.jsx";
 import DoubleCheckBox from "../components/PublshProjects/DoubleCheckBox/DoubleCheckBox";
 import DoubleTitleCheckBox from "../components/PublshProjects/DoubleTitleCheckbox/DoubleTitleCheckBox";
 import InputAndRadioBox from "../components/PublshProjects/InputAndRadioBox/InputAndRadioBox";
 import MultiPulCheckBox from "../components/PublshProjects/MultiPulCheckBok/MultiPulCheckBox";
+import MyProject from "../components/PublshProjects/MyProject/MyProject.jsx";
 import RadioSErviceOption from "../components/PublshProjects/RadioServiceOption/RadioSErviceOption";
 import AllResults from "../components/Register/AllResults";
 import ContractInfo from "../components/Register/ContactInfo";
@@ -18,6 +20,7 @@ import PayPalPaymentGateway from "../components/Register/PayPalPaymentGateway";
 import Serit from "../components/Register/Serit";
 import SingleServiceInfo from "../components/ServiceCartDetails/Common/SingleServiceInfo";
 import ServiceProductDetails from "../components/ServiceCartDetails/Services/Details/ServiceProductDetails";
+import ServiceRequest from "../components/ServiceRequest/ServiceRequest";
 // import { serviceData } from "../data/ServiceData";
 import AdminDashboardPage from "../pages/AdminDahsboardPage/AdminDashboardPage";
 import FromComment from "../pages/FromComment/FromComment.jsx";
@@ -35,7 +38,6 @@ import UploadImagePage from "../pages/PublishServices/UploadImagePage";
 import RegisterPages from "../pages/Register/RegisterPages";
 import ServiceDetailsPage from "../pages/ServiceCartDetails/ServiceDetailsPage";
 import ServiceDetailsReview from "../pages/ServiceCartDetails/ServiceDetailsReview";
-
 
 const Routers = () => {
   // console.log(serviceData);
@@ -60,7 +62,10 @@ const Routers = () => {
           element={<MultiPulCheckBox />}
         ></Route>
         <Route path="/prixDes" element={<PrixDes />}></Route>
-        <Route path="/singleServiceInfo/:id" element={<SingleServiceInfo />}></Route>
+        <Route
+          path="/singleServiceInfo/:id"
+          element={<SingleServiceInfo />}
+        ></Route>
         <Route
           path="/post-service-request/moreMultipleCheckBox/:moreMultipleCheckBox"
           element={<OptionalMultiCheckBox />}
@@ -98,6 +103,7 @@ const Routers = () => {
           element={<DoubleTitleCheckBox />}
         ></Route>
         {/* Login  */}
+
         <Route path="/connexion" element={<LoginPages />}></Route>
         <Route path="/forgetPassword" element={<ForgotPassword />}></Route>
         <Route path="/resetPassword" element={<ResetPassword />}></Route>
@@ -123,6 +129,8 @@ const Routers = () => {
         <Route path="/job/registration" element={<FreeRegistration />} />
         <Route path="/login" element={<LoginHappy />} />
         <Route path="/fromComment" element={<FromComment />} />
+        <Route path="/searchItem" element={<PublishProject />} />
+        <Route path="/myProject" element={<MyProject />} />
         <Route path="/register/contract" element={<ContractInfo />} />
         <Route path="/register/googleMap" element={<GoogleMapLocation />} />
         <Route path="/register/serit" element={<Serit />} />
@@ -132,6 +140,11 @@ const Routers = () => {
           path="/register/payPalPaymentGateway"
           element={<PayPalPaymentGateway />}
         />
+        {/* Filter range  */}
+        <Route
+          path="/service-pro/new-service-requests"
+          element={<ServiceRequest />}
+        ></Route>
       </Routes>
     </div>
   );

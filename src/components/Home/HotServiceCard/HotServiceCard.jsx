@@ -38,8 +38,7 @@ const HotServiceCard = () => {
                       <AiOutlineArrowRight /> {linkTitle}
                     </Link>
                   </p>
-                  <Link to="/prixDes">PrixDes</Link>
-                  <Link to="/fromComment">FromComment</Link>
+                  <Link to="/myProject">MyProject</Link>
                 </Card.Body>
               </div>
               <div className="card_footer d-flex justify-content-center align-items-center gap-3">
