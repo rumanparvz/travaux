@@ -9,7 +9,7 @@ const MyProject = () => {
       <NavBar />
       <Container>
         <h1 className="my-4">Mes projets</h1>
-        {Array.from({ length: 10 }).map((_, index) => (
+        {Array.from({ length: 6 }).map((_, index) => (
           <Row className="mt-3" key={index}>
             <Card className="p-0">
               <Card.Body className="p-0">
