@@ -12,9 +12,9 @@ const NavBar = () => {
   const [role, setRole] = useState("");
   const location = useLocation();
   const [isEmail, setIsEmail] = useState('')
- 
+
   console.log(isEmail?.email);
- 
+
   const handleLogout = async () => {
     const refreshToken = Cookies.get("refreshToken");
     if (refreshToken) {
@@ -46,20 +46,20 @@ const NavBar = () => {
       // console.log(decoded.email);
     }
   }, []);
-  
 
-  const intervalCount = setInterval(() => Cookies.get("accessToken") && handleCheckTokenExpired(), 10000)
 
-  const handleCheckTokenExpired = async () => {
-    const token = Cookies.get("accessToken");
-    const decoded = jwt_decode(token);
-    const currentTime = Date.now() / 1000;
-    console.log(currentTime, decoded.exp);
-    if (decoded.exp < currentTime) {
-      handleLogout();
-      clearInterval(intervalCount);
-    }
-  }
+  // const intervalCount = setInterval(() => Cookies.get("accessToken") && handleCheckTokenExpired(), 10000)
+
+  // const handleCheckTokenExpired = async () => {
+  //   const token = Cookies.get("accessToken");
+  //   const decoded = jwt_decode(token);
+  //   const currentTime = Date.now() / 1000;
+  //   console.log(currentTime, decoded.exp);
+  //   if (decoded.exp < currentTime) {
+  //     handleLogout();
+  //     clearInterval(intervalCount);
+  //   }
+  // }
 
 
 
@@ -110,7 +110,7 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                      "/professionnel/inscription/nouvelle"
+                        "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -125,7 +125,7 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                      "/professionnel/inscription/nouvelle"
+                        "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -142,7 +142,7 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                      "/professionnel/inscription/nouvelle"
+                        "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -157,7 +157,7 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                      "/professionnel/inscription/nouvelle"
+                        "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -171,7 +171,7 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                      "/professionnel/inscription/nouvelle"
+                        "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -194,7 +194,7 @@ const NavBar = () => {
               {!loggedIn && (
                 <>
                   {location.pathname ===
-                  "/professionnel/inscription/nouvelle" ? (
+                    "/professionnel/inscription/nouvelle" ? (
                     <span>
                       <span
                         className="logout_individual me-3"
@@ -217,15 +217,26 @@ const NavBar = () => {
                 </>
               )}
             </Nav.Link>
-            {role === "professionnel" ? (
-              <Nav.Link
-                as={Link}
-                to="/professionnel/dashboard"
-                style={{ color: isHomeNav ? "black" : "" }}
-              >
-                <h6 className="text-white">Professionnel</h6>
-              </Nav.Link>
-            ) : role === "client" ? (
+            {role === "client" ? (
+              <Dropdown>
+                <Dropdown.Toggle id="dropdown-basic">
+                  Mon compte
+                  <span className="mt-3 ms-1">
+                    <AiOutlineMenu />
+                  </span>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">
+                    {isEmail?.email}
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Settings</Dropdown.Item>
+                  <Dropdown.Item onClick={handleLogout} href="#/action-3">
+                    Se déconnecter
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            ) : role === "professionnel" ? (
               <Dropdown>
                 <Dropdown.Toggle id="dropdown-basic">
                   Mon compte

@@ -14,12 +14,12 @@ import NavBar from "../Common/NavBar/NavBar";
 const FreeRegistration = () => {
   const [select, setSelect] = useState(null);
   const [jobs, setJobs] = useState([])
+  const [postalCodes, setPostalCodes] = useState(null);
+  const [city, setCity] = useState('');
+  const [cities, setCities] = useState([]);
   const dispatch = useDispatch();
   const registrationData = useSelector((state) => state.service.registrationData);
-
-  console.log(registrationData);
   const navigate = useNavigate();
-  console.log({ select })
 
   const onFinish = async (values) => {
     const newValues = { ...values, jobId: select };
@@ -36,6 +36,23 @@ const FreeRegistration = () => {
     }
   };
 
+  const handleChange = (e) => {
+    const newPostalCodes = postalCodes.filter(postalCode => postalCode.postalCode === e.target.value);
+    if (newPostalCodes.length > 0) {
+      if (newPostalCodes.length === 1) {
+        setCities([]);
+        setCity(newPostalCodes[0].city);
+      } else {
+        setCities(newPostalCodes);
+        setCity('');
+      }
+    } else {
+      setCity('');
+      setCities([]);
+    }
+
+  }
+
   const getCategory = async () => {
     const categories = await axios.get("https://ancient-gorge-88070.herokuapp.com/api/category");
     const newCategory = categories?.data?.data.map((category) => {
@@ -50,7 +67,13 @@ const FreeRegistration = () => {
   useEffect(() => {
     getCategory();
   }, []);
-  console.log(select);
+  useEffect(() => {
+    fetch('https://ancient-gorge-88070.herokuapp.com/api/postalcode')
+      .then(res => res.json())
+      .then(data => {
+        setPostalCodes(data?.data[0]?.data);
+      })
+  }, []);
 
   return (
     <div className="container-fluid row free-registration">
@@ -100,8 +123,18 @@ const FreeRegistration = () => {
             <Input
               prefix={<FaMapMarkerAlt style={{ color: "#017acd" }} />}
               placeholder="Votre code postal"
-              className="py-2"
+              className="py-2 w-50"
+              onChange={handleChange}
             />
+            {
+              cities.length > 0 ? <ul>
+                {
+                  cities.map((city, index) => <li key={city.id} value={city.postalCode} selected={index === 0}>{city.city}</li>)
+                }
+              </ul> : <span >
+                {city}
+              </span>
+            }
           </Form.Item>
           <Form.Item
             name="email"
