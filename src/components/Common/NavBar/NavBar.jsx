@@ -44,18 +44,18 @@ const NavBar = () => {
     }
   }, [])
 
-  const intervalCount = setInterval(() => Cookies.get("accessToken") && handleCheckTokenExpired(), 10000)
+  // const intervalCount = setInterval(() => Cookies.get("accessToken") && handleCheckTokenExpired(), 10000)
 
-  const handleCheckTokenExpired = async () => {
-    const token = Cookies.get("accessToken");
-    const decoded = jwt_decode(token);
-    const currentTime = Date.now() / 1000;
-    console.log(currentTime, decoded.exp);
-    if (decoded.exp < currentTime) {
-      handleLogout();
-      clearInterval(intervalCount);
-    }
-  }
+  // const handleCheckTokenExpired = async () => {
+  //   const token = Cookies.get("accessToken");
+  //   const decoded = jwt_decode(token);
+  //   const currentTime = Date.now() / 1000;
+  //   console.log(currentTime, decoded.exp);
+  //   if (decoded.exp < currentTime) {
+  //     handleLogout();
+  //     clearInterval(intervalCount);
+  //   }
+  // }
 
 
 
