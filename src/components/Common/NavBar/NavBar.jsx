@@ -70,7 +70,7 @@ const NavBar = () => {
       className="nav_header"
       style={{ borderBottom: isHomeNav ? "1px solid #ddd" : "" }}
     >
-      <Container >
+      <Container>
         <Nav.Link as={Link} to="/admin/createService">
           Admin
         </Nav.Link>
@@ -101,26 +101,86 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav navbar_items">
           <Nav className="ms-auto header_link d-flex justify-content-center align-items-center">
-            <Nav.Link href="#home">
-              <h6
-                style={{
-                  color: isHomeNav ? "black" : "",
-                  display:
-                    location.pathname === "/professionnel/inscription/nouvelle"
-                      ? "none"
-                      : "",
-                }}
-              >
-                Publish a project
-              </h6>
-            </Nav.Link>
-            {loggedIn ? (
-              <button onClick={handleLogout}>logout</button>
+            {!loggedIn ? (
+              <Nav.Link href="#home">
+                <Link
+                  to="/searchItem"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  Publier un projet
+                </Link>
+                <Link
+                  to="/connexion"
+                  className="mx-3"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  Connexion
+                </Link>
+              </Nav.Link>
             ) : (
-              <Nav.Link as={Link} to="/connexion">
-                <h6 style={{ color: isHomeNav ? "black" : "" }}>Connexion</h6>
+              <Nav.Link href="#home">
+                <Link
+                  to="/service-pro/new-service-requests"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  Nouveaux projets
+                </Link>
+                <Link
+                  to="/connexion"
+                  className="mx-3"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  Intéressé
+                </Link>
+                <Link
+                  to="/connexion"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  Contacts
+                </Link>
               </Nav.Link>
             )}
+
             <Nav.Link
               href="#link"
               className="active register"
@@ -131,16 +191,31 @@ const NavBar = () => {
                   : "/professionnel/inscription/nouvelle"
               }
             >
-              <button
-                style={{
-                  backgroundColor: isHomeNav ? "white" : "",
-                  color: isHomeNav ? "black" : "",
-                }}
-              >
-                {location.pathname === "/professionnel/inscription/nouvelle"
-                  ? "Je suis un particulier"
-                  : "S'inscrire en tant que professionnel"}
-              </button>
+              {!loggedIn && (
+                <>
+                  {location.pathname ===
+                  "/professionnel/inscription/nouvelle" ? (
+                    <span>
+                      <span
+                        className="logout_individual me-3"
+                        onClick={handleLogout}
+                      >
+                        Se déconnecter
+                      </span>
+                      <span className="logout_individual">
+                        Je suis un particulier
+                      </span>
+                    </span>
+                  ) : (
+                    <span
+                      style={{ color: isHomeNav ? "black" : "" }}
+                      className="register_btn"
+                    >
+                      S'inscrire en tant que professionnel
+                    </span>
+                  )}
+                </>
+              )}
             </Nav.Link>
             {role === "professionnel" ? (
               <Nav.Link
@@ -154,7 +229,7 @@ const NavBar = () => {
               <Dropdown>
                 <Dropdown.Toggle id="dropdown-basic">
                   Mon compte
-                  <span>
+                  <span className="mt-3 ms-1">
                     <AiOutlineMenu />
                   </span>
                 </Dropdown.Toggle>
@@ -165,7 +240,7 @@ const NavBar = () => {
                   </Dropdown.Item>
                   <Dropdown.Item href="#/action-2">Mon profil</Dropdown.Item>
                   <Dropdown.Item href="#/action-3">Mon compte</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
+                  <Dropdown.Item onClick={handleLogout} href="#/action-3">
                     Se déconnecter
                   </Dropdown.Item>
                 </Dropdown.Menu>

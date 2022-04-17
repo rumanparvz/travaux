@@ -4,6 +4,7 @@ import Currenct from "../components/Admin/Currenct";
 import ForgotPassword from "../components/Login/ForgotPassword.jsx";
 import LoginHappy from "../components/Login/LoginHappy.js";
 import ResetPassword from "../components/Login/ResetPassword.jsx";
+import PublishProject from "../components/PublishProject/PublishProject.jsx";
 import DoubleCheckBox from "../components/PublshProjects/DoubleCheckBox/DoubleCheckBox";
 import DoubleTitleCheckBox from "../components/PublshProjects/DoubleTitleCheckbox/DoubleTitleCheckBox";
 import InputAndRadioBox from "../components/PublshProjects/InputAndRadioBox/InputAndRadioBox";
@@ -128,6 +129,7 @@ const Routers = () => {
         <Route path="/job/registration" element={<FreeRegistration />} />
         <Route path="/login" element={<LoginHappy />} />
         <Route path="/fromComment" element={<FromComment />} />
+        <Route path="/searchItem" element={<PublishProject />} />
         <Route path="/myProject" element={<MyProject />} />
         <Route path="/register/contract" element={<ContractInfo />} />
         <Route path="/register/googleMap" element={<GoogleMapLocation />} />
