@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Currenct from "../components/Admin/Currenct";
+import ContactsFile from "../components/ContactsFile/ContactsFile.jsx";
+import Interested from "../components/Interested/Interested.jsx";
 import ForgotPassword from "../components/Login/ForgotPassword.jsx";
 import LoginHappy from "../components/Login/LoginHappy.js";
 import ResetPassword from "../components/Login/ResetPassword.jsx";
@@ -90,6 +92,8 @@ const Routers = () => {
           path="/post-service-request/comment/:comment"
           element={<CommentTextPage />}
         ></Route>
+        <Route path="/interested" element={<Interested />}></Route>
+        <Route path="/contactsFile" element={<ContactsFile />}></Route>
         <Route
           path="/post-service-request/email/:email"
           element={<EmailPage />}
