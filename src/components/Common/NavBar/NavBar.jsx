@@ -1,17 +1,67 @@
 import React, { useEffect, useState } from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const NavBar = () => {
   const [isHomeNav, setIsHome] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [role, setRole] = useState("");
   const location = useLocation();
-  console.log(location.pathname);
+  const [isEmail, setIsEmail] = useState("");
+
+  console.log(isEmail?.email);
+
+  const handleLogout = async () => {
+    const refreshToken = Cookies.get("refreshToken");
+    if (refreshToken) {
+      console.log(refreshToken);
+      const res = await axios.post(
+        "https://ancient-gorge-88070.herokuapp.com/auth/signOut",
+        { refreshToken }
+      );
+      if (res) {
+        Cookies.remove("accessToken");
+        Cookies.remove("refreshToken");
+        Cookies.remove("userId");
+        setLoggedIn(false);
+        setRole("");
+      }
+    }
+  };
 
   useEffect(() => {
     if (location.pathname === "/") {
       setIsHome(false);
     }
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (Cookies.get("accessToken")) {
+      setLoggedIn(true);
+      const token = Cookies.get("accessToken");
+      const decoded = jwt_decode(token);
+      setRole(decoded.role);
+      setIsEmail(decoded);
+      // console.log(decoded.email);
+    }
+  }, []);
+
+  // const intervalCount = setInterval(() => Cookies.get("accessToken") && handleCheckTokenExpired(), 10000)
+
+  // const handleCheckTokenExpired = async () => {
+  //   const token = Cookies.get("accessToken");
+  //   const decoded = jwt_decode(token);
+  //   const currentTime = Date.now() / 1000;
+  //   console.log(currentTime, decoded.exp);
+  //   if (decoded.exp < currentTime) {
+  //     handleLogout();
+  //     clearInterval(intervalCount);
+  //   }
+  // }
 
   return (
     <Navbar
@@ -20,6 +70,9 @@ const NavBar = () => {
       style={{ borderBottom: isHomeNav ? "1px solid #ddd" : "" }}
     >
       <Container>
+        <Nav.Link as={Link} to="/admin/createService">
+          Admin
+        </Nav.Link>
         <Navbar.Brand as={Link} to="/">
           <svg
             aria-label="Travaux.com"
@@ -47,22 +100,86 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav navbar_items">
           <Nav className="ms-auto header_link d-flex justify-content-center align-items-center">
-            <Nav.Link href="#home">
-              <h6
-                style={{
-                  color: isHomeNav ? "black" : "",
-                  display:
-                    location.pathname === "/professionnel/inscription/nouvelle"
-                      ? "none"
-                      : "",
-                }}
-              >
-                Publish a project
-              </h6>
-            </Nav.Link>
-            <Nav.Link as={Link} to="/connexion">
-              <h6 style={{ color: isHomeNav ? "black" : "" }}>Connexion</h6>
-            </Nav.Link>
+            {!loggedIn ? (
+              <Nav.Link href="#home">
+                <Link
+                  to="/searchItem"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  Publier un projet
+                </Link>
+                <Link
+                  to="/connexion"
+                  className="mx-3"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  Connexion
+                </Link>
+              </Nav.Link>
+            ) : (
+              <Nav.Link href="#home">
+                <Link
+                  to="/service-pro/new-service-requests"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  Nouveaux projets
+                </Link>
+                <Link
+                  to="/connexion"
+                  className="mx-3"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  Intéressé
+                </Link>
+                <Link
+                  to="/connexion"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  Contacts
+                </Link>
+              </Nav.Link>
+            )}
+
             <Nav.Link
               href="#link"
               className="active register"
@@ -73,18 +190,72 @@ const NavBar = () => {
                   : "/professionnel/inscription/nouvelle"
               }
             >
-              {" "}
-              <button
-                style={{
-                  backgroundColor: isHomeNav ? "white" : "",
-                  color: isHomeNav ? "black" : "",
-                }}
-              >
-                {location.pathname === "/professionnel/inscription/nouvelle"
-                  ? "Je suis un particulier"
-                  : "S'inscrire en tant que professionnel"}
-              </button>
+              {!loggedIn && (
+                <>
+                  {location.pathname ===
+                  "/professionnel/inscription/nouvelle" ? (
+                    <span>
+                      <span
+                        className="logout_individual me-3"
+                        onClick={handleLogout}
+                      >
+                        Se déconnecter
+                      </span>
+                      <span className="logout_individual">
+                        Je suis un particulier
+                      </span>
+                    </span>
+                  ) : (
+                    <span
+                      style={{ color: isHomeNav ? "black" : "" }}
+                      className="register_btn"
+                    >
+                      S'inscrire en tant que professionnel
+                    </span>
+                  )}
+                </>
+              )}
             </Nav.Link>
+            {role === "client" ? (
+              <Dropdown>
+                <Dropdown.Toggle id="dropdown-basic">
+                  Mon compte
+                  <span className="mt-3 ms-1">
+                    <AiOutlineMenu />
+                  </span>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">
+                    {isEmail?.email}
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Settings</Dropdown.Item>
+                  <Dropdown.Item onClick={handleLogout} href="#/action-3">
+                    Se déconnecter
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            ) : role === "professionnel" ? (
+              <Dropdown>
+                <Dropdown.Toggle id="dropdown-basic">
+                  Mon compte
+                  <span className="mt-3 ms-1">
+                    <AiOutlineMenu />
+                  </span>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">
+                    {isEmail?.email}
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Mon profil</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Mon compte</Dropdown.Item>
+                  <Dropdown.Item onClick={handleLogout} href="#/action-3">
+                    Se déconnecter
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            ) : null}
           </Nav>
         </Navbar.Collapse>
       </Container>
