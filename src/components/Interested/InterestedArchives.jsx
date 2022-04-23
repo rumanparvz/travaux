@@ -28,8 +28,7 @@ const InterestedArchives = () => {
             </div>
             <h2>Vous n'avez pas encore envoyé de message</h2>
             <p>
-              Lorsque vous montrez votre intérêt pour un projet de chantier,
-              votre message est affiché ici.
+              Lorsque vous montrez votre 
             </p>
             <div className="text-center">
               <button className="primary_button mb-5">

@@ -13,6 +13,7 @@ import InputAndRadioBox from "../components/PublshProjects/InputAndRadioBox/Inpu
 import MultiPulCheckBox from "../components/PublshProjects/MultiPulCheckBok/MultiPulCheckBox";
 import MyProject from "../components/PublshProjects/MyProject/MyProject.jsx";
 import RadioSErviceOption from "../components/PublshProjects/RadioServiceOption/RadioSErviceOption";
+import Recommended from "../components/Recommended/Recommended.jsx";
 import AllResults from "../components/Register/AllResults";
 import ContractInfo from "../components/Register/ContactInfo";
 import FreeRegistration from "../components/Register/FreeRegistration";
@@ -64,6 +65,7 @@ const Routers = () => {
           element={<MultiPulCheckBox />}
         ></Route>
         <Route path="/prixDes" element={<PrixDes />}></Route>
+        <Route path="/recommended" element={<Recommended />}></Route>
         <Route
           path="/singleServiceInfo/:id"
           element={<SingleServiceInfo />}

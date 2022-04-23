@@ -1,0 +1,30 @@
+.recommended-top-card{
+    padding: 1rem;
+    background-color: #F5F0D7;
+    border-radius: 10px
+}
+.card_img{
+     height: 60px;
+     width: 60px;
+     border-radius: 50%;
+
+}
+.recommended_card-btn{
+    width: 100%;
+    border-radius: 20px;
+    font-weight: 600;
+}
+.recommended_icon{
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+}
+.show_more-btn{
+    border: 2px solid blue;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+#btnText{
+    display: none;
+}

@@ -149,7 +149,7 @@ const NavBar = () => {
                   Nouveaux projets
                 </Link>
                 <Link
-                  to="/connexion"
+                  to="/interested"
                   className="mx-3"
                   style={{
                     color: isHomeNav ? "black" : "white",
@@ -164,7 +164,7 @@ const NavBar = () => {
                   Intéressé
                 </Link>
                 <Link
-                  to="/connexion"
+                  to="/contactsFile"
                   style={{
                     color: isHomeNav ? "black" : "white",
                     fontWeight: isHomeNav && 600,
@@ -218,7 +218,12 @@ const NavBar = () => {
             </Nav.Link>
             {role === "client" ? (
               <Dropdown>
-                <Dropdown.Toggle id="dropdown-basic">
+                <Dropdown.Toggle
+                  id="dropdown-basic"
+                  style={{
+                    color: isHomeNav?  "#000" : "#fff",
+                  }}
+                >
                   Mon compte
                   <span className="mt-3 ms-1">
                     <AiOutlineMenu />
