@@ -9,17 +9,41 @@ import { AiOutlineLike, AiOutlineStar } from "react-icons/ai";
 import { Button, Card, Col, Modal, Row } from "react-bootstrap";
 import Cancel from "../../assets/images/x.png";
 const Recommended = () => {
+  const [data, setData] = useState([
+    {
+      id:1,
+      isHide: false
+    },
+    {
+      id:2,
+      isHide: false
+    },
+    {
+      id:3,
+      isHide: false
+    },
+    {
+      id:4,
+      isHide: false
+    }
+  ]);
   const [show, setShow] = useState(false);
+  const [isHide, setIsHide] = useState(true);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const sendHandle = (event) => {
-    console.log(event);
-    if (event) {
-      document.getElementById("btnText").style.display = "block";
-      document.getElementById("sendBtn").style.display = "none";
-    }
+  const sendHandle = (id) => {
+    const newData = data.map(d =>{
+      if(d.id===id){
+        d.isHide = true;
+      }
+      return d;
+    });
+    setData(newData);
+  
+
+    setIsHide(false);
   };
-  const readMore = () =>{
+  const readMore = () => {
     var dots = document.getElementById("dots");
     var moreText = document.getElementById("more");
     var btnText = document.getElementById("myBtn");
@@ -97,7 +121,7 @@ const Recommended = () => {
         <div>
           <h5 className="mt-5 mb-4">Artisans recommandés</h5>
           <Row xs={1} md={2} className="g-4">
-            {Array.from({ length: 4 }).map((_, index) => (
+            {data.map((d, index) => (
               <Col key={index}>
                 <Card>
                   <div className="d-flex justify-content-left pt-3 ps-3">
@@ -119,18 +143,15 @@ const Recommended = () => {
                       <span>Responded to</span>
                       <strong>184 similar construction projects</strong>
                     </div>
-                    <Button
+                    {d.isHide === false ? <Button
                       id="sendBtn"
-                      onClick={() => sendHandle(index)}
+                      onClick={() => sendHandle(d.id)}
                       className="recommended_card-btn py-2 mt-3"
                       type="submit"
                     >
                       Envoyer une demande
-                    </Button>
-
-                    <div
+                    </Button> : <div
                       onClick={handleShow}
-                      id="btnText"
                       className="text-center mt-3"
                     >
                       <h6 className="text-success">
@@ -142,7 +163,7 @@ const Recommended = () => {
                         </span>
                         Choisissez 9 artisans
                       </p>
-                    </div>
+                    </div>}
                   </Card.Body>
                 </Card>
               </Col>
@@ -259,7 +280,7 @@ const Recommended = () => {
               Read more
             </button>
           </div>
-           
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

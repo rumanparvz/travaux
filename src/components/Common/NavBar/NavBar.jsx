@@ -101,7 +101,7 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav navbar_items">
           <Nav className="ms-auto header_link d-flex justify-content-center align-items-center">
             {!loggedIn ? (
-              <Nav.Link href="#home">
+              <>
                 <Link
                   to="/searchItem"
                   style={{
@@ -109,7 +109,7 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                      "/professionnel/inscription/nouvelle"
+                        "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -124,61 +124,28 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                      "/professionnel/inscription/nouvelle"
+                        "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
                 >
                   Connexion
                 </Link>
-                <Link
-                  to="/myProjectPage"
-                  className="mx-3"
-                  style={{
-                    color: isHomeNav ? "black" : "white",
-                    fontWeight: isHomeNav && 600,
-                    display:
-                      location.pathname ===
-                      "/professionnel/inscription/nouvelle"
-                        ? "none"
-                        : "",
-                  }}
-                >
-                  My Project
-                </Link>
-              </Nav.Link>
+              </>
             ) : (
-              <Nav.Link href="#home">
+              <>
                 {
-                  role === "professionnel" ? <Link
+                  role === "professionnel" ?
+                  <>
+                  <Link
                     to="/service-pro/new-service-requests"
                     style={{
                       color: isHomeNav ? "black" : "white",
-                      fontWeight: isHomeNav && 600,
-                      display:
-                        location.pathname ===
-                          "/professionnel/inscription/nouvelle"
-                          ? "none"
-                          : "",
+                      fontWeight: isHomeNav && 600
                     }}
                   >
                     Nouveaux projets
-                  </Link> : <Link
-                    to="/service-pro/new-service-requests"
-                    style={{
-                      color: isHomeNav ? "black" : "white",
-                      fontWeight: isHomeNav && 600,
-                      display:
-                        location.pathname ===
-                          "/professionnel/inscription/nouvelle"
-                          ? "none"
-                          : "",
-                    }}
-                  >
-                    Publier un projet
-                  </Link>
-                }
-                <Link
+                  </Link> <Link
                   to="/interested"
                   className="mx-3"
                   style={{
@@ -186,7 +153,7 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                      "/professionnel/inscription/nouvelle"
+                        "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -200,30 +167,48 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                      "/professionnel/inscription/nouvelle"
+                        "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
                 >
                   Contacts
                 </Link>
-              </Nav.Link>
+                  </>:  role === "client" ? <>
+                  <Link
+                  to="/myProjectPage"
+                  className="mx-3"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                        "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  My Project
+                </Link>
+                 <Link
+                    to="/service-pro/new-service-requests"
+                    style={{
+                      color: isHomeNav ? "black" : "white",
+                      fontWeight: isHomeNav && 600
+                    }}
+                  >
+                    Publier un projet
+                  </Link>
+                  </>: ''
+                }
+              </>
             )}
 
-            <Nav.Link
-              href="#link"
-              className="active register"
-              as={Link}
-              to={
-                location.pathname === "/professionnel/inscription/nouvelle"
-                  ? "/"
-                  : "/professionnel/inscription/nouvelle"
-              }
-            >
+            <>
               {!loggedIn && (
                 <>
                   {location.pathname ===
-                  "/professionnel/inscription/nouvelle" ? (
+                    "/professionnel/inscription/nouvelle" ? (
                     <span>
                       <span
                         className="logout_individual me-3"
@@ -245,7 +230,7 @@ const NavBar = () => {
                   )}
                 </>
               )}
-            </Nav.Link>
+            </>
             {role === "client" ? (
               <Dropdown>
                 <Dropdown.Toggle
