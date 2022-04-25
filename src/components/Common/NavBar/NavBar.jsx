@@ -131,6 +131,21 @@ const NavBar = () => {
                 >
                   Connexion
                 </Link>
+                <Link
+                  to="/myProjectPage"
+                  className="mx-3"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  My Project
+                </Link>
               </Nav.Link>
             ) : (
               <Nav.Link href="#home">
@@ -221,7 +236,7 @@ const NavBar = () => {
                 <Dropdown.Toggle
                   id="dropdown-basic"
                   style={{
-                    color: isHomeNav?  "#000" : "#fff",
+                    color: isHomeNav ? "#000" : "#fff",
                   }}
                 >
                   Mon compte

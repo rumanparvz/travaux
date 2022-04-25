@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Footer from '../Common/Footer/Footer.jsx';
-import NavBar from '../Common/NavBar/NavBar.jsx';
+import React, { useState } from "react";
+import Footer from "../Common/Footer/Footer.jsx";
+import NavBar from "../Common/NavBar/NavBar.jsx";
 import { FiMessageCircle, FiArchive } from "react-icons/fi";
-import ContactsMessages from './ContactsMessages.jsx';
-import ContactsArchives from './ContactsArchives.jsx';
+import ContactsMessages from "./ContactsMessages.jsx";
+import ContactsArchives from "./ContactsArchives.jsx";
 
 const ContactsFile = () => {
-const [fileChange, setFileChange] = useState("messages");
-  
+  const [fileChange, setFileChange] = useState("messages");
+
   return (
     <div>
       <NavBar />
@@ -20,13 +20,13 @@ const [fileChange, setFileChange] = useState("messages");
           <span>
             <FiMessageCircle />
           </span>
-          <bold className="ms-1">Messages</bold>
+          <strong className="ms-1">Messages</strong>
         </span>
         <span className=" select_css" onClick={() => setFileChange("archives")}>
           <span>
             <FiArchive />
           </span>
-          <bold className="ms-1">Archives</bold>
+          <strong className="ms-1">Archives</strong>
         </span>
         {fileChange === "messages" && <ContactsMessages />}
         {fileChange === "archives" && <ContactsArchives />}

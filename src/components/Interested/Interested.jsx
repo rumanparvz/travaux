@@ -19,13 +19,13 @@ const Interested = () => {
           <span>
             <FiMessageCircle />
           </span>
-          <bold className="ms-1">Messages</bold>
+          <strong className="ms-1">Messages</strong>
         </span>
         <span className=" select_css" onClick={() => setFileChange("archives")}>
           <span>
             <FiArchive />
           </span>
-          <bold className="ms-1">Archives</bold>
+          <strong className="ms-1">Archives</strong>
         </span>
         {fileChange === "messages" && <InterestedMessages />}
         {fileChange === "archives" && <InterestedArchives />}

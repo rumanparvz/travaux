@@ -28,3 +28,30 @@
 #btnText{
     display: none;
 }
+.cancel_btn{
+    background: #FFFAFA;
+    border: none;
+    padding: 10px 0px;
+    color: #39288F;
+    font-weight: 600;
+    img{
+    filter: invert(18%) sepia(79%) saturate(1662%) hue-rotate(234deg) brightness(88%) contrast(106%);
+    }
+
+     &:hover {
+    background-color: #AFEEEE;
+    
+  }
+ }
+
+ .cake_icon{
+     width: 40px;
+     background: #B09841;
+     padding: 15px 10px;
+     margin-top: -15px;
+     border-radius: 0 0 5px 5px;
+     margin-right: 10px;
+ }
+ #more{
+     display: none;
+ }
