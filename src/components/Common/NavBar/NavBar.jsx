@@ -11,7 +11,7 @@ const NavBar = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [role, setRole] = useState("");
   const location = useLocation();
-  const [isEmail, setIsEmail] = useState('')
+  const [isEmail, setIsEmail] = useState("");
 
   console.log(isEmail?.email);
 
@@ -19,7 +19,10 @@ const NavBar = () => {
     const refreshToken = Cookies.get("refreshToken");
     if (refreshToken) {
       console.log(refreshToken);
-      const res = await axios.post("https://ancient-gorge-88070.herokuapp.com/auth/signOut", { refreshToken });
+      const res = await axios.post(
+        "https://ancient-gorge-88070.herokuapp.com/auth/signOut",
+        { refreshToken }
+      );
       if (res) {
         Cookies.remove("accessToken");
         Cookies.remove("refreshToken");
@@ -47,7 +50,6 @@ const NavBar = () => {
     }
   }, []);
 
-
   // const intervalCount = setInterval(() => Cookies.get("accessToken") && handleCheckTokenExpired(), 10000)
 
   // const handleCheckTokenExpired = async () => {
@@ -60,9 +62,6 @@ const NavBar = () => {
   //     clearInterval(intervalCount);
   //   }
   // }
-
-
-
 
   return (
     <Navbar
@@ -110,7 +109,7 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                        "/professionnel/inscription/nouvelle"
+                      "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -125,12 +124,27 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                        "/professionnel/inscription/nouvelle"
+                      "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
                 >
                   Connexion
+                </Link>
+                <Link
+                  to="/myProjectPage"
+                  className="mx-3"
+                  style={{
+                    color: isHomeNav ? "black" : "white",
+                    fontWeight: isHomeNav && 600,
+                    display:
+                      location.pathname ===
+                      "/professionnel/inscription/nouvelle"
+                        ? "none"
+                        : "",
+                  }}
+                >
+                  My Project
                 </Link>
               </Nav.Link>
             ) : (
@@ -165,14 +179,14 @@ const NavBar = () => {
                   </Link>
                 }
                 <Link
-                  to="/connexion"
+                  to="/interested"
                   className="mx-3"
                   style={{
                     color: isHomeNav ? "black" : "white",
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                        "/professionnel/inscription/nouvelle"
+                      "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -180,13 +194,13 @@ const NavBar = () => {
                   Intéressé
                 </Link>
                 <Link
-                  to="/connexion"
+                  to="/contactsFile"
                   style={{
                     color: isHomeNav ? "black" : "white",
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                        "/professionnel/inscription/nouvelle"
+                      "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -209,7 +223,7 @@ const NavBar = () => {
               {!loggedIn && (
                 <>
                   {location.pathname ===
-                    "/professionnel/inscription/nouvelle" ? (
+                  "/professionnel/inscription/nouvelle" ? (
                     <span>
                       <span
                         className="logout_individual me-3"
@@ -234,7 +248,12 @@ const NavBar = () => {
             </Nav.Link>
             {role === "client" ? (
               <Dropdown>
-                <Dropdown.Toggle id="dropdown-basic">
+                <Dropdown.Toggle
+                  id="dropdown-basic"
+                  style={{
+                    color: isHomeNav ? "#000" : "#fff",
+                  }}
+                >
                   Mon compte
                   <span className="mt-3 ms-1">
                     <AiOutlineMenu />

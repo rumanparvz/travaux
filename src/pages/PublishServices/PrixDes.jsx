@@ -78,7 +78,7 @@ const PrixDes = () => {
             <h5>{resume} :</h5>
             <p>{resumeDescription}</p>
 
-            <h6 className="prix_text-bold">
+            <h6 className="prix_text-strong">
               Temps de lecture : {readingTime} Minutes
             </h6>
             <div>

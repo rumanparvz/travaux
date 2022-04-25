@@ -70,3 +70,19 @@
   color: #fff;
   border-radius: 3px;
 }
+
+primary.dropdown-toggle {
+    color: #000;
+    background-color: #fff;
+    border-color: grey;
+}
+.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+    color: #000;
+    background-color: #fff;
+    border-color: gray;
+}
+
+
+.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: none
+}

@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Currenct from "../components/Admin/Currenct";
+import ContactsFile from "../components/ContactsFile/ContactsFile.jsx";
+import Interested from "../components/Interested/Interested.jsx";
 import ForgotPassword from "../components/Login/ForgotPassword.jsx";
 import LoginHappy from "../components/Login/LoginHappy.js";
 import ResetPassword from "../components/Login/ResetPassword.jsx";
@@ -10,7 +12,9 @@ import DoubleTitleCheckBox from "../components/PublshProjects/DoubleTitleCheckbo
 import InputAndRadioBox from "../components/PublshProjects/InputAndRadioBox/InputAndRadioBox";
 import MultiPulCheckBox from "../components/PublshProjects/MultiPulCheckBok/MultiPulCheckBox";
 import MyProject from "../components/PublshProjects/MyProject/MyProject.jsx";
+import MyProjectsPage from "../components/PublshProjects/MyProject/MyProjectsPage.jsx";
 import RadioSErviceOption from "../components/PublshProjects/RadioServiceOption/RadioSErviceOption";
+import Recommended from "../components/Recommended/Recommended.jsx";
 import AllResults from "../components/Register/AllResults";
 import ContractInfo from "../components/Register/ContactInfo";
 import FreeRegistration from "../components/Register/FreeRegistration";
@@ -62,6 +66,8 @@ const Routers = () => {
           element={<MultiPulCheckBox />}
         ></Route>
         <Route path="/prixDes" element={<PrixDes />}></Route>
+        <Route path="/recommended" element={<Recommended />}></Route>
+        <Route path="/myProjectPage" element={<MyProjectsPage />}></Route>
         <Route
           path="/singleServiceInfo/:id"
           element={<SingleServiceInfo />}
@@ -90,6 +96,8 @@ const Routers = () => {
           path="/post-service-request/comment/:comment"
           element={<CommentTextPage />}
         ></Route>
+        <Route path="/interested" element={<Interested />}></Route>
+        <Route path="/contactsFile" element={<ContactsFile />}></Route>
         <Route
           path="/post-service-request/email/:email"
           element={<EmailPage />}

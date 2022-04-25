@@ -102,19 +102,21 @@ const FreeRegistration = () => {
           initialValues={{ remember: true }}
           onFinish={onFinish}
         >
-          {/* // */}
           <select
-            class="form-select mb-3"
+            class="form-select mb-3 py-2"
             aria-label="Default select example "
             onChange={(e) => setSelect(e.target.value)}
           >
-            {
-              jobs.map((job, index) => <option key={job.id} value={job.id} selected={index === 0}>{index === 0 && '🔎'}{job.name}</option>)
-            }
+            {jobs.map((job, index) => (
+              <option key={job.id} value={job.id} selected={index === 0}>
+                {index === 0 && "🔎"}
+                {job.name}
+              </option>
+            ))}
           </select>
 
-          {/*  */}
           <Form.Item
+            
             name="postalCode"
             rules={[
               { required: true, message: "Please input your postalcode!" },
@@ -123,19 +125,28 @@ const FreeRegistration = () => {
             <Input
               prefix={<FaMapMarkerAlt style={{ color: "#017acd" }} />}
               placeholder="Votre code postal"
-              className="py-2 w-50"
+              className="select_postal-code1"
               onChange={handleChange}
             />
-            {
-              cities.length > 0 ? <ul>
-                {
-                  cities.map((city, index) => <li key={city.id} value={city.postalCode} selected={index === 0}>{city.city}</li>)
-                }
-              </ul> : <span >
-                {city}
-              </span>
-            }
+          
+              {cities.length > 0 ? (
+                <select class="select_postal-code2">
+                  {cities.map((city, index) => (
+                    <option
+                      key={city.id}
+                      value={city.postalCode}
+                      selected={index === 0}
+                    >
+                      {city.city}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <span>{city}</span>
+              )}
+            
           </Form.Item>
+
           <Form.Item
             name="email"
             rules={[{ required: true, message: "Please input your email!" }]}

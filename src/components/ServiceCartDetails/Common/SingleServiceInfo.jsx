@@ -12,14 +12,16 @@ const SingleServiceInfo = () => {
   const [product, setProduct] = useState([]);
 
   const handleGetData = async () => {
-    const res = await axios.get(`https://ancient-gorge-88070.herokuapp.com/api/product/${id}`)
-    console.log({ res })
-    setProduct(res?.data?.data)
-  }
+    const res = await axios.get(
+      `https://ancient-gorge-88070.herokuapp.com/api/product/${id}`
+    );
+    console.log({ res });
+    setProduct(res?.data?.data);
+  };
 
   useEffect(() => {
     handleGetData();
-  }, [id])
+  }, [id]);
 
   const {
     priceDescription,
@@ -34,7 +36,6 @@ const SingleServiceInfo = () => {
     additionalInfo,
     resumeDescription,
   } = fakeData;
-
 
   const info1 = additionalInfo[0];
   const info2 = additionalInfo[1];
@@ -67,7 +68,10 @@ const SingleServiceInfo = () => {
             <span className="ms-2">{product?.subCategoryName}</span>
           </div>
           <h3 className="my-3">{product?.title}</h3>
-          <p className="date">{product?.updatedAt && moment(product?.updatedAt).format('DD/MM/YYYY')}</p>
+          <p className="date">
+            {product?.updatedAt &&
+              moment(product?.updatedAt).format("DD/MM/YYYY")}
+          </p>
           <div className="mt-5 description_prix row ">
             <div className="col-md-6 col-lg-6">
               <p>{product?.description}</p>
@@ -94,19 +98,20 @@ const SingleServiceInfo = () => {
             {/* <h5>{resume} :</h5>
             <p>{resumeDescription}</p> */}
 
-            <h6 className="prix_text-bold">
+            <h6 className="prix_text-strong">
               Temps de lecture : {product?.additionalInfo?.length} Minutes
             </h6>
             <div>
-              {
-                product?.additionalInfo?.map((info, index) =>
-                  <a href={`#${index}`} rel="noopener noreferrer">
-                    <p className="m-0">
-                      {index + 1}.<span className="prix_text-blue ms-3 text-primary">{info?.title}</span>
-                    </p>
-                  </a>
-                )
-              }
+              {product?.additionalInfo?.map((info, index) => (
+                <a href={`#${index}`} rel="noopener noreferrer">
+                  <p className="m-0">
+                    {index + 1}.
+                    <span className="prix_text-blue ms-3 text-primary">
+                      {info?.title}
+                    </span>
+                  </p>
+                </a>
+              ))}
             </div>
           </div>
           <div></div>
@@ -126,7 +131,12 @@ const SingleServiceInfo = () => {
                 <tr key={index}>
                   <td>{pb?.type}</td>
                   <td>{pb?.minPrice} €</td>
-                  <td>{Math.round((parseInt(pb?.minPrice) + parseInt(pb?.maxPrice)) / 2)} €</td>
+                  <td>
+                    {Math.round(
+                      (parseInt(pb?.minPrice) + parseInt(pb?.maxPrice)) / 2
+                    )}{" "}
+                    €
+                  </td>
                   <td>{pb?.maxPrice} €</td>
                 </tr>
               ))}
@@ -139,23 +149,26 @@ const SingleServiceInfo = () => {
         </div>
         <div className="row mt-5" id="one">
           <div className="col col-md-6 col-lg-6">
-            {
-              product?.additionalInfo?.map((info, index) => <div id={index}>
+            {product?.additionalInfo?.map((info, index) => (
+              <div id={index}>
                 <h4>{info?.title}</h4>
                 <p>{info?.description}</p>
-                {
-                  info?.image && <div className="mt-4">
+                {info?.image && (
+                  <div className="mt-4">
                     <img className="map_img" src={info?.image} alt="" />
                   </div>
-                }
+                )}
                 <Link to="/">
-                  <button className="prix_btn text-white mt-3 mb-3" type="submit">
+                  <button
+                    className="prix_btn text-white mt-3 mb-3"
+                    type="submit"
+                  >
                     Demandez un devis gratuit pour une porte blindée{" "}
                     <BiRightArrowAlt />
                   </button>
                 </Link>
-              </div>)
-            }
+              </div>
+            ))}
           </div>
           <div></div>
         </div>

@@ -25,9 +25,8 @@ const Register = () => {
             vous recevez soient exactement là où vous voulez intervenir.
           </p>
           <Link to="/job/registration">
-          <button className="primary_button">S’inscrire maintenant</button>
-            </Link>
-    
+            <button className="primary_button">S’inscrire maintenant</button>
+          </Link>
         </div>
       </div>
       <div className="middle_content text-center py-5">
@@ -193,25 +192,23 @@ const Register = () => {
             </div>
 
             <div className="col-md-6 ">
- 
-                <button className="primary_button ms-5 ">
-                  S’inscrire maintenant
-                </button>
-       
+              <button className="primary_button ms-5 ">
+                S’inscrire maintenant
+              </button>
             </div>
           </div>
         </div>
         <div className="container">
           <div className="row">
             <div className="col-md-6 py-3">
-              <a href="#" className="text-primary mx-4">
+              <a href="/" className="text-primary mx-4">
                 Besoin d'aide
               </a>
-              <a href="#" className="text-primary mx-3">
+              <a href="/" className="text-primary mx-3">
                 Confidentialité et gestion des cookies
               </a>{" "}
               <br />
-              <a href="#" className="text-primary mx-4">
+              <a href="/" className="text-primary mx-4">
                 Conditions Générales d'Utilisation
               </a>
             </div>
