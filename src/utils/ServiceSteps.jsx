@@ -68,5 +68,4 @@ const ServiceadditionalInfo = (params, type) => {
   };
 };
 
-export default ServiceadditionalInfo;
-
+export default ServiceadditionalInfo; 

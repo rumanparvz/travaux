@@ -15,6 +15,7 @@ const RootTitlePost = () => {
     postText,
     "text"
   );
+
   const [postCode, setPostCode] = useState(null);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
@@ -47,11 +48,11 @@ const RootTitlePost = () => {
       <NavBar />
       <div className="container ">
         <h6 className="pt-2">
-          Étape {processStep} sur {length}
+          Étape {processStep | 1} sur {length}
         </h6>
         <ProcessBar processStep={processStep} length={length} />
         <p className="content"></p>
-        <h1 style={{ fontWidth: "900" }}>{singlePostData[0].title}</h1>
+        <h1 style={{ fontWidth: "900" }}>{singlePostData[0]?.title}</h1>
         <div className="input_postal mt-5 pt-5">
           <h6 className="pb-2 ">Code postal du lieu des travaux</h6>
           <form action="" className="post-form pb-5" onSubmit={handleSubmit}>
@@ -63,13 +64,13 @@ const RootTitlePost = () => {
               required
               onChange={(e) => setPostCode(e.target.value)}
             />
-            {/* <span className="paris">Paris 20</span> */}
-            {/* <Link to={`/post-service-request/${stepName}/${postText}`}> */}
-            <p style={{ color: "red", paddingTop: "5px" }}>{error}</p>
-            <button className="main_button" as={Link} to="/s">
-              Suivant
-            </button>
-            {/* </Link> */}
+            <Link to={`/post-service-request/checkbox/${postText}`}>
+
+              <p style={{ color: "red", paddingTop: "5px" }}>{error}</p>
+              <button className="main_button" as={Link} to="/s">
+                Suivant
+              </button>
+            </Link>
           </form>
         </div>
         <div className="row py-5">

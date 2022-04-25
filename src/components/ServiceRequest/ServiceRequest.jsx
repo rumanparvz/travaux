@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineInfoCircle, AiOutlineSearch } from "react-icons/ai";
 import { BiMessageRoundedDots } from "react-icons/bi";
 import { BsDot } from "react-icons/bs";
@@ -6,7 +6,18 @@ import { GrLocation } from "react-icons/gr";
 import Footer from "../Common/Footer/Footer";
 import NavBar from "../Common/NavBar/NavBar";
 import ModalPage from "./ModalPage";
+import axios from "axios";
 const ServiceRequest = () => {
+
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const getServices = async () => {
+      const services = await axios.get("https://ancient-gorge-88070.herokuapp.com/api/projects");
+      setProjects(services?.data?.data);
+    }
+    getServices();
+  }, [])
 
 
   const data = [
@@ -35,6 +46,19 @@ const ServiceRequest = () => {
       time: " il y a 3 hours",
     },
   ];
+
+  const getTime = (date) => {
+    const date1 = new Date(date);
+    const date2 = new Date();
+    const diffTime = Math.abs(date1.getTime() - date2.getTime());
+    const diffHour = Math.abs(date2.getHours() - date1.getHours())
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const seconds = 86400 * diffDays + 3600 * diffHour;
+
+    console.log(date1, date2, diffTime, diffHour, diffDays, seconds);
+    return ` il y ${diffDays} days`;
+
+  }
 
   return (
     <section
@@ -81,32 +105,32 @@ const ServiceRequest = () => {
               </div>
             </div>
             <div className="filter">
-                <ModalPage />
-            
+              <ModalPage />
+
             </div>
           </div>
         </div>
-        {data.map(({ img, title, address, response, time, id }) => (
+        {projects.map(({ portfolio, subCategory, postalCode, response, createdAt, _id }) => (
           <div
             className="project_card  col-md-align-items-center gap-4 mt-3   "
-            key={id}
+            key={_id}
           >
             <img
               className="img-fluid rounded project-img "
               // style={{ width: "100px ", height: "100px" }}
-              src={img}
+              src={portfolio || 'https://www.bugatti.com/fileadmin/_processed_/9/5/csm_HEADER_22de7ed3a8.jpg'}
               alt=""
             />
             <div className="content">
               <h5>
-                {title}
+                {subCategory}
                 <span style={{ fontSize: "16px" }}>
-                  <BsDot /> {time}
+                  <BsDot /> {getTime(createdAt)}
                 </span>
               </h5>
               <p className="pt-4">
-                <GrLocation /> {address}
-                <BiMessageRoundedDots /> {response}
+                <GrLocation /> {postalCode}
+                <BiMessageRoundedDots /> {response || '2'}
               </p>
             </div>
           </div>

@@ -135,20 +135,35 @@ const NavBar = () => {
               </Nav.Link>
             ) : (
               <Nav.Link href="#home">
-                <Link
-                  to="/service-pro/new-service-requests"
-                  style={{
-                    color: isHomeNav ? "black" : "white",
-                    fontWeight: isHomeNav && 600,
-                    display:
-                      location.pathname ===
-                        "/professionnel/inscription/nouvelle"
-                        ? "none"
-                        : "",
-                  }}
-                >
-                  Nouveaux projets
-                </Link>
+                {
+                  role === "professionnel" ? <Link
+                    to="/service-pro/new-service-requests"
+                    style={{
+                      color: isHomeNav ? "black" : "white",
+                      fontWeight: isHomeNav && 600,
+                      display:
+                        location.pathname ===
+                          "/professionnel/inscription/nouvelle"
+                          ? "none"
+                          : "",
+                    }}
+                  >
+                    Nouveaux projets
+                  </Link> : <Link
+                    to="/service-pro/new-service-requests"
+                    style={{
+                      color: isHomeNav ? "black" : "white",
+                      fontWeight: isHomeNav && 600,
+                      display:
+                        location.pathname ===
+                          "/professionnel/inscription/nouvelle"
+                          ? "none"
+                          : "",
+                    }}
+                  >
+                    Publier un projet
+                  </Link>
+                }
                 <Link
                   to="/connexion"
                   className="mx-3"
