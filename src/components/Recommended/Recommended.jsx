@@ -153,6 +153,7 @@ const Recommended = () => {
                     </Button> : <div
                       onClick={handleShow}
                       className="text-center mt-3"
+                      style={{cursor: 'pointer' }}
                     >
                       <h6 className="text-success">
                         <AiOutlineCheck /> Demande envoyée
