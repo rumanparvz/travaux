@@ -38,8 +38,13 @@
 .modifier_input-code{
         border: none;
         padding: 10px;
+        outline: none;
    
     &:focus{
         border-outline: none;
+    }
+    &:active{
+        border: none;
+        outline:none;
     } 
  }
