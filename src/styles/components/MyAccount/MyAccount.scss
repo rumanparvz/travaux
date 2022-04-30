@@ -1,0 +1,50 @@
+.myAccount_btn{
+    cursor: pointer;
+    
+}
+.modifier{
+    cursor: pointer;
+}
+.modifier_btn{
+    width: 130px;
+    height: 60px;
+    font-weight: 600;
+    background: transparent;
+    border-radius: 50px;
+    border: 1px solid #017ACD;
+    &:hover{
+        background-color: #017ACD;
+    }
+
+}
+
+.modifier_input{
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    &:focus{
+        border: 2px solid #017ACD;
+    }
+}
+.modifier_input-postal{
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    &:focus{
+        border: 2px solid #017ACD;
+    }
+  
+     
+}
+.modifier_input-code{
+        border: none;
+        padding: 10px;
+        outline: none;
+   
+    &:focus{
+        border-outline: none;
+    }
+    &:active{
+        border: none;
+        outline:none;
+    } 
+ }

@@ -18,7 +18,6 @@ const NavBar = () => {
   const location = useLocation();
   const [isEmail, setIsEmail] = useState("");
 
-  console.log(isEmail?.email);
 
   const handleLogout = async () => {
     const refreshToken = Cookies.get("refreshToken");
@@ -114,7 +113,7 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                        "/professionnel/inscription/nouvelle"
+                      "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -129,7 +128,7 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                        "/professionnel/inscription/nouvelle"
+                      "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -213,7 +212,7 @@ const NavBar = () => {
               {!isLoggedIn && (
                 <>
                   {location.pathname ===
-                    "/professionnel/inscription/nouvelle" ? (
+                  "/professionnel/inscription/nouvelle" ? (
                     <span>
                       <span
                         className="logout_individual me-3"
@@ -241,7 +240,7 @@ const NavBar = () => {
                 <Dropdown.Toggle
                   id="dropdown-basic"
                   style={{
-                    color: isHomeNav ? "#000" : "#fff",
+                    color: isHomeNav ? "#fff" : "#000",
                   }}
                 >
                   Mon compte
@@ -262,7 +261,12 @@ const NavBar = () => {
               </Dropdown>
             ) : role === "professionnel" ? (
               <Dropdown>
-                <Dropdown.Toggle id="dropdown-basic">
+                <Dropdown.Toggle
+                  id="dropdown-basic"
+                  style={{
+                    color: isHomeNav ? "#000" : "#fff",
+                  }}
+                >
                   Mon compte
                   <span className="mt-3 ms-1">
                     <AiOutlineMenu />
@@ -274,7 +278,10 @@ const NavBar = () => {
                     {isEmail?.email}
                   </Dropdown.Item>
                   <Dropdown.Item href="#/action-2">Mon profil</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Mon compte</Dropdown.Item>
+
+                  <Link className="ms-3" to="/myAccount">Mon compte</Link>
+                  {/* <Dropdown.Item>gsg</Dropdown.Item> */}
+
                   <Dropdown.Item onClick={handleLogout} href="#/action-3">
                     Se déconnecter
                   </Dropdown.Item>
