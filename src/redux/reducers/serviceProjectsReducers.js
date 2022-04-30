@@ -16,7 +16,8 @@ const initialState = {
   registrationData: {},
   productsData: {},
   postData: [],
-  projectsData: {}
+  projectsData: {},
+  isLoggedIn: false
 };
 
 const serviceProjectsReducers = (state = initialState, action) => {
@@ -66,6 +67,8 @@ const serviceProjectsReducers = (state = initialState, action) => {
       return { ...state, doubleRadioOptionBox: action.payLoad };
     case actionTypes.ADD_PROJECTS_DATA:
       return { ...state, projectsData: action.payLoad };
+    case actionTypes.IS_LOGIN:
+      return { ...state, isLoggedIn: action.payLoad };
 
     default:
       return state;
