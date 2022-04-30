@@ -35,19 +35,11 @@
   
      
 }
-.modifier_input-code1{
+.modifier_input-code{
         border: none;
         padding: 10px;
    
     &:focus{
-        border: none;
-    } 
- }
-.modifier_input-code2{
-       border-left: 2px solid #000;
-        padding: 10px;
-   
-    &:focus{
-        border: none;
+        border-outline: none;
     } 
  }

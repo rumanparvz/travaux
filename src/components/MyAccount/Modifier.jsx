@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, InputGroup } from 'react-bootstrap';
+
 
 const Modifier = () => {
     return (
@@ -53,27 +53,16 @@ const Modifier = () => {
                 Code postal<span className="text-danger">*</span>
               </label>
               <br />
-              {/* <div className="modifier_input-postal w-50">
+              <div className="modifier_input-postal w-50">
                 <input
-                  className=" modifier_input-code1 w-50 "
+                  className=" modifier_input-code w-50 "
                   type="text"
                   name=""
                   placeholder="75001 Paris 01"
                   id=""
                 />
-                <input
-                  className=" modifier_input-code2 w-50"
-                  type="text"
-                  name=""
-                  placeholder="75001 Paris 01"
-                  id=""
-                />
-              </div> */}
-              <InputGroup className="mb-3 w-50">
-                
-                <FormControl aria-label="First name" />
-                <FormControl aria-label="Last name" />
-              </InputGroup>
+                <span>Paris 01</span>
+              </div>
             </div>
           </div>
         </div>
