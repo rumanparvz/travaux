@@ -6,6 +6,7 @@ import Interested from "../components/Interested/Interested.jsx";
 import ForgotPassword from "../components/Login/ForgotPassword.jsx";
 import LoginHappy from "../components/Login/LoginHappy.js";
 import ResetPassword from "../components/Login/ResetPassword.jsx";
+import MyAccount from "../components/MyAccount/MyAccount.jsx";
 import PublishProject from "../components/PublishProject/PublishProject.jsx";
 import DoubleCheckBox from "../components/PublshProjects/DoubleCheckBox/DoubleCheckBox";
 import DoubleTitleCheckBox from "../components/PublshProjects/DoubleTitleCheckbox/DoubleTitleCheckBox";
@@ -96,6 +97,7 @@ const Routers = () => {
           path="/post-service-request/comment/:comment"
           element={<CommentTextPage />}
         ></Route>
+        <Route path="/myAccount" element={<MyAccount />}></Route>
         <Route path="/interested" element={<Interested />}></Route>
         <Route path="/contactsFile" element={<ContactsFile />}></Route>
         <Route
