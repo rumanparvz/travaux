@@ -45,6 +45,7 @@ import UploadImagePage from "../pages/PublishServices/UploadImagePage";
 import RegisterPages from "../pages/Register/RegisterPages";
 import ServiceDetailsPage from "../pages/ServiceCartDetails/ServiceDetailsPage";
 import ServiceDetailsReview from "../pages/ServiceCartDetails/ServiceDetailsReview";
+import PrivateRoute from "./PrivateRoute";
 
 const Routers = () => {
   // console.log(serviceData);
@@ -70,7 +71,7 @@ const Routers = () => {
         ></Route>
         <Route path="/prixDes" element={<PrixDes />}></Route>
         <Route path="/recommended" element={<Recommended />}></Route>
-        <Route path="/myProjectPage" element={<MyProjectsPage />}></Route>
+        <Route path="/myProjectPage" element={<PrivateRoute><MyProjectsPage /></PrivateRoute>}></Route>
         <Route
           path="/singleServiceInfo/:id"
           element={<SingleServiceInfo />}
