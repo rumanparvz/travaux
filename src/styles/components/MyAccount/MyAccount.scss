@@ -1,9 +1,15 @@
 .myAccount_btn{
     cursor: pointer;
-    
+    padding: 10px;
+    margin: 0px;
+    &:hover{
+        background-color: #E4F4FF;
+    }
 }
+
 .modifier{
     cursor: pointer;
+    color: blue;
 }
 .modifier_btn{
     width: 130px;
@@ -48,3 +54,53 @@
         outline:none;
     } 
  }
+.myAccount_left{
+    border-right: 1px solid #ccc;
+    
+}
+.select_cursor{
+    cursor: pointer;
+    width: 28rem;
+}
+.search_input[type="search"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline-offset: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    &:focus{
+        border-outline: none;
+    }
+    &:active{
+        border: none;
+        outline:none;
+    } 
+}
+
+.promoCode{
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline-offset: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    &:focus{
+        border-outline: none;
+    }
+    &:active{
+        border: none;
+        outline:none;
+    } 
+}
+.promoCode_btn{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 3px;
+    background: blue;
+    color: #fff;
+    border: none;
+    &:hover{
+        background-color: #005C8B;
+    }
+}

@@ -5,9 +5,9 @@ const Modifier = () => {
     return (
       <div>
         <div>
-          <div className="">
+          <div>
             <h6>Nom</h6>
-            <div>
+            <div className="mt-3">
               <label htmlFor="">
                 Prénom<span className="text-danger">*</span>
               </label>
@@ -19,7 +19,7 @@ const Modifier = () => {
                 id=""
               />
             </div>
-            <div>
+            <div className="mt-3">
               <label htmlFor="">
                 Nom<span className="text-danger">*</span>
               </label>
@@ -33,8 +33,8 @@ const Modifier = () => {
             </div>
           </div>
           <div>
-            <h6>Adresse</h6>
-            <div>
+            <h6 className="mt-4">Adresse</h6>
+            <div className="mt-3">
               <label htmlFor="">
                 Adresse<span className="text-danger">*</span>
               </label>
@@ -48,7 +48,7 @@ const Modifier = () => {
               />
             </div>
 
-            <div>
+            <div className="mt-3">
               <label htmlFor="">
                 Code postal<span className="text-danger">*</span>
               </label>
@@ -66,7 +66,7 @@ const Modifier = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="mt-4">
           <button className="modifier_btn me-3">Annuler</button>
           <button className="modifier_btn">Enregistrer</button>
         </div>

@@ -55,7 +55,7 @@ const Activities = () => {
           <p>
             Si vous souhaitez modifier ou ajouter des métiers, veuillez nous
             contacter à partir de notre
-            <span className="text_blue">formulaire de contact en ligne.</span>
+            <span className="text_blue ms-2">formulaire de contact en ligne.</span>
           </p>
         </div>
       </div>
