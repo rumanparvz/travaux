@@ -9,6 +9,7 @@ import LoginHappy from "../components/Login/LoginHappy.js";
 import ResetPassword from "../components/Login/ResetPassword.jsx";
 import MyAccount from "../components/MyAccount/MyAccount.jsx";
 import Payments from "../components/MyAccount/Payments.jsx";
+import MyProfile from "../components/MyProfile/MyProfile.jsx";
 import PublishProject from "../components/PublishProject/PublishProject.jsx";
 import DoubleCheckBox from "../components/PublshProjects/DoubleCheckBox/DoubleCheckBox";
 import DoubleTitleCheckBox from "../components/PublshProjects/DoubleTitleCheckbox/DoubleTitleCheckBox";
@@ -71,7 +72,14 @@ const Routers = () => {
         ></Route>
         <Route path="/prixDes" element={<PrixDes />}></Route>
         <Route path="/recommended" element={<Recommended />}></Route>
-        <Route path="/myProjectPage" element={<PrivateRoute><MyProjectsPage /></PrivateRoute>}></Route>
+        <Route
+          path="/myProjectPage"
+          element={
+            <PrivateRoute>
+              <MyProjectsPage />
+            </PrivateRoute>
+          }
+        ></Route>
         <Route
           path="/singleServiceInfo/:id"
           element={<SingleServiceInfo />}
@@ -145,6 +153,7 @@ const Routers = () => {
         <Route path="/searchItem" element={<PublishProject />} />
         <Route path="/myProject" element={<MyProject />} />
         <Route path="/payments" element={<Payments />} />
+        <Route path="/myProfile" element={<MyProfile />} />
         <Route path="/demander" element={<Demander />} />
         <Route path="/register/contract" element={<ContractInfo />} />
         <Route path="/register/googleMap" element={<GoogleMapLocation />} />

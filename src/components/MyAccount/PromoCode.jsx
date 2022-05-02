@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 const PromoCode = () => {
     return (
@@ -11,7 +12,7 @@ const PromoCode = () => {
         <input className="promoCode" type="text" name="" id="" />
       <br />
         
-          <button className="promoCode_btn mt-4">Ajouter un code promotionnel</button>
+          <Button className="mt-4 ">Ajouter un code promotionnel</Button>
       
       </div>
     );

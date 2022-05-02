@@ -138,73 +138,77 @@ const NavBar = () => {
               </>
             ) : (
               <>
-                {
-                  role === "professionnel" ?
-                    <>
-                      <Link
-                        to="/service-pro/new-service-requests"
-                        style={{
-                          color: isHomeNav ? "black" : "white",
-                          fontWeight: isHomeNav && 600
-                        }}
-                      >
-                        Nouveaux projets
-                      </Link> <Link
-                        to="/interested"
-                        className="mx-3"
-                        style={{
-                          color: isHomeNav ? "black" : "white",
-                          fontWeight: isHomeNav && 600,
-                          display:
-                            location.pathname ===
-                              "/professionnel/inscription/nouvelle"
-                              ? "none"
-                              : "",
-                        }}
-                      >
-                        Intéressé
-                      </Link>
-                      <Link
-                        to="/contactsFile"
-                        style={{
-                          color: isHomeNav ? "black" : "white",
-                          fontWeight: isHomeNav && 600,
-                          display:
-                            location.pathname ===
-                              "/professionnel/inscription/nouvelle"
-                              ? "none"
-                              : "",
-                        }}
-                      >
-                        Contacts
-                      </Link>
-                    </> : role === "client" ? <>
-                      <Link
-                        to="/myProjectPage"
-                        className="mx-3"
-                        style={{
-                          color: isHomeNav ? "black" : "white",
-                          fontWeight: isHomeNav && 600,
-                          display:
-                            location.pathname ===
-                              "/professionnel/inscription/nouvelle"
-                              ? "none"
-                              : "",
-                        }}
-                      >
-                        My Project
-                      </Link>
-                      <Link
-                        to="/searchItem"
-                        style={{
-                          color: isHomeNav ? "black" : "white",
-                          fontWeight: isHomeNav && 600
-                        }}
-                      >
-                        Publier un projet
-                      </Link>
-                    </> : ''
-                }
+                {role === "professionnel" ? (
+                  <>
+                    <Link
+                      to="/service-pro/new-service-requests"
+                      style={{
+                        color: isHomeNav ? "black" : "white",
+                        fontWeight: isHomeNav && 600,
+                      }}
+                    >
+                      Nouveaux projets
+                    </Link>{" "}
+                    <Link
+                      to="/interested"
+                      className="mx-3"
+                      style={{
+                        color: isHomeNav ? "black" : "white",
+                        fontWeight: isHomeNav && 600,
+                        display:
+                          location.pathname ===
+                          "/professionnel/inscription/nouvelle"
+                            ? "none"
+                            : "",
+                      }}
+                    >
+                      Intéressé
+                    </Link>
+                    <Link
+                      to="/contactsFile"
+                      style={{
+                        color: isHomeNav ? "black" : "white",
+                        fontWeight: isHomeNav && 600,
+                        display:
+                          location.pathname ===
+                          "/professionnel/inscription/nouvelle"
+                            ? "none"
+                            : "",
+                      }}
+                    >
+                      Contacts
+                    </Link>
+                  </>
+                ) : role === "client" ? (
+                  <>
+                    <Link
+                      to="/myProjectPage"
+                      className="mx-3"
+                      style={{
+                        color: isHomeNav ? "black" : "white",
+                        fontWeight: isHomeNav && 600,
+                        display:
+                          location.pathname ===
+                          "/professionnel/inscription/nouvelle"
+                            ? "none"
+                            : "",
+                      }}
+                    >
+                      My Project
+                    </Link>
+                    <Link
+                      to="/searchItem"
+                      style={{
+                        color: isHomeNav ? "black" : "white",
+                        fontWeight: isHomeNav && 600,
+                      }}
+                    >
+                      Publier un projet
+                    </Link>
+                  </>
+                ) : (
+                  ""
+                )}
               </>
             )}
 
@@ -277,10 +281,12 @@ const NavBar = () => {
                   <Dropdown.Item href="#/action-1">
                     {isEmail?.email}
                   </Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Mon profil</Dropdown.Item>
-
-                  <Link className="ms-3" to="/myAccount">Mon compte</Link>
-                  {/* <Dropdown.Item>gsg</Dropdown.Item> */}
+                  <Link className="ms-3 d-block" to="/myProfile">
+                    Mon profil
+                  </Link>
+                  <Link className="ms-3 d-block" to="/myAccount">
+                    Mon compte
+                  </Link>
 
                   <Dropdown.Item onClick={handleLogout} href="#/action-3">
                     Se déconnecter
