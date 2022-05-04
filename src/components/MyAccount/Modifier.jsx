@@ -1,7 +1,50 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 
-const Modifier = () => {
+const Modifier = ({companyInfo, setTab, setIsHide, setCompanyInfo}) => {
+  const [formData, setFormData] = useState({});
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setFormData({...formData, [name]: value});
+  }
+  const handleSubmit = async (siretNo) => {
+    const {firstName, name, address, postalCode} = formData;
+    const companyName = `${firstName || ''} ${name || ''}`;
+    const updateCompany =await axios.patch(`https://ancient-gorge-88070.herokuapp.com/auth/updateSiret/${siretNo}`, {companyName, address, postalCode});
+    if(updateCompany){
+      navigate('/myAccount');
+      setIsHide('details');
+      setTab('CompanyDetails');
+      setCompanyInfo({
+        companyName,
+        address,
+        postalCode,
+        siretNo: formData.siretNo
+      });
+    }
+  }
+
+  const handleCancel = () => {
+    setTab('CompanyDetails');
+    setIsHide('details')
+  }
+
+  useEffect(() => {
+    if(companyInfo){
+      setFormData({
+        firstName: companyInfo?.companyName?.split(' ')[0],
+        name: companyInfo?.companyName?.split(' ')[1],
+        address: companyInfo?.address,
+        postalCode: companyInfo?.postalCode,
+        siretNo: companyInfo?.siretNo
+      });
+    }
+  },[companyInfo]);
     return (
       <div>
         <div>
@@ -14,9 +57,11 @@ const Modifier = () => {
               <br />
               <input
                 className="modifier_input w-50 "
+                value={formData?.firstName}
                 type="text"
-                name=""
+                name="firstName"
                 id=""
+                onChange={handleChange}
               />
             </div>
             <div className="mt-3">
@@ -27,8 +72,10 @@ const Modifier = () => {
               <input
                 className="modifier_input w-50"
                 type="text"
-                name=""
+                name="name"
                 id=""
+                value={formData?.name}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -42,9 +89,11 @@ const Modifier = () => {
               <input
                 className="modifier_input w-50 "
                 type="text"
-                name=""
+                name="address"
+                value={formData?.address}
                 placeholder="PARIS 01"
                 id=""
+                onChange={handleChange}
               />
             </div>
 
@@ -57,18 +106,20 @@ const Modifier = () => {
                 <input
                   className=" modifier_input-code w-50 "
                   type="text"
-                  name=""
+                  name="postalCode"
+                  value={formData?.postalCode}
                   placeholder="75001 Paris 01"
                   id=""
+                  onChange={handleChange}
                 />
-                <span>Paris 01</span>
+                <span>{companyInfo?.address}</span>
               </div>
             </div>
           </div>
         </div>
         <div className="mt-4">
-          <button className="modifier_btn me-3">Annuler</button>
-          <button className="modifier_btn">Enregistrer</button>
+          <button className="modifier_btn me-3" onClick={handleCancel}>Annuler</button>
+          <button className="modifier_btn" onClick={()=>handleSubmit(companyInfo?.siretNo)}>Enregistrer</button>
         </div>
       </div>
     );
