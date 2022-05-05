@@ -10,7 +10,9 @@ const ParentDetailsCard = ({ data }) => {
   return (
     <>
        {data?.map(({ subCategoryTitle ,products}) => (
+      
         <div>
+         
           <div
             className="mosonry py-3"
             style={{ boxShadow: "rgb(0 0 0 / 15%) 0px 0.0625rem 0.375rem" }}

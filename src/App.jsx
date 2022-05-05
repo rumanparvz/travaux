@@ -1,10 +1,9 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPostData } from "./redux/actions/ProjectsActions";
 import Routers from "./Routers/Routers";
 const App = () => {
-
   const dispatch = useDispatch()
   const postData = useSelector(state=> state.service)
   console.log(postData);
