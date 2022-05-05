@@ -5,15 +5,19 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { AiOutlineMenu } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsLogin } from "../../../redux/actions/ProjectsActions";
 
 const NavBar = () => {
+  const isLoggedIn = useSelector((state) => state.service.isLoggedIn);
+  console.log({ isLoggedIn });
+
+  const dispatch = useDispatch();
   const [isHomeNav, setIsHome] = useState(true);
-  const [loggedIn, setLoggedIn] = useState(false);
   const [role, setRole] = useState("");
   const location = useLocation();
   const [isEmail, setIsEmail] = useState("");
 
-  console.log(isEmail?.email);
 
   const handleLogout = async () => {
     const refreshToken = Cookies.get("refreshToken");
@@ -27,7 +31,7 @@ const NavBar = () => {
         Cookies.remove("accessToken");
         Cookies.remove("refreshToken");
         Cookies.remove("userId");
-        setLoggedIn(false);
+        dispatch(setIsLogin(false));
         setRole("");
       }
     }
@@ -41,7 +45,7 @@ const NavBar = () => {
 
   useEffect(() => {
     if (Cookies.get("accessToken")) {
-      setLoggedIn(true);
+      dispatch(setIsLogin(true));
       const token = Cookies.get("accessToken");
       const decoded = jwt_decode(token);
       setRole(decoded.role);
@@ -100,9 +104,13 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav navbar_items">
           <Nav className="ms-auto header_link d-flex justify-content-center align-items-center">
-            {!loggedIn ? (
+            {!isLoggedIn ? (
               <>
-                <Link
+                {location.pathname === '/job/registration' ? <Link to="/" style={{ 
+                  color: 'black',
+                }}>
+                  Je suis un particulier
+                </Link> : <Link
                   to="/searchItem"
                   style={{
                     color: isHomeNav ? "black" : "white",
@@ -115,7 +123,7 @@ const NavBar = () => {
                   }}
                 >
                   Publier un projet
-                </Link>
+                </Link>}
                 <Link
                   to="/connexion"
                   className="mx-3"
@@ -134,78 +142,82 @@ const NavBar = () => {
               </>
             ) : (
               <>
-                {
-                  role === "professionnel" ?
+                {role === "professionnel" ? (
                   <>
-                  <Link
-                    to="/service-pro/new-service-requests"
-                    style={{
-                      color: isHomeNav ? "black" : "white",
-                      fontWeight: isHomeNav && 600
-                    }}
-                  >
-                    Nouveaux projets
-                  </Link> <Link
-                  to="/interested"
-                  className="mx-3"
-                  style={{
-                    color: isHomeNav ? "black" : "white",
-                    fontWeight: isHomeNav && 600,
-                    display:
-                      location.pathname ===
-                        "/professionnel/inscription/nouvelle"
-                        ? "none"
-                        : "",
-                  }}
-                >
-                  Intéressé
-                </Link>
-                <Link
-                  to="/contactsFile"
-                  style={{
-                    color: isHomeNav ? "black" : "white",
-                    fontWeight: isHomeNav && 600,
-                    display:
-                      location.pathname ===
-                        "/professionnel/inscription/nouvelle"
-                        ? "none"
-                        : "",
-                  }}
-                >
-                  Contacts
-                </Link>
-                  </>:  role === "client" ? <>
-                  <Link
-                  to="/myProjectPage"
-                  className="mx-3"
-                  style={{
-                    color: isHomeNav ? "black" : "white",
-                    fontWeight: isHomeNav && 600,
-                    display:
-                      location.pathname ===
-                        "/professionnel/inscription/nouvelle"
-                        ? "none"
-                        : "",
-                  }}
-                >
-                  My Project
-                </Link>
-                 <Link
-                    to="/service-pro/new-service-requests"
-                    style={{
-                      color: isHomeNav ? "black" : "white",
-                      fontWeight: isHomeNav && 600
-                    }}
-                  >
-                    Publier un projet
-                  </Link>
-                  </>: ''
-                }
+                    <Link
+                      to="/service-pro/new-service-requests"
+                      style={{
+                        color: isHomeNav ? "black" : "white",
+                        fontWeight: isHomeNav && 600,
+                      }}
+                    >
+                      Nouveaux projets
+                    </Link>{" "}
+                    <Link
+                      to="/interested"
+                      className="mx-3"
+                      style={{
+                        color: isHomeNav ? "black" : "white",
+                        fontWeight: isHomeNav && 600,
+                        display:
+                          location.pathname ===
+                            "/professionnel/inscription/nouvelle"
+                            ? "none"
+                            : "",
+                      }}
+                    >
+                      Intéressé
+                    </Link>
+                    <Link
+                      to="/contactsFile"
+                      style={{
+                        color: isHomeNav ? "black" : "white",
+                        fontWeight: isHomeNav && 600,
+                        display:
+                          location.pathname ===
+                            "/professionnel/inscription/nouvelle"
+                            ? "none"
+                            : "",
+                      }}
+                    >
+                      Contacts
+                    </Link>
+                  </>
+                ) : role === "client" ? (
+                  <>
+                    <Link
+                      to="/myProjectPage"
+                      className="mx-3"
+                      style={{
+                        color: isHomeNav ? "black" : "white",
+                        fontWeight: isHomeNav && 600,
+                        display:
+                          location.pathname ===
+                            "/professionnel/inscription/nouvelle"
+                            ? "none"
+                            : "",
+                      }}
+                    >
+                      My Project
+                    </Link>
+                    <Link
+                      to="/searchItem"
+                      style={{
+                        color: isHomeNav ? "black" : "white",
+                        fontWeight: isHomeNav && 600,
+                      }}
+                    >
+                      Publier un projet
+                    </Link>
+                  </>
+                ) : (
+                  ""
+                )}
               </>
             )}
 
             <>
-              {!loggedIn && (
+              {!isLoggedIn && (
                 <>
                   {location.pathname ===
                     "/professionnel/inscription/nouvelle" ? (
@@ -220,14 +232,14 @@ const NavBar = () => {
                         Je suis un particulier
                       </span>
                     </span>
-                  ) : (
-                    <span
-                      style={{ color: isHomeNav ? "black" : "" }}
-                      className="register_btn"
-                    >
-                      S'inscrire en tant que professionnel
-                    </span>
-                  )}
+                  ) : location.pathname === '/job/registration' ? (
+                    ''
+                  ) : <Link to='/job/registration'
+                    style={{ color: isHomeNav ? "black": "white" }}
+                    className="register_btn"
+                  >
+                    S'inscrire en tant que professionnel
+                  </Link>}
                 </>
               )}
             </>
@@ -236,7 +248,7 @@ const NavBar = () => {
                 <Dropdown.Toggle
                   id="dropdown-basic"
                   style={{
-                    color: isHomeNav ? "#000" : "#fff",
+                    color: isHomeNav ? "#fff" : "#000",
                   }}
                 >
                   Mon compte
@@ -257,7 +269,12 @@ const NavBar = () => {
               </Dropdown>
             ) : role === "professionnel" ? (
               <Dropdown>
-                <Dropdown.Toggle id="dropdown-basic">
+                <Dropdown.Toggle
+                  id="dropdown-basic"
+                  style={{
+                    color: isHomeNav ? "#000" : "#fff",
+                  }}
+                >
                   Mon compte
                   <span className="mt-3 ms-1">
                     <AiOutlineMenu />
@@ -268,8 +285,13 @@ const NavBar = () => {
                   <Dropdown.Item href="#/action-1">
                     {isEmail?.email}
                   </Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Mon profil</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Mon compte</Dropdown.Item>
+                  <Link className="ms-3 d-block" to="/myProfile">
+                    Mon profil
+                  </Link>
+                  <Link className="ms-3 d-block" to="/myAccount">
+                    Mon compte
+                  </Link>
+
                   <Dropdown.Item onClick={handleLogout} href="#/action-3">
                     Se déconnecter
                   </Dropdown.Item>

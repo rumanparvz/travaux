@@ -119,7 +119,7 @@ const FreeRegistration = () => {
             
             name="postalCode"
             rules={[
-              { required: true, message: "Please input your postalcode!" },
+              { required: false, message: "Please input your postalcode!" },
             ]}
           >
             <Input

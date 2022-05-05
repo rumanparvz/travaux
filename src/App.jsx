@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPostData } from "./redux/actions/ProjectsActions";
+import { addPostData, setIsLogin } from "./redux/actions/ProjectsActions";
 import Routers from "./Routers/Routers";
+import Cookies from 'js-cookie';
+
 const App = () => {
   const dispatch = useDispatch()
   const postData = useSelector(state=> state.service)
@@ -16,6 +18,12 @@ const fetchServiceData=async ()=>{
  useEffect(()=>{
   fetchServiceData()
  },[])
+ 
+ useEffect(() => {
+  if (Cookies.get("accessToken")) {
+    dispatch(setIsLogin(true));
+  }
+}, []);
   return (
     <>
       <Routers />

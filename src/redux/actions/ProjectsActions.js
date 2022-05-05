@@ -113,6 +113,13 @@ const addProjectsData = (projectsData) => {
   };
 }
 
+const setIsLogin = (isLogin) => {
+  return {
+    type: actionTypes.IS_LOGIN,
+    payLoad: isLogin,
+  };
+}
+
 export {
   ProjectPostalCode,
   serviceTypeCheckBox,
@@ -129,6 +136,7 @@ export {
   addRegistrationData,
   addPostData,
   addToProductData,
-  addProjectsData
+  addProjectsData,
+  setIsLogin
 };
 

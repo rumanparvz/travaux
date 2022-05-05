@@ -2,10 +2,14 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Currenct from "../components/Admin/Currenct";
 import ContactsFile from "../components/ContactsFile/ContactsFile.jsx";
+import Demander from "../components/Demander/Demander.jsx";
 import Interested from "../components/Interested/Interested.jsx";
 import ForgotPassword from "../components/Login/ForgotPassword.jsx";
 import LoginHappy from "../components/Login/LoginHappy.js";
 import ResetPassword from "../components/Login/ResetPassword.jsx";
+import MyAccount from "../components/MyAccount/MyAccount.jsx";
+import Payments from "../components/MyAccount/Payments.jsx";
+import MyProfile from "../components/MyProfile/MyProfile.jsx";
 import PublishProject from "../components/PublishProject/PublishProject.jsx";
 import DoubleCheckBox from "../components/PublshProjects/DoubleCheckBox/DoubleCheckBox";
 import DoubleTitleCheckBox from "../components/PublshProjects/DoubleTitleCheckbox/DoubleTitleCheckBox";
@@ -43,6 +47,7 @@ import UploadImagePage from "../pages/PublishServices/UploadImagePage";
 import RegisterPages from "../pages/Register/RegisterPages";
 import ServiceDetailsPage from "../pages/ServiceCartDetails/ServiceDetailsPage";
 import ServiceDetailsReview from "../pages/ServiceCartDetails/ServiceDetailsReview";
+import PrivateRoute from "./PrivateRoute";
 
 const Routers = () => {
   // console.log(serviceData);
@@ -68,7 +73,14 @@ const Routers = () => {
         ></Route>
         <Route path="/prixDes" element={<PrixDes />}></Route>
         <Route path="/recommended" element={<Recommended />}></Route>
-        <Route path="/myProjectPage" element={<MyProjectsPage />}></Route>
+        <Route
+          path="/myProjectPage"
+          element={
+            <PrivateRoute>
+              <MyProjectsPage />
+            </PrivateRoute>
+          }
+        ></Route>
         <Route
           path="/singleServiceInfo/:id"
           element={<SingleServiceInfo />}
@@ -97,6 +109,7 @@ const Routers = () => {
           path="/post-service-request/comment/:comment"
           element={<CommentTextPage />}
         ></Route>
+        <Route path="/myAccount" element={<MyAccount />}></Route>
         <Route path="/interested" element={<Interested />}></Route>
         <Route path="/contactsFile" element={<ContactsFile />}></Route>
         <Route
@@ -140,6 +153,9 @@ const Routers = () => {
         <Route path="/fromComment" element={<FromComment />} />
         <Route path="/searchItem" element={<PublishProject />} />
         <Route path="/myProject" element={<MyProject />} />
+        <Route path="/payments" element={<Payments />} />
+        <Route path="/myProfile" element={<MyProfile />} />
+        <Route path="/demander" element={<Demander />} />
         <Route path="/register/contract" element={<ContractInfo />} />
         <Route path="/register/googleMap" element={<GoogleMapLocation />} />
         <Route path="/register/serit" element={<Serit />} />

@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import NavBar from "../Common/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
-import { addProjectsData } from "../../redux/actions/ProjectsActions";
+import { addProjectsData, setIsLogin } from "../../redux/actions/ProjectsActions";
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState({})
   const [showPass, setShowPass] = useState(false);
@@ -66,6 +66,7 @@ const Login = () => {
           if (path !== '/connexion') {
             const res = await axios.post('https://ancient-gorge-88070.herokuapp.com/api/publishProject', { ...projectsData, contactEmail: loginInfo?.email, userId: response?.data?.data?.user?.userId });
             if (res?.data) {
+              dispatch(setIsLogin(true));
               navigate('/');
               dispatch(addProjectsData({}));
             }
