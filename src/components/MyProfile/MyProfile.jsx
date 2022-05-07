@@ -109,7 +109,7 @@ const MyProfile = () => {
             <span className="me-5 d-flex align-items-center">
               <input
                 style={{ width: "24px", height: "24px" }}
-                className=" me-2 rounded-pill"
+                className=" me-2 d-inline-block rounded-circle"
                 type="checkbox"
                 name=""
                 id=""
