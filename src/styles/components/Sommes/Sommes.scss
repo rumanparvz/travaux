@@ -1,0 +1,54 @@
+.sommes .nav_item {
+  color: white;
+  margin-left: 48px;
+  background: #005c8b;
+  color: white !important;
+}
+.nav_bottom {
+  background: #005c8b;
+  padding: 10px 0px;
+}
+
+.nav_bottom ul li {
+  list-style: none;
+  display: inline;
+  padding: 20px 0px;
+  border-right: 1px solid white;
+  margin: 0px;
+  padding: 37px;
+  padding-bottom: 10px;
+
+  &:hover {
+    background-color: #003b59;
+    padding-bottom: 10px;
+  }
+}
+
+.nav_bottom ul li a {
+  color: white;
+  font-size: 15px;
+  padding-top: 20px;
+}
+
+.nav_bottom ul li:first-child {
+  border-left: 1px solid white;
+  padding-left: 19px;
+  z-index: -1;
+}
+.bottom_image_url {
+  background-image: url(https://www.travaux.com/assets/images/hero-about.jpg?v=187);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 80px 0px;
+  z-index: 2;
+}
+.col-md-6.project_number h1 {
+  color: #47b747;
+  font-weight: revert;
+}
+.footer_blue ul li {
+  list-style: none;
+  display: inline;
+  padding: 10px 23px;
+  color: white;
+}

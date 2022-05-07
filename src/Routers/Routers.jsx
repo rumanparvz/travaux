@@ -29,6 +29,7 @@ import Serit from "../components/Register/Serit";
 import SingleServiceInfo from "../components/ServiceCartDetails/Common/SingleServiceInfo";
 import ServiceProductDetails from "../components/ServiceCartDetails/Services/Details/ServiceProductDetails";
 import ServiceRequest from "../components/ServiceRequest/ServiceRequest";
+import Sommes from "../components/Sommes/Sommes";
 // import { serviceData } from "../data/ServiceData";
 import AdminDashboardPage from "../pages/AdminDahsboardPage/AdminDashboardPage";
 import FromComment from "../pages/FromComment/FromComment.jsx";
@@ -169,6 +170,8 @@ const Routers = () => {
           path="/service-pro/new-service-requests"
           element={<ServiceRequest />}
         ></Route>
+       <Route path="/qui-sommes-nous" element={<Sommes />} />
+
       </Routes>
     </div>
   );
