@@ -20,7 +20,7 @@ console.log(' datata',data?.slice(0,3));
             data?.slice(0,100)?.map(({image,_id,icon,description,title})=> <>
                 <div className="col-md-4 py-3 " key={_id}>
             <div className='card-item'>
-              <Card.Img variant="top" src={image} />
+              <Card.Img variant="top" src={image} className='img-fluid' style={{height:'200px',maxWidth:'100%'}} />
               <Card.Body>
                 <Card.Title> <img src={icon} alt="" style={{width:'30px'}}/> {title}</Card.Title>
                 <Card.Text className="text-secondary">{description}</Card.Text>

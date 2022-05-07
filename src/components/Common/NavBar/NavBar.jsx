@@ -10,7 +10,7 @@ import { setIsLogin } from "../../../redux/actions/ProjectsActions";
 
 const NavBar = () => {
   const isLoggedIn = useSelector((state) => state.service.isLoggedIn);
-  console.log({isLoggedIn});
+  console.log({ isLoggedIn });
 
   const dispatch = useDispatch();
   const [isHomeNav, setIsHome] = useState(true);
@@ -106,20 +106,24 @@ const NavBar = () => {
           <Nav className="ms-auto header_link d-flex justify-content-center align-items-center">
             {!isLoggedIn ? (
               <>
-                <Link
+                {location.pathname === '/job/registration' ? <Link to="/" style={{ 
+                  color: 'black',
+                }}>
+                  Je suis un particulier
+                </Link> : <Link
                   to="/searchItem"
                   style={{
                     color: isHomeNav ? "black" : "white",
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                      "/professionnel/inscription/nouvelle"
+                        "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
                 >
                   Publier un projet
-                </Link>
+                </Link>}
                 <Link
                   to="/connexion"
                   className="mx-3"
@@ -128,7 +132,7 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                      "/professionnel/inscription/nouvelle"
+                        "/professionnel/inscription/nouvelle"
                         ? "none"
                         : "",
                   }}
@@ -157,7 +161,7 @@ const NavBar = () => {
                         fontWeight: isHomeNav && 600,
                         display:
                           location.pathname ===
-                          "/professionnel/inscription/nouvelle"
+                            "/professionnel/inscription/nouvelle"
                             ? "none"
                             : "",
                       }}
@@ -171,7 +175,7 @@ const NavBar = () => {
                         fontWeight: isHomeNav && 600,
                         display:
                           location.pathname ===
-                          "/professionnel/inscription/nouvelle"
+                            "/professionnel/inscription/nouvelle"
                             ? "none"
                             : "",
                       }}
@@ -189,7 +193,7 @@ const NavBar = () => {
                         fontWeight: isHomeNav && 600,
                         display:
                           location.pathname ===
-                          "/professionnel/inscription/nouvelle"
+                            "/professionnel/inscription/nouvelle"
                             ? "none"
                             : "",
                       }}
@@ -216,7 +220,7 @@ const NavBar = () => {
               {!isLoggedIn && (
                 <>
                   {location.pathname ===
-                  "/professionnel/inscription/nouvelle" ? (
+                    "/professionnel/inscription/nouvelle" ? (
                     <span>
                       <span
                         className="logout_individual me-3"
@@ -228,14 +232,14 @@ const NavBar = () => {
                         Je suis un particulier
                       </span>
                     </span>
-                  ) : (
-                    <span
-                      style={{ color: isHomeNav ? "black" : "" }}
-                      className="register_btn"
-                    >
-                      S'inscrire en tant que professionnel
-                    </span>
-                  )}
+                  ) : location.pathname === '/job/registration' ? (
+                    ''
+                  ) : <Link to='/job/registration'
+                    style={{ color: isHomeNav ? "black": "white" }}
+                    className="register_btn"
+                  >
+                    S'inscrire en tant que professionnel
+                  </Link>}
                 </>
               )}
             </>

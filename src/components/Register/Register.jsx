@@ -123,9 +123,9 @@ const Register = () => {
             <h3>Recevez des projets de chantier dans votre zone</h3>
           </div>
           <div className="col-md-6 ">
-            <button className="primary_button ms-5 ">
-              S’inscrire maintenant
-            </button>
+            <Link to="/job/registration">
+              <button className="primary_button">S’inscrire maintenant</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -192,9 +192,9 @@ const Register = () => {
             </div>
 
             <div className="col-md-6 ">
-              <button className="primary_button ms-5 ">
-                S’inscrire maintenant
-              </button>
+              <Link to="/job/registration">
+                <button className="primary_button">S’inscrire maintenant</button>
+              </Link>
             </div>
           </div>
         </div>
