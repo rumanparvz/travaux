@@ -106,24 +106,31 @@ const NavBar = () => {
           <Nav className="ms-auto header_link d-flex justify-content-center align-items-center">
             {!isLoggedIn ? (
               <>
-                {location.pathname === '/job/registration' ? <Link to="/" style={{ 
-                  color: 'black',
-                }}>
-                  Je suis un particulier
-                </Link> : <Link
-                  to="/searchItem"
-                  style={{
-                    color: isHomeNav ? "black" : "white",
-                    fontWeight: isHomeNav && 600,
-                    display:
-                      location.pathname ===
+                {location.pathname === "/job/registration" ? (
+                  <Link
+                    to="/"
+                    style={{
+                      color: "black"
+                    }}
+                  >
+                    Je suis un particulier
+                  </Link>
+                ) : (
+                  <Link
+                    to="/searchItem"
+                    style={{
+                      color: isHomeNav ? "black" : "white",
+                      fontWeight: isHomeNav && 600,
+                      display:
+                        location.pathname ===
                         "/professionnel/inscription/nouvelle"
-                        ? "none"
-                        : "",
-                  }}
-                >
-                  Publier un projet
-                </Link>}
+                          ? "none"
+                          : ""
+                    }}
+                  >
+                    Publier un projet
+                  </Link>
+                )}
                 <Link
                   to="/connexion"
                   className="mx-3"
@@ -132,9 +139,9 @@ const NavBar = () => {
                     fontWeight: isHomeNav && 600,
                     display:
                       location.pathname ===
-                        "/professionnel/inscription/nouvelle"
+                      "/professionnel/inscription/nouvelle"
                         ? "none"
-                        : "",
+                        : ""
                   }}
                 >
                   Connexion
@@ -148,7 +155,7 @@ const NavBar = () => {
                       to="/service-pro/new-service-requests"
                       style={{
                         color: isHomeNav ? "black" : "white",
-                        fontWeight: isHomeNav && 600,
+                        fontWeight: isHomeNav && 600
                       }}
                     >
                       Nouveaux projets
@@ -161,9 +168,9 @@ const NavBar = () => {
                         fontWeight: isHomeNav && 600,
                         display:
                           location.pathname ===
-                            "/professionnel/inscription/nouvelle"
+                          "/professionnel/inscription/nouvelle"
                             ? "none"
-                            : "",
+                            : ""
                       }}
                     >
                       Intéressé
@@ -175,9 +182,9 @@ const NavBar = () => {
                         fontWeight: isHomeNav && 600,
                         display:
                           location.pathname ===
-                            "/professionnel/inscription/nouvelle"
+                          "/professionnel/inscription/nouvelle"
                             ? "none"
-                            : "",
+                            : ""
                       }}
                     >
                       Contacts
@@ -193,9 +200,9 @@ const NavBar = () => {
                         fontWeight: isHomeNav && 600,
                         display:
                           location.pathname ===
-                            "/professionnel/inscription/nouvelle"
+                          "/professionnel/inscription/nouvelle"
                             ? "none"
-                            : "",
+                            : ""
                       }}
                     >
                       My Project
@@ -204,7 +211,7 @@ const NavBar = () => {
                       to="/searchItem"
                       style={{
                         color: isHomeNav ? "black" : "white",
-                        fontWeight: isHomeNav && 600,
+                        fontWeight: isHomeNav && 600
                       }}
                     >
                       Publier un projet
@@ -220,7 +227,7 @@ const NavBar = () => {
               {!isLoggedIn && (
                 <>
                   {location.pathname ===
-                    "/professionnel/inscription/nouvelle" ? (
+                  "/professionnel/inscription/nouvelle" ? (
                     <span>
                       <span
                         className="logout_individual me-3"
@@ -232,14 +239,17 @@ const NavBar = () => {
                         Je suis un particulier
                       </span>
                     </span>
-                  ) : location.pathname === '/job/registration' ? (
-                    ''
-                  ) : <Link to='/job/registration'
-                    style={{ color: isHomeNav ? "black": "white" }}
-                    className="register_btn"
-                  >
-                    S'inscrire en tant que professionnel
-                  </Link>}
+                  ) : location.pathname === "/job/registration" ? (
+                    ""
+                  ) : (
+                    <Link
+                      to="/job/registration"
+                      style={{ color: isHomeNav ? "black" : "white" }}
+                      className="register_btn"
+                    >
+                      S'inscrire en tant que professionnel
+                    </Link>
+                  )}
                 </>
               )}
             </>
@@ -248,7 +258,7 @@ const NavBar = () => {
                 <Dropdown.Toggle
                   id="dropdown-basic"
                   style={{
-                    color: isHomeNav ? "#fff" : "#000",
+                    color: isHomeNav ? "#fff" : "#000"
                   }}
                 >
                   Mon compte
@@ -272,7 +282,7 @@ const NavBar = () => {
                 <Dropdown.Toggle
                   id="dropdown-basic"
                   style={{
-                    color: isHomeNav ? "#000" : "#fff",
+                    color: isHomeNav ? "#000" : "#fff"
                   }}
                 >
                   Mon compte
@@ -289,9 +299,11 @@ const NavBar = () => {
                     Mon profil
                   </Link>
                   <Link className="ms-3 d-block" to="/myAccount">
-                    Mon compte
+                    Mon profil{" "}
                   </Link>
-
+                  <Link className="ms-3 d-block" to="/consumer/my-account">
+                    Paramètres
+                  </Link>
                   <Dropdown.Item onClick={handleLogout} href="#/action-3">
                     Se déconnecter
                   </Dropdown.Item>

@@ -35,6 +35,7 @@ import AdminDashboardPage from "../pages/AdminDahsboardPage/AdminDashboardPage";
 import FromComment from "../pages/FromComment/FromComment.jsx";
 import HomePage from "../pages/Home/HomePage";
 import LoginPages from "../pages/LoginPages/LoginPages";
+import ProfileSettingPage from "../pages/ProfileSettingPage/ProfileSettingPage";
 import CheckBoxOptionPage from "../pages/PublishServices/CheckBoxOptionPage";
 import CombinedTitleCheckBokPage from "../pages/PublishServices/CombinedTitleCheckBokPage";
 import CommentTextPage from "../pages/PublishServices/CommentTextPage";
@@ -113,6 +114,11 @@ const Routers = () => {
         <Route path="/interested" element={<Interested />}></Route>
         <Route path="/contactsFile" element={<ContactsFile />}></Route>
         <Route
+          path="/consumer/my-account"
+          element={<ProfileSettingPage />}
+        ></Route>
+
+        <Route
           path="/post-service-request/email/:email"
           element={<EmailPage />}
         ></Route>
@@ -170,8 +176,7 @@ const Routers = () => {
           path="/service-pro/new-service-requests"
           element={<ServiceRequest />}
         ></Route>
-       <Route path="/qui-sommes-nous" element={<Sommes />} />
-
+        <Route path="/qui-sommes-nous" element={<Sommes />} />
       </Routes>
     </div>
   );
