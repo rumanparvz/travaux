@@ -163,11 +163,25 @@ const ProfileSetting = () => {
                     votre projet de chantier ?
                   </p>
                   <Radio.Group onChange={onChange} value={value}>
-                    <Radio  className="p-3 mb-2  w-100" style={{background:'#F4F4F4'}}   value='oui'>OUI,je souhaite recevoir un SMS</Radio> <br /> <br />
-                    <Radio  className="p-3 mb-2  w-100" style={{background:'#F4F4F4'}} value='non'>Non</Radio>
+                    <Radio
+                      className="p-3 mb-2  w-100"
+                      style={{ background: "#F4F4F4" }}
+                      value="oui"
+                    >
+                      OUI,je souhaite recevoir un SMS
+                    </Radio>{" "}
+                    <br /> <br />
+                    <Radio
+                      className="p-3 mb-2  w-100"
+                      style={{ background: "#F4F4F4" }}
+                      value="non"
+                    >
+                      Non
+                    </Radio>
                   </Radio.Group>
                 </div>
               </div>
+              <Button className="my-4" type="primary">Enregistrer</Button>
             </TabPane>
           </Tabs>
         </>
