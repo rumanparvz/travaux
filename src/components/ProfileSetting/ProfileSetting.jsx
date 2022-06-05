@@ -181,7 +181,8 @@ const ProfileSetting = () => {
                   </Radio.Group>
                 </div>
               </div>
-              <Button className="my-4" type="primary">Enregistrer</Button>
+              <Button className="my-4" type="primary">Enregistrer</Button> 
+     
             </TabPane>
           </Tabs>
         </>

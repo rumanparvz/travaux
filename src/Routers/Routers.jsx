@@ -35,6 +35,9 @@ import AdminDashboardPage from "../pages/AdminDahsboardPage/AdminDashboardPage";
 import FromComment from "../pages/FromComment/FromComment.jsx";
 import HomePage from "../pages/Home/HomePage";
 import LoginPages from "../pages/LoginPages/LoginPages";
+import MyProjectDetails from "../pages/MyProjectPage/MyProjectDetails";
+import MyProjectEdit from "../pages/MyProjectPage/MyProjectEdit";
+import MyProjectPage from "../pages/MyProjectPage/MyProjectPage";
 import ProfileSettingPage from "../pages/ProfileSettingPage/ProfileSettingPage";
 import CheckBoxOptionPage from "../pages/PublishServices/CheckBoxOptionPage";
 import CombinedTitleCheckBokPage from "../pages/PublishServices/CombinedTitleCheckBokPage";
@@ -177,6 +180,9 @@ const Routers = () => {
           element={<ServiceRequest />}
         ></Route>
         <Route path="/qui-sommes-nous" element={<Sommes />} />
+        <Route path="/my-project" element={<MyProjectPage />} />
+        <Route path="/my-project/:id" element={<MyProjectDetails />} />
+        <Route path="/my-project/:id/edit" element={<MyProjectEdit />} />
       </Routes>
     </div>
   );

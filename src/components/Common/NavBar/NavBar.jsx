@@ -189,6 +189,16 @@ const NavBar = () => {
                     >
                       Contacts
                     </Link>
+                   
+                    <Link
+                      to="/my-project"
+                      style={{
+                        color: isHomeNav ? "black" : "white",
+                        fontWeight: isHomeNav && 600,margin:"0px 10px"}}
+                    >
+                      Mes projets
+                    </Link>
+  
                   </>
                 ) : role === "client" ? (
                   <>
@@ -299,7 +309,7 @@ const NavBar = () => {
                     Mon profil
                   </Link>
                   <Link className="ms-3 d-block" to="/myAccount">
-                    Mon profil{" "}
+                    My account
                   </Link>
                   <Link className="ms-3 d-block" to="/consumer/my-account">
                     Paramètres
