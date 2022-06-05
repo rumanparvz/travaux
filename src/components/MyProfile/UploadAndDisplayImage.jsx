@@ -1,33 +1,43 @@
 import React, { useState } from "react";
-
+import {ImCancelCircle} from "react-icons/im"
 const UploadAndDisplayImage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <div>
-   
-      {selectedImage && (
-        <div>
-          <img
-            alt="not fount"
-            width={"250px"}
-            src={URL.createObjectURL(selectedImage)}
-          />
-          {/* <br />
+    <div className="uploadImage-inline d-flex">
+      <div className="uploadImage-inline">
+        {selectedImage && (
+          <div className="uploadImage-inline imageCancel">
+            <img
+              alt="not fount"
+              width={"90px"}
+              height={"90px"}
+              className="me-2 rounded-1"
+              src={URL.createObjectURL(selectedImage)}
+            />
+            <ImCancelCircle
+              className="imageCancel_icon"
+              onClick={() => setSelectedImage(null)}
+            ></ImCancelCircle>
+            {/* 
           <button onClick={() => setSelectedImage(null)}>Remove</button> */}
-        </div>
-      )}
-      <br />
-
-      <br />
-      <input
-        type="file"
-        name="myImage"
-        onChange={(event) => {
-          // console.log(event.target.files[0]);
-          setSelectedImage(event.target.files[0]);
-        }}
-      ></input>
+          </div>
+        )}
+      </div>
+      <form className="uploadImage-inline" action="">
+        <label for="image" className="uploadImageMyProfile">
+          <input
+            type="file"
+            name=""
+            id="image"
+            onChange={(event) => {
+              // console.log(event.target.files[0]);
+              setSelectedImage(event.target.files[0]);
+            }}
+            style={{ height: "1px", width: "1px" }}
+          />
+        </label>
+      </form>
     </div>
   );
 };

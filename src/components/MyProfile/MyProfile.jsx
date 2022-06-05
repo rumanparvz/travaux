@@ -25,7 +25,7 @@ const MyProfile = () => {
         <div className="text-center">
           <div>
             <div className="mb-5 d-flex justify-content-center align-items-center">
-              <UploadAndDisplayImage />
+              {/* <UploadAndDisplayImage /> */}
             </div>
             <div>
               <span>
@@ -86,13 +86,17 @@ const MyProfile = () => {
           </p>
           <h6 className="text-primary">Lire la suite</h6>
         </div>
-        <div>
-          <h2 className="mt-5">Portfolio</h2>
-          <UploadAndDisplayImage />
-          <span>
-            Sélectionnez votre fichier ou faites-le glisser (png, jpg)
+        <span>
+          <h3 className="mt-5 mb-3">Portfolio</h3>
+          <span className="d-flex align-items-center">
+            <UploadAndDisplayImage />
+            <span className="ms-3">
+              Sélectionnez votre fichier ou faites-le glisser (png, jpg)
+            </span>
           </span>
-          <h2 className="mb-3">Garantie</h2>
+        </span>
+        <div>
+          <h4 className="mb-3 mt-5">Garantie</h4>
           <p>
             La garantie est très importante pour les utilisateurs de
             Travaux.com. Nous informons toujours nos utilisateurs que la
