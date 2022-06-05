@@ -19,6 +19,7 @@ const CraftsmenJobs = () => {
               {data?.map(
                 ({
                   title,
+                  subTitle,
                   _id,
                   icon,
                
@@ -39,16 +40,14 @@ const CraftsmenJobs = () => {
                       <h5 className="py-4">{title}</h5>
                       <div></div>
                       <p className="linkTab">
-                        <Link to={`/`} className="text-primary">
-                          <AiOutlineArrowRight /> linkTitle
-                        </Link>
+                      <p className="linkTab" ><Link to={`/${_id}`} className="text-primary"><AiOutlineArrowRight /> Toutes les informations sur <span className="text-lowercase">{title} </span></Link></p>
                       </p>
                       <p className="linkTab">
                         <Link
                           to=""
                           className="text-primary"
                         >
-                          <AiOutlineArrowRight /> subDescription.linkTitle
+                          <AiOutlineArrowRight /> {subTitle}
                         </Link>
                       </p>
                     </div>

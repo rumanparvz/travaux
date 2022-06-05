@@ -25,6 +25,7 @@ const PayPalPaymentGateway = () => {
         navigate("/");
         Cookies.set("refreshToken", response?.data?.data?.refreshToken);
         Cookies.set("accessToken", response?.data?.data?.accessToken);
+        Cookies.set("userId", response?.data?.data?.user?.userId);
       }
     } catch (error) {
       console.log(error);

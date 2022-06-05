@@ -22,6 +22,7 @@ const MyAccount = () => {
   const [tab, setTab] = useState("CompanyDetails");
   const [usersData, setUsersData] = useState({})
   const [companyInfo, setCompanyInfo] = useState({});
+  const [notifications, setNotifications] = useState({});
 
   const userId = Cookies.get('userId');
 
@@ -34,9 +35,14 @@ const MyAccount = () => {
     const companyInfo = await axios.get(`https://ancient-gorge-88070.herokuapp.com/auth/getSiret/${siretNo}`);
     setCompanyInfo(companyInfo.data.data);
   }
+  const getNotifications = async () => {
+    const notifications = await axios.get(`https://ancient-gorge-88070.herokuapp.com/auth/getNotificationsById/${userId}`);
+    setNotifications(notifications.data.data[0]);
+  }
   useEffect(() => {
     if (userId) {
       getUserInfo()
+      getNotifications()
     }
   }, [])
 
@@ -109,7 +115,7 @@ const MyAccount = () => {
             {tab === "CompanyDetails" && <CompanyDetails companyInfo={companyInfo} setTab={setTab} setCompanyInfo={setCompanyInfo} />}
             {tab === "Activities" && <Activities />}
             {tab === "interventionZone" && <InterventionZone />}
-            {tab === "Notifications" && <Notifications />}
+            {tab === "Notifications" && <Notifications notifications={notifications} userId={userId} />}
             {tab === "myBalance" && <MyBalance />}
             {tab === "promoCode" && <PromoCode />}
           </div>
