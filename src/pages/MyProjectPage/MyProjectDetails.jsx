@@ -1,16 +1,16 @@
 import { Breadcrumb, Button, Divider, Space } from "antd";
-import React from "react";
-import { Col } from "react-bootstrap";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../../components/Common/Footer/Footer";
 import NavBar from "../../components/Common/NavBar/NavBar";
 import { BiMessageRounded, BiTimeFive } from "react-icons/bi";
 import { GoLocation } from "react-icons/go";
+import axios from "axios";
 
 const data = [
   { title: "ID du projet", description: "1458974" },
   {
-    title: "Type de projet",   description: "Installation ou rénovation couverture/toiture"
+    title: "Type de projet", description: "Installation ou rénovation couverture/toiture"
   },
   { title: "Type de toiture", description: 55 },
   { title: "Matériau de la toiture ", description: "Ardoise" },
@@ -19,6 +19,12 @@ const data = [
 
 const MyProjectDetails = () => {
   const { id } = useParams();
+  useEffect(() => {
+    axios.get(`https://ancient-gorge-88070.herokuapp.com/api/project/${id}`)
+      .then(res => {
+        console.log(res.data);
+      })
+  }, [id]);
   return (
     <div>
       <NavBar />
